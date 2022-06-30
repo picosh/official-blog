@@ -1,0 +1,16 @@
+name: publish
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: publish to prose.sh
+        uses: neurosnap/lists-publish-action@main
+        with:
+          user: hey
+          key: ${{ secrets.PRIVATE_KEY }}
+          host: prose.sh
+          src: '*.md'
