@@ -1,5 +1,5 @@
 upload:
-	scp *.md hey@prose.sh:
+	scp -i ~/.ssh/id_ed25519 *.md hey@prose.sh:
 .PHONY: upload
 
 upload-local:
@@ -11,5 +11,5 @@ ssh-local:
 .PHONY: ssh-local
 
 ssh:
-	ssh hey@prose.sh
+	ssh -i ~/.ssh/id_ed25519 hey@prose.sh
 .PHONY: ssh
