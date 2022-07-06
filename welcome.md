@@ -49,5 +49,5 @@ excited about engineering and it motivates us to hone our craft.
 
 Meet the team!
 
-- [Eric Bower](https://erock.io)
 - [Antonio Mika](https://antoniomika.me)
+- [Eric Bower](https://erock.io)
