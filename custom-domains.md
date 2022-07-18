@@ -27,8 +27,7 @@ page](https://prose.sh/help#custom-domain).
 
 We decided to go with a solution that didn't require us to store any
 information about the custom domain you want to use.  Instead, all the user
-needs to do is add a `TXT` record with `prose=<username>` and then point the
-domain with a `CNAME` to `prose.sh`.
+needs to do is add a `TXT` record and then point the domain with a `CNAME` to `prose.sh`.
 
 Under the hood we use [Caddy's on-demand
 tls](https://caddyserver.com/docs/automatic-https#on-demand-tls).  On our end,
