@@ -8,7 +8,7 @@ It's been a pretty exciting week for us at the pico.sh headquarters.
 
 We made it to the front-page of [hackernews](https://news.ycombinator.com/item?id=32128013)!
 
-![front-page of hacker news](https://pbs.twimg.com/media/FX9masGXoAAbbuA?format=jpg&name=large
+![front-page of hacker news](https://pbs.twimg.com/media/FX9masGXoAAbbuA?format=jpg&name=small
 "front-page of hackernews")
 
 We were so excited about the launched that we announced in the thread support
