@@ -17,7 +17,7 @@ tracking are anonymous view counts for posts.  This will provide us with some
 metric data to better rank the discovery feed.  We are only interested in tracking post 
 performance via anonymous means.
 
-[https://git.sr.ht/~erock/prose.sh/commit/168d967f9811aba2302797e278b5617b9e45ad36](See the changes here.)
+[See the changes here.](https://git.sr.ht/~erock/prose.sh/commit/168d967f9811aba2302797e278b5617b9e45ad36)
 
 We understand this might not be what everyone wants and we had quite a few
 discussions about it in our [irc #pico.sh channel](irc://irc.libera.chat/#pico.sh).  
