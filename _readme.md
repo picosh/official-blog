@@ -1,6 +1,6 @@
 ---
-title: official blog
-description: official blog of team pico.sh
+title: team pico's blog
+description: official blog of pico.sh
 nav:
   - website: https://pico.sh
   - "irc #pico.sh": irc://irc.libera.chat/#pico.sh
