@@ -28,3 +28,12 @@ added to a project over time. Without restraint, projects quickly expand until
 they require a team to maintain them. We want to resist the urge to continuously grow
 our projects. Relatively small, self-contained projects are what get us excited
 about engineering.
+
+## goals
+
+- Promote human communication and collaboration
+- Build a space for the smaller web
+- Use modern tools with care
+- Projects should to do one thing, well
+- Foster a community of hackers who enjoy minimalism
+- A single person can fully understand a project
