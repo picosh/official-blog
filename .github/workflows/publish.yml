@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: publish to prose.sh
-        uses: neurosnap/lists-publish-action@main
+        uses: picosh/scp-publish-action@main
         with:
           user: hey
           key: ${{ secrets.PRIVATE_KEY }}
