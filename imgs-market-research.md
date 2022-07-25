@@ -4,7 +4,7 @@ title: market research for imgs.sh
 ---
 
 I've been a little more [vocal](https://fosstodon.org/@erock/108702632072746753) recently about our
-intention to build a premium image hosting service for hackers.  We are still
+intention to build a premium image hosting service.  We are still
 in the planning stage of that endeavor but I wanted to spend some time to
 perform market research on image hosting services currently available to
 people.
@@ -14,7 +14,11 @@ and will be using this list as the foundation for our investigation.
 
 # Feature comparison
 
-Comparing cheapest option for all paid services.
+Comparing cheapest option for all paid services.  There's an entire class of
+general purpose object storage services (S3, R2, etc.) that I do want to
+investigate but their pricing model (pay for use) are different from most of
+these so I'm going to ignore them for now.  However I do want to acknowldege
+that they can be used for image hosting.
 
 ## photos.google.com
 
