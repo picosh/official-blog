@@ -20,7 +20,7 @@ investigate but their pricing model (pay for use) are different from most of
 these so I'm going to ignore them for now.  However I do want to acknowldege
 that they can be used for image hosting.
 
-| service | price | file size | total storage size | num file types | ads | compressed | resized | bundled | permenant | api | hotlinks |
+| service | price | file size | total storage size | num file types | ads | compressed | resized | bundled | permanent | api | hotlinks |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | photos.google.com | $1.67/mo (1 yr plan) | 200MB | 100GB | 9 | no | no | no | yes | yes | yes | yes |
 | dropbox.com | $10/mo (1 yr plan) | 100GB | 2TB | All | no | no | no | yes | yes | yes | yes |
@@ -33,7 +33,7 @@ that they can be used for image hosting.
 | imageshack.com | $3.16/mo (1 yr plan) | 25MB | Unlimited | 5 | no |  no | no | no | yes | no | yes |
 | catbox.moe | Free | 200MB | Unlimited | All - 5 | no | no | no | no | yes | yes | no |
 
-* imgur: 20MB img, 200MB gif
+* *imgur: 20MB img, 200MB gif
 
 # Summary
 
