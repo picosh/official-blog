@@ -21,7 +21,7 @@ these so I'm going to ignore them for now.  However I do want to acknowldege
 that they can be used for image hosting.
 
 | service | price | file size | total storage size | num file types | ads | compressed | resized | bundled | permenant | api | hotlinks |
-| :--- | :--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | photos.google.com | $1.67/mo (1 yr plan) | 200MB | 100GB | 9 | no | no | no | yes (one.google.com) | yes | yes | yes |
 | dropbox.com | $10/mo (1 yr plan) | 100GB | 2TB | All of them | no | no | no | yes (general file storage) | yes | yes | yes |
 | imgur.com | $5/mo | 20MB img, 200MB animated | Unlimited | 14 | no | yes (over 5MB) | no | yes | yes | yes | no |
