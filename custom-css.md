@@ -1,6 +1,6 @@
 ---
 title: Custom CSS
-description: blog can customize their theme
+description: blogs can customize their theme
 date: 2022-07-25
 ---
 
