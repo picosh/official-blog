@@ -22,16 +22,16 @@ that they can be used for image hosting.
 
 | service | price | file size | total storage size | num file types | ads | compressed | resized | bundled | permenant | api | hotlinks |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| photos.google.com | $1.67/mo (1 yr plan) | 200MB | 100GB | 9 | no | no | no | yes (one.google.com) | yes | yes | yes |
-| dropbox.com | $10/mo (1 yr plan) | 100GB | 2TB | All of them | no | no | no | yes (general file storage) | yes | yes | yes |
-| imgur.com | $5/mo | 20MB img, 200MB animated | Unlimited | 14 | no | yes (over 5MB) | no | yes | yes | yes | no |
-| snap.as | $6/mo | 50MB | Unlimited | ?? | no | no | yes (w 1280px) | yes | yes | yes | yes |
+| photos.google.com | $1.67/mo (1 yr plan) | 200MB | 100GB | 9 | no | no | no | yes | yes | yes | yes |
+| dropbox.com | $10/mo (1 yr plan) | 100GB | 2TB | All | no | no | no | yes | yes | yes | yes |
+| imgur.com | $5/mo | 20MB img, 200MB animated | Unlimited | 14 | no | yes | no | yes | yes | yes | no |
+| snap.as | $6/mo | 50MB | Unlimited | ?? | no | no | yes | yes | yes | yes | yes |
 | lensdump.com | $2/mo | 100MB | Unlimited | 5 | no | no | no | no | yes | yes | no |
 | postimages.org | $3.49/mo (3 yr plan) | 48MB | Unlimited | ?? | no | no | no | no | yes | no | yes |
-| flickr.com | $5.99/mo (1 yr plan) | 200MB | Unlimited | 4 | no | no | no | no | yes | yes | yes (must provide backlink) |
+| flickr.com | $5.99/mo (1 yr plan) | 200MB | Unlimited | 4 | no | no | no | no | yes | yes | yes |
 | photobucket.com | $5.41/mo (1 yr plan) | ?? | 25GB | 4 | no | no | no | no | yes | no | yes |
 | imageshack.com | $3.16/mo (1 yr plan) | 25MB | Unlimited | 5 | no |  no | no | no | yes | no | yes |
-| catbox.moe | Free | 200MB | Unlimited | All minus 5 | no | no | no | no | yes | yes | yes (w prior approval) |
+| catbox.moe | Free | 200MB | Unlimited | All - 5 | no | no | no | no | yes | yes | no |
 
 # Pricing
 
