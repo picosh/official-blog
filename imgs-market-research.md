@@ -24,7 +24,7 @@ that they can be used for image hosting.
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | photos.google.com | $1.67/mo (1 yr plan) | 200MB | 100GB | 9 | no | no | no | yes | yes | yes | yes |
 | dropbox.com | $10/mo (1 yr plan) | 100GB | 2TB | All | no | no | no | yes | yes | yes | yes |
-| imgur.com | $5/mo | 20MB img, 200MB animated | Unlimited | 14 | no | yes | no | yes | yes | yes | no |
+| imgur.com | $5/mo | 20MB/200MB* | Unlimited | 14 | no | yes | no | yes | yes | yes | no |
 | snap.as | $6/mo | 50MB | Unlimited | ?? | no | no | yes | yes | yes | yes | yes |
 | lensdump.com | $2/mo | 100MB | Unlimited | 5 | no | no | no | no | yes | yes | no |
 | postimages.org | $3.49/mo (3 yr plan) | 48MB | Unlimited | ?? | no | no | no | no | yes | no | yes |
@@ -32,6 +32,8 @@ that they can be used for image hosting.
 | photobucket.com | $5.41/mo (1 yr plan) | ?? | 25GB | 4 | no | no | no | no | yes | no | yes |
 | imageshack.com | $3.16/mo (1 yr plan) | 25MB | Unlimited | 5 | no |  no | no | no | yes | no | yes |
 | catbox.moe | Free | 200MB | Unlimited | All - 5 | no | no | no | no | yes | yes | no |
+
+* imgur: 20MB img, 200MB gif
 
 # Pricing
 
