@@ -10,6 +10,8 @@ little more with their own theme.
 It was a simple enough feature to build so I spent an hour or so adding it to
 prose.sh.
 
+[git commit](https://git.sr.ht/~erock/prose.sh/commit/24a38b45d0632c6c26e719aa4c77b6acc)
+
 I'm sure we'll get requests to support it in our other services, but for now
 we're going to pilot test it here.
 
