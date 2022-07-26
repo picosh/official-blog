@@ -20,145 +20,18 @@ investigate but their pricing model (pay for use) are different from most of
 these so I'm going to ignore them for now.  However I do want to acknowldege
 that they can be used for image hosting.
 
-## photos.google.com
-
-- price               $1.67/mo (1 yr plan)
-- file size           200MB
-- total storage size  100GB
-- num file types      9
-- ads                 no
-- compressed          no
-- resize              no
-- bundled             yes (one.google.com)
-- permenant           yes
-- api                 yes
-- hotlinking          yes 
-
-## dropbox.com
-
-- price               $10/mo (1 yr plan)
-- file size           100GB
-- total storage size  2TB
-- num file types      All of them
-- ads                 no
-- compressed          no
-- resize              no
-- bundled             yes (general file storage)
-- permenant           yes
-- api                 yes
-- hotlinking          yes
-
-## imgur.com
-
-- price               $5/mo
-- file size           20MB images, 200MB animated 
-- total storage size  Unlimited
-- num file types      14 
-- ads                 no
-- compressed          yes (over 5MB) 
-- resize              no
-- bundled             yes (coil provides ad free for other services)
-- permenant           yes
-- api                 yes
-- hotlinking          no
-
-# snap.as
-
-- price               $6/mo
-- file size           50MB
-- total storage size  Unlimited
-- num file types      ??
-- ads                 no
-- compressed          no
-- resize              yes (width 1280px)
-- bundled             yes
-- permenant           yes
-- api                 yes
-- hotlinking          yes
-
-# lensdump.com
-
-- price               $2/mo
-- file size           100MB
-- total storage size  Unlimited
-- num file types      5
-- ads                 no
-- compressed          no
-- resize              no 
-- bundled             no
-- permenant           yes
-- api                 yes
-- hotlinking          no
-
-# postimages.org 
-
-- price               $3.49/mo (3 yr plan)
-- file size           48MB
-- total storage size  Unlimited
-- num file types      ??
-- ads                 no
-- compressed          no
-- resize              no 
-- bundled             no
-- permenant           yes
-- api                 no
-- hotlinking          yes
-
-# flickr.com
-
-- price               $3.49/mo (3 yr plan)
-- file size           48MB
-- total storage size  Unlimited
-- num file types      4
-- ads                 no
-- compressed          no
-- resize              no 
-- bundled             no
-- permenant           yes
-- api                 yes
-- hotlinking          yes (must provide backlink to flickr under image)
-
-# photobucket.com
-
-- price               $5.41/mo (1 yr plan)
-- file size           ??
-- total storage size  25GB
-- num file types      4
-- ads                 no
-- compressed          no
-- resize              no 
-- bundled             no
-- permenant           yes
-- api                 no
-- hotlinking          yes
-
-# imageshack.com
-
-- price               $3.16/mo (1 yr plan)
-- file size           25MB
-- total storage size  Unlimited
-- num file types      5
-- ads                 no
-- compressed          no
-- resize              no 
-- bundled             no
-- permenant           yes
-- api                 no
-- hotlinking          yes
-
-# catbox.moe 
-
-- price               Free 
-- file size           200MB
-- total storage size  Unlimited
-- num file types      All of them minus 5
-- ads                 no
-- compressed          no
-- resize              no 
-- bundled             no
-- permenant           yes
-- api                 yes
-- hotlinking          yes (with prior approval)
+| service | price | file size | total storage size | num file types | ads | compressed | resized | bundled | permenant | api | hotlinks |
+| :--- | :--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| photos.google.com | $1.67/mo (1 yr plan) | 200MB | 100GB | 9 | no | no | no | yes (one.google.com) | yes | yes | yes |
+| dropbox.com | $10/mo (1 yr plan) | 100GB | 2TB | All of them | no | no | no | yes (general file storage) | yes | yes | yes |
+| imgur.com | $5/mo | 20MB img, 200MB animated | Unlimited | 14 | no | yes (over 5MB) | no | yes | yes | yes | no |
+| snap.as | $6/mo | 50MB | Unlimited | ?? | no | no | yes (w 1280px) | yes | yes | yes | yes |
+| lensdump.com | $2/mo | 100MB | Unlimited | 5 | no | no | no | no | yes | yes | no |
+| postimages.org | $3.49/mo (3 yr plan) | 48MB | Unlimited | ?? | no | no | no | no | yes | no | yes |
+| flickr.com | $5.99/mo (1 yr plan) | 200MB | Unlimited | 4 | no | no | no | no | yes | yes | yes (must provide backlink) |
+| photobucket.com | $5.41/mo (1 yr plan) | ?? | 25GB | 4 | no | no | no | no | yes | no | yes |
+| imageshack.com | $3.16/mo (1 yr plan) | 25MB | Unlimited | 5 | no |  no | no | no | yes | no | yes |
+| catbox.moe | Free | 200MB | Unlimited | All minus 5 | no | no | no | no | yes | yes | yes (w prior approval) |
 
 # Pricing
 
