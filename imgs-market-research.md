@@ -35,6 +35,23 @@ that they can be used for image hosting.
 
 * imgur: 20MB img, 200MB gif
 
+# Summary
+
+Out of all of these services and considering their overall aethetic, price,
+features, and ease of use, there's a couple that I like.
+
+## snap.as
+
+I really like the aesthetic.  This is very close to what we are probably going
+to implement.  A very minimalist web site that shows the essentials that also
+nicely integrates with their other services.
+
+## catbox.moe
+
+As far as I can tell this service is being run by a single person, on their own
+hardware, in a colo.  Their monthly bill is reaching $1k/mo and a good portion
+of it they are funding themselves.  I'm definitely impressed by this service.
+
 # Pricing
 
 - photos.google.com
