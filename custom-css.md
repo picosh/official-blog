@@ -1,0 +1,26 @@
+---
+title: Custom CSS
+description: blog can customize their theme
+date: 2022-07-25
+---
+
+We've heard from a few people that they would like to customize their blog a
+little more with their own theme.
+
+It was a simple enough feature to build so I spent an hour or so adding it to
+prose.sh.
+
+I'm sure we'll get requests to support it in our other services, but for now
+we're going to pilot test it here.
+
+All you have to do is create a file `_styles.css` and `scp` it to prose.
+
+```
+scp _styles.css <username>@prose.sh:/
+```
+
+See [this help section](https://prose.sh/help#blog-style) for the full details.
+
+We're excited to see what kind of themes we see in the wild so please feel free
+to share it with us at [#pico.sh on libera](irc://irc.libera.chat/#pico.sh) or [email
+us](mailto:hello@prose.sh).
