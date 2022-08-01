@@ -1,5 +1,5 @@
 ---
-title: Status update, July first
+title: Status update, Aug first
 description: A new month with active development
 date: 2022-08-01
 ---
