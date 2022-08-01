@@ -3,10 +3,10 @@ title: team pico's blog
 description: official blog of prose.sh and pico.sh
 nav:
   - home: https://pico.sh
-  - "irc #pico.sh": irc://irc.libera.chat/#pico.sh
-  - "mailing list": https://lists.sr.ht/~erock/pico.sh
-  - "ticket tracker": https://todo.sr.ht/~erock/pico.sh
-  - "email": mailto:hello@pico.sh
+  - 'irc #pico.sh': irc://irc.libera.chat/#pico.sh
+  - 'mailing list': https://lists.sr.ht/~erock/pico.sh
+  - 'ticket tracker': https://todo.sr.ht/~erock/pico.sh
+  - 'email': mailto:hello@pico.sh
 ---
 
 ## philosophy
@@ -25,9 +25,9 @@ ways to encourage human communication and collaboration.
 
 Another thing we have noticed is the ever-expanding number of features that get
 added to a project over time. Without restraint, projects quickly expand until
-they require a team to maintain them. We want to resist the urge to continuously grow
-our projects. Relatively small, self-contained projects are what get us excited
-about engineering.
+they require a team to maintain them. We want to resist the urge to continuously
+grow our projects. Relatively small, self-contained projects are what get us
+excited about engineering.
 
 ## goals
 

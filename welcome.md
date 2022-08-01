@@ -30,9 +30,9 @@ ways to encourage human communication and collaboration.
 
 Another thing we have noticed is the ever-expanding number of features that get
 added to a project over time. Without restraint, projects quickly expand until
-they require a team to maintain them. We want to resist the urge to continuously grow
-our projects. Relatively small, self-contained projects are what get us excited
-about engineering.
+they require a team to maintain them. We want to resist the urge to continuously
+grow our projects. Relatively small, self-contained projects are what get us
+excited about engineering.
 
 ## goals
 

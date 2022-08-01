@@ -3,37 +3,36 @@ date: 2022-07-24
 title: market research for imgs.sh
 ---
 
-I've been a little more [vocal](https://fosstodon.org/@erock/108702632072746753) recently about our
-intention to build a premium image hosting service.  We are still
-in the planning stage of that endeavor but I wanted to spend some time to
-perform market research on image hosting services currently available to
-people.
+I've been a little more [vocal](https://fosstodon.org/@erock/108702632072746753)
+recently about our intention to build a premium image hosting service. We are
+still in the planning stage of that endeavor but I wanted to spend some time to
+perform market research on image hosting services currently available to people.
 
-[I've gathered a list of image hosting services](https://erock.lists.sh/image-hosting-sites) 
+[I've gathered a list of image hosting services](https://erock.lists.sh/image-hosting-sites)
 and will be using this list as the foundation for our investigation.
 
 # Feature comparison
 
-Comparing cheapest option for all paid services.  There's an entire class of
+Comparing cheapest option for all paid services. There's an entire class of
 general purpose object storage services (S3, R2, etc.) that I do want to
 investigate but their pricing model (pay for use) are different from most of
-these so I'm going to ignore them for now.  However I do want to acknowldege
-that they can be used for image hosting.
+these so I'm going to ignore them for now. However I do want to acknowldege that
+they can be used for image hosting.
 
-| service | price | file size | total storage size | num file types | ads | compressed | resized | bundled | permanent | api | hotlinks |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| photos.google.com | $1.67/mo (1 yr plan) | 200MB | 100GB | 9 | no | no | no | yes | yes | yes | yes |
-| dropbox.com | $10/mo (1 yr plan) | 100GB | 2TB | All | no | no | no | yes | yes | yes | yes |
-| imgur.com | $5/mo | 20MB/200MB* | Unlimited | 14 | no | yes | no | yes | yes | yes | no |
-| snap.as | $6/mo | 50MB | Unlimited | ?? | no | no | yes | yes | yes | yes | yes |
-| lensdump.com | $2/mo | 100MB | Unlimited | 5 | no | no | no | no | yes | yes | no |
-| postimages.org | $3.49/mo (3 yr plan) | 48MB | Unlimited | ?? | no | no | no | no | yes | no | yes |
-| flickr.com | $5.99/mo (1 yr plan) | 200MB | Unlimited | 4 | no | no | no | no | yes | yes | yes |
-| photobucket.com | $5.41/mo (1 yr plan) | ?? | 25GB | 4 | no | no | no | no | yes | no | yes |
-| imageshack.com | $3.16/mo (1 yr plan) | 25MB | Unlimited | 5 | no |  no | no | no | yes | no | yes |
-| catbox.moe | Free | 200MB | Unlimited | All - 5 | no | no | no | no | yes | yes | no |
+| service           | price                |  file size   | total storage size | num file types | ads | compressed | resized | bundled | permanent | api | hotlinks |
+| :---------------- | :------------------- | :----------: | :----------------: | :------------: | :-: | :--------: | :-----: | :-----: | :-------: | :-: | :------: |
+| photos.google.com | $1.67/mo (1 yr plan) |    200MB     |       100GB        |       9        | no  |     no     |   no    |   yes   |    yes    | yes |   yes    |
+| dropbox.com       | $10/mo (1 yr plan)   |    100GB     |        2TB         |      All       | no  |     no     |   no    |   yes   |    yes    | yes |   yes    |
+| imgur.com         | $5/mo                | 20MB/200MB\* |     Unlimited      |       14       | no  |    yes     |   no    |   yes   |    yes    | yes |    no    |
+| snap.as           | $6/mo                |     50MB     |     Unlimited      |       ??       | no  |     no     |   yes   |   yes   |    yes    | yes |   yes    |
+| lensdump.com      | $2/mo                |    100MB     |     Unlimited      |       5        | no  |     no     |   no    |   no    |    yes    | yes |    no    |
+| postimages.org    | $3.49/mo (3 yr plan) |     48MB     |     Unlimited      |       ??       | no  |     no     |   no    |   no    |    yes    | no  |   yes    |
+| flickr.com        | $5.99/mo (1 yr plan) |    200MB     |     Unlimited      |       4        | no  |     no     |   no    |   no    |    yes    | yes |   yes    |
+| photobucket.com   | $5.41/mo (1 yr plan) |      ??      |        25GB        |       4        | no  |     no     |   no    |   no    |    yes    | no  |   yes    |
+| imageshack.com    | $3.16/mo (1 yr plan) |     25MB     |     Unlimited      |       5        | no  |     no     |   no    |   no    |    yes    | no  |   yes    |
+| catbox.moe        | Free                 |    200MB     |     Unlimited      |    All - 5     | no  |     no     |   no    |   no    |    yes    | yes |    no    |
 
-* *imgur: 20MB img, 200MB gif
+- \*imgur: 20MB img, 200MB gif
 
 # Summary
 
@@ -42,15 +41,15 @@ features, and ease of use, there's a couple that I like.
 
 ## snap.as
 
-I really like the aesthetic.  This is very close to what we are probably going
-to implement.  A very minimalist web site that shows the essentials that also
-nicely integrates with their other services.
+I really like the aesthetic. This is very close to what we are probably going to
+implement. A very minimalist web site that shows the essentials that also nicely
+integrates with their other services.
 
 ## catbox.moe
 
 As far as I can tell this service is being run by a single person, on their own
-hardware, in a colo.  Their monthly bill is reaching $1k/mo and a good portion
-of it they are funding themselves.  I'm definitely impressed by this service.
+hardware, in a colo. Their monthly bill is reaching $1k/mo and a good portion of
+it they are funding themselves. I'm definitely impressed by this service.
 
 # Pricing
 
@@ -59,7 +58,7 @@ of it they are funding themselves.  I'm definitely impressed by this service.
 - imgur.com
   - $5/mo (via Coil)
 - snap.as
-  - $6/mo billed annually or 
+  - $6/mo billed annually or
   - $9/mo month-to-month
 - 0x0.st
   - Free
@@ -78,17 +77,17 @@ of it they are funding themselves.  I'm definitely impressed by this service.
 - flickr.com
   - $8.25/mo (plus tax)
   - $5.99/mo, total $71.99 (plus tax, 1 year plan)
-  - $5.54/mo, total $132.99 (plus tax, 2 year plan) 
+  - $5.54/mo, total $132.99 (plus tax, 2 year plan)
 - photobucket.com
   - $6/mo (or $65/yr)
   - $8/mo (or $87/yr)
-  - $13/mo (or $141/yr) 
+  - $13/mo (or $141/yr)
 - imageshack.com
-  - $3/mo (or $37.99/yr) 
+  - $3/mo (or $37.99/yr)
   - $29.99/mo (or $285.99/yr)
   - $99.99/mo (or $953.99/yr)
 - kek.gg
-  - Free 
+  - Free
 - imgchest.com
   - Free
 - catbox.moe
@@ -122,9 +121,9 @@ of it they are funding themselves.  I'm definitely impressed by this service.
   - Permenant
 - 0x0.st
   - Max file size: 512.0 MB
-  - Blocked file types: application/x-dosexec, application/x-executable, application/x-hdf5, application/java-archive, Android APKs and system images
-  - Files are valid between 30 days and a year depending on the size of the
-    file
+  - Blocked file types: application/x-dosexec, application/x-executable,
+    application/x-hdf5, application/java-archive, Android APKs and system images
+  - Files are valid between 30 days and a year depending on the size of the file
 - lensdump.com
   - $2/mo
     - You get good karma in return
@@ -149,7 +148,7 @@ of it they are funding themselves.  I'm definitely impressed by this service.
     - Max 48Mb file size
 - cubeupload.com
   - At the moment we accept .JPG, .PNG, and .GIF
-  - 5MB in size 
+  - 5MB in size
   - Never compress these formats or mess with your image
   - .BMP and .PDF are also accepted, but they convert them to .PNG
 - flickr.com
@@ -161,20 +160,23 @@ of it they are funding themselves.  I'm definitely impressed by this service.
   - Stats on your photo views
   - Ad-free browsing and sharing on Flickr
   - Desktop & Mobile Auto-Uploadr automatically backing-up images
-  - Ability to use specific commercial activity to promote your business and products
+  - Ability to use specific commercial activity to promote your business and
+    products
   - Premier Product Support
   - Advanced Stats on Mobile
   - 6K Photo Display Option
-  - 10-Minute Videos 
-  - Share more of your photos in Groups. Post your photo in up to 60 groups when limits are posted. Free accounts have a 30 group limit.
+  - 10-Minute Videos
+  - Share more of your photos in Groups. Post your photo in up to 60 groups when
+    limits are posted. Free accounts have a 30 group limit.
 - photobucket.com
   - No compression
   - Private encryption
   - Visibility controls
   - EXIF data removal
-  - The embed link means you keep control of your photos, no matter where they end up.
+  - The embed link means you keep control of your photos, no matter where they
+    end up.
   - $6/mo (or $65/yr)
-    - 25 GB 
+    - 25 GB
   - $8/mo
     - 250 GB
     - Unlimited hosting
@@ -196,16 +198,18 @@ of it they are funding themselves.  I'm definitely impressed by this service.
     - Image Stats
     - Watermarking
     - Automatic Backups
-    - Mobile App 
+    - Mobile App
   - Pro
     - Everything in Basic plan
-    - Between 30Gb to 1Tb of bandwidth per month, equivalent to up to ~1 million views of a 1Mb file.
+    - Between 30Gb to 1Tb of bandwidth per month, equivalent to up to ~1 million
+      views of a 1Mb file.
     - Dedicated Support
     - Dynamic Image Resizer
     - API Access
   - Premium
     - Everything in Pro plan
-    - Between 1Tb to 4Tb of bandwidth per month, equivalent to up to ~4.2 million views of a 1Mb file. 
+    - Between 1Tb to 4Tb of bandwidth per month, equivalent to up to ~4.2
+      million views of a 1Mb file.
 - kek.gg
   - EXIF Data is removed
   - does not use cookies
@@ -213,7 +217,7 @@ of it they are funding themselves.  I'm definitely impressed by this service.
   - does not use Google Analytics or any third party tracking service
   - Albume hosting
 - imgchest.com
-  - Upload 20 pictures at one time 
+  - Upload 20 pictures at one time
   - API
     - 60 requests per hour
     - Sharex integration
@@ -221,18 +225,19 @@ of it they are funding themselves.  I'm definitely impressed by this service.
   - https://www.patreon.com/imagechest/creators
 - catbox.moe
   - 200MB filesize
-  - The following file types are currently not allowed: .exe, .scr, .cpl, .doc*, .jar
+  - The following file types are currently not allowed: .exe, .scr, .cpl,
+    .doc\*, .jar
   - API
   - ShareX
 - vgy.me
-  - API 
+  - API
   - 20 MB per image
   - No videos
   - EXIF data removed
   - jpg, jpeg, png, gif
   - ShareX
 - imgbox.com
-  - 10 MB per image 
+  - 10 MB per image
   - jpg, jpeg, png, gif
   - Unlimited storage space
   - Unlimited storage time
@@ -241,6 +246,6 @@ of it they are funding themselves.  I'm definitely impressed by this service.
   - 100 MB file size
   - Served via CDN
 - bayimg.com
-  - 100 MB file size 
+  - 100 MB file size
   - 140 different file extensions
   - Uncensored
