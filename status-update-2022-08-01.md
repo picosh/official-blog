@@ -1,6 +1,7 @@
 ---
 title: Status update, July first
 description: A new month with active development
+date: 2022-08-01
 ---
 
 Hey everyone!
@@ -41,6 +42,9 @@ improve our velocity and hopefully when we make a change to one service, the
 other services will enjoy the same updates.
 
 It was a pretty satisfying feeling to remove a lot of code from our repo.
+
+We also spent a good chunk of our effort refactoring our infrastructure to make
+syncronizing deployments easier.
 
 From merging all of our databases into one, to merging all of our code into one,
 this is being done in preparation to build more services.
