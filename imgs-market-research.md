@@ -1,6 +1,6 @@
 ---
 date: 2022-07-24
-title: market research for imgs.sh
+title: Market research for imgs.sh
 tags: [research]
 ---
 
