@@ -2,6 +2,7 @@
 title: Custom domains
 description: it's as easy as a DNS entry
 date: 2022-07-18
+tags: feature, announcement
 ---
 
 It's been a pretty exciting week for us at the pico.sh headquarters.

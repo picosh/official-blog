@@ -1,6 +1,7 @@
 ---
 date: 2022-07-24
 title: market research for imgs.sh
+tags: [research]
 ---
 
 I've been a little more [vocal](https://fosstodon.org/@erock/108702632072746753)

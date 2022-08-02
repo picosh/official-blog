@@ -1,5 +1,6 @@
 ---
 description: A smol blog platform
+tags: [launch, announcement]
 ---
 
 # welcome

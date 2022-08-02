@@ -2,6 +2,7 @@
 title: Status update, Aug first
 description: A new month with active development
 date: 2022-08-01
+tags: [status]
 ---
 
 Hey everyone!
