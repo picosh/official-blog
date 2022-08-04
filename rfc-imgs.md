@@ -9,7 +9,7 @@ haven't written a single line of code yet but have spent time thinking about it.
 This document serves as our proposal not only for how the service ought to
 function, but also details about the technical implementation.
 
-## What is considered a premium service?
+# what is considered a premium service?
 
 Anything that requires significant server resources or time from the development
 team. There's no free lunch and we aren't interested in pouring time, energy,
@@ -18,7 +18,7 @@ and server resources into a service for free.
 Simple services like `prose.sh`, `lists.sh`, and `pastes.sh` don't require many
 server resources or involvement from us so they are offered as free services.
 
-## a note about payments
+# a note about payments
 
 Instead of paying for the imgs service, it might be better purchase a "pro"
 membership to pico. This would allow us to bundle a bunch of premium services
@@ -32,7 +32,7 @@ We also want to offer `tuns.sh` which could also be a premium service. We have a
 bunch of other ideas that could be considered premium so we would bundle them
 together.
 
-## imgs the service
+# imgs the service
 
 It's an image hosting service. Users will be able to upload their images along
 with metadata about the image (e.g. title, caption, date, tags). The intention
@@ -59,7 +59,7 @@ similar features:
   - We don't want to encourage whales here
   - We should limit the storage, somewhere in the range of 25-100GB
 
-### the twist
+## the twist
 
 SSH app to upload images and metadata. You should also be able to easily
 download the images using ssh. All content management happens inside the
@@ -84,13 +84,13 @@ benefit from sharing images.
 This service would be all about sharing media with other people, that's why it's
 public only. We don't want to be a data warehouse for all personal media.
 
-### photo albums
+## photo albums
 
 We also want to support photo albums on `imgs.sh`. To implement this feature, we
 are leveraging tagging. So the user will be able to add tags to their image
 which we will then aggregate into photo albums.
 
-## why
+# why?
 
 We think this service would be genuinely useful to terminal enthusiasts who want
 to quickly take a pic and share it in chat or use it in a blog.
@@ -101,7 +101,7 @@ after a year. This really is a confluence of us wanting to host images for our
 personal blogs, imagining others would find that useful if it were seamless, and
 also a way to help support service costs and active development.
 
-## moderation
+# moderation
 
 This is not a "post whatever image you want without repercussions" image hosting
 service. We will accept DMCA take down notices and we will ban users for posting
@@ -116,7 +116,7 @@ the user who published it.
 We should also provide a reporting endpoint so users can report images for us to
 review.
 
-## closed beta
+# closed beta
 
 In the beginning the service will be online but closed to registration. To
 enroll in the beta program, users **must** join our IRC channel and request an
@@ -124,12 +124,12 @@ invite. They will then be able to use the service for free while we tweak the
 imgs for mass adoption. We will make no guarantees about uptime, service
 reliability, or even the possibility that their images will be deleted.
 
-## tos and privacy policy
+# tos and privacy policy
 
 We need to make sure we have these docs locked down since this will be a premium
 service.
 
-## technical details
+# technical details
 
 I think we should build this to potentially support multi-region. But we would
 implement this service similarly to our other services. I think we will be able
@@ -138,7 +138,7 @@ would use `scp` and we would store the image inside the `posts` table.
 
 Then we would build out a web api for retrieving the images.
 
-### third-party services interacting with imgs
+## third-party services interacting with imgs
 
 Since we have a monorepo setup, we could pretty easily just reach into the code
 for `imgs` inside `prose` and perform the necessary operations within `prose`.
@@ -153,14 +153,14 @@ services.
 I do think it's important that services we don't control should still have a
 path to using `imgs` that can upload images on behalf of a user.
 
-### where do we host the files?
+## where do we host the files?
 
 This is tricky. We could store the files to S3 or some other object storage, but
 the costs are pretty high. We could store the files directly on our VM FS, but
 we'd need to make sure we have enough space and it can scale. I'm going to defer
 to antonio for this section.
 
-### integration with pico services
+## integration with pico services
 
 The entire point of this service is to enhance our pico services with image
 hosting capabilities, so it's critical we figure out the ergonomics of
