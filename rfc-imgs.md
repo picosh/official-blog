@@ -1,7 +1,7 @@
 ---
 title: RFC imgs.sh
 description: proposal for imgs service
-date: 2022-08-31
+date: 2022-12-31
 ---
 
 The pico team has been thinking about a new premium image hosting service. We
