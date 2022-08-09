@@ -1,5 +1,5 @@
 ---
-title: RFC rss service
+title: RFC RSS Service
 description: A proposal for an RSS service
 date: 2022-12-31
 ---
