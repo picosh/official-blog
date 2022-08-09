@@ -4,15 +4,17 @@ description: A proposal for an RSS service
 date: 2022-12-31
 ---
 
-RSS/Atom are a great companion in the smol web.  It's relatively standard, easy
+RSS/Atom is a great companion in the smol web.  It's relatively standard, easy
 to write, easy to consume, and provide users with choice on how to view their
 feeds.
 
-I think an RSS reader as an SSH app could be really useful.
+I think an RSS reader as an SSH app could be useful.
+
+# market research
 
 Here are some other RSS readers in the market: https://erock.lists.sh/rss-readers
 
-Features:
+# features
 
 - Keypair authentication
 - Ability to upload feeds
@@ -30,19 +32,18 @@ We would try to provide a great reading experience from the terminal.  No need
 to install an RSS reader like newboat.  No need to sync a config file across
 multiple apps.  Just SSH into our app and read some content.  Furthermore, many
 of the readers do not provide an rss-to-email feature and most rss-to-email
-services do not provide readers.
+services do not provide readers so there's an interesting opportunity here to
+capture both audiences.
 
 The other nice thing about an RSS reader apps is that it ties into our other
-services that leverage RSS as well.  We have seen two major downsides to not
-recording email addresses for our services:
-
-- Users **must** subscribe to our RSS feed to receive updates
-- Lost private key and need to recover account
+services that leverage RSS as well.  It's hard to let users know of new
+features when they aren't notified about them.  It would be nice to have a
+generic way for users to subscribe to us as well as other content they enjoy.
 
 By providing a service that emails users of our services, it would hopefully
-improve communication.
+improve our communication with our users.
 
-I also think a web version could be pretty great.  Anyone could navigate to any
+I also think a web version could be interesting.  Anyone could navigate to any
 user's feed collection and read its content.  This would also provide mobile
 support for users since they can just navigate to our website.  The only issue
 is we might have to deal with content security policy and ensuring we could
@@ -65,6 +66,8 @@ the post paradigm.  We just need to add a `data jsonb` column to `posts`.
 ALTER TABLE posts ADD COLUMN data jsonb;
 ```
 
+## fetching
+
 Triggers for fetching feeds:
 
 - User logs into the SSH app
@@ -79,19 +82,22 @@ the link provided in the atom entry and store the html in our database.  This
 would probably provide a better user experience but it opens us open to a slew
 of edge cases and weird behavior.
 
+## email digest
+
 I also think that if we do send out a daily digest, we add a button in the
 email that they need to click within 30 days or else we disable sending them an
 email.  They click the button in the email -> we delay shutdown for 30 days.
 
+## tracking feed entries
+
 We would probably create a separate table for the feed results in order to
 optimize storing an retrieval.
-
-new table: `feed_entry`
 
 ```sql
 CREATE TABLE IF NOT EXISTS feed_entry (
   id          uuid NOT NILL DEFAULT uuid_generate_v4(),
   post_id     uuid NOT NULL,
+  read        boolean NOT NULL DEFAULT false,
   author      character varying(250),
   category    character varying(250),
   published   timestamp without time zone NOT NULL DEFAULT NOW(),
@@ -120,8 +126,6 @@ CREATE TABLE IF NOT EXISTS feed_entry (
 We will probably also want a queuing system.  I figured we could just build one
 that fits our purposes inside our database.
 
-new table: `app_queue`
-
 ```sql
 CREATE TYPE JOB_STATUS AS ENUM ('in_progress', 'success', 'fail');
 CREATE TYPE JOB_TYPE AS ENUM ('fetch_feed');
@@ -142,6 +146,8 @@ CREATE TABLE IF NOT EXISTS app_queue(
   ON UPDATE CASCADE
 );
 ```
+
+# metadata
 
 I haven't figured out a great way for users to add metadata to their feeds.
 For example, if they want to add tags to a feed so they could view a collection
