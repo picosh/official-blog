@@ -2,6 +2,7 @@
 title: RFC RSS Service
 description: A proposal for an RSS service
 date: 2022-08-10
+tags: [rfc]
 ---
 
 RSS/Atom is a great companion in the smol web.  It's relatively standard, easy

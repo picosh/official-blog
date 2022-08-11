@@ -13,7 +13,7 @@ We are very excited to officially launch [prose.sh](https://prose.sh).
 - [irc #pico.sh](irc://irc.libera.chat/#pico.sh)
 - [mailing list](https://lists.sr.ht/~erock/pico.sh)
 - [ticket tracker](https://todo.sr.ht/~erock/pico.sh)
-- [email](mailto:hello@pico.sh)
+- [email](mailto:~erock/pico.sh@lists.sr.ht)
 
 ## philosophy
 

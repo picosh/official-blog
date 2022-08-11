@@ -2,6 +2,7 @@
 title: RFC imgs.sh
 description: proposal for imgs service
 date: 2022-08-10
+tags: [rfc]
 ---
 
 The pico team has been thinking about a new premium image hosting service. We
@@ -19,7 +20,7 @@ This will be a paid service.  We are considering a "pico pro" plan or just
 charging for this service as a stand alone.  More details on that later, but
 it's enough to know that this will not be a service offered for free.
 
-Based on previous research, and
+Based on [previous research](https://hey.prose.sh/imgs-market-research), and
 in order to stay competitive with other image hosting services, we would need
 similar features:
 
@@ -136,7 +137,7 @@ path to using `imgs` that can upload images on behalf of a user.
 This is tricky. We could store the files to S3 or some other object storage, but
 the costs are pretty high. We could store the files directly on our VM FS, but
 we'd need to make sure we have enough space and it can scale. I'm going to defer
-to antonio for this section.
+to Antonio for this section.
 
 ## integration with pico services
 
