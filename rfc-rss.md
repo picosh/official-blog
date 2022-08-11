@@ -1,7 +1,7 @@
 ---
 title: RFC RSS Service
 description: A proposal for an RSS service
-date: 2022-12-31
+date: 2022-08-10
 ---
 
 RSS/Atom is a great companion in the smol web.  It's relatively standard, easy
@@ -12,7 +12,7 @@ I think an RSS reader as an SSH app could be useful.
 
 # market research
 
-Here are some other RSS readers in the market: https://erock.lists.sh/rss-readers
+Here are some other RSS readers in the market: https://hey.lists.sh/rss-readers
 
 # features
 
@@ -20,25 +20,23 @@ Here are some other RSS readers in the market: https://erock.lists.sh/rss-reader
 - Ability to upload feeds
 - Ability to upload [opml](https://en.wikipedia.org/wiki/OPML) file
 - Ability to categorize feeds via tags
-- We would fetch the feeds and keep them up-to-date
-- We can send an email digest (if they provide their email)
+- We would manage fetching feeds and keeping them up-to-date 
+- We could send an email digest (if they provide their email)
 - Terminal view of the feeds, piped to w3m
-- We could provide aggregate rss feeds for collections
-- Web view for the feeds?
+- Provide a web view for the feeds (maybe)
 
 # what can we offer over the other readers?
 
 We would try to provide a great reading experience from the terminal.  No need
-to install an RSS reader like newboat.  No need to sync a config file across
+to install an RSS reader like newsboat.  No need to sync a config file across
 multiple apps.  Just SSH into our app and read some content.  Furthermore, many
 of the readers do not provide an rss-to-email feature and most rss-to-email
 services do not provide readers so there's an interesting opportunity here to
 capture both audiences.
 
-The other nice thing about an RSS reader apps is that it ties into our other
+The other nice thing about an RSS reader app is that it ties into our other
 services that leverage RSS as well.  It's hard to let users know of new
-features when they aren't notified about them.  It would be nice to have a
-generic way for users to subscribe to us as well as other content they enjoy.
+features when they aren't notified about them.
 
 By providing a service that emails users of our services, it would hopefully
 improve our communication with our users.
@@ -52,8 +50,11 @@ of edge cases.
 
 # how it works
 
-A user would `scp` an `opml` file, a file containing a lists of rss feeds, or
-`echo "<feed>" | ssh reads.sh`.  
+A user would `scp`:
+
+- an `opml` file
+- a file containing a lists of rss feeds
+- or `echo "<feed>" | ssh reads.sh`
 
 We would dedupe the feeds and add them to our `posts` table.  Because an RSS
 feed can contain a bunch of metadata about a feed, we should capture as much of
@@ -68,11 +69,14 @@ ALTER TABLE posts ADD COLUMN data jsonb;
 
 ## fetching
 
-Triggers for fetching feeds:
+We want to be smart about how we fetch feeds because it could be resource
+intensive if the service gets big enough.
+
+What would trigger us fetching feeds?:
 
 - User logs into the SSH app
 - Prior to sending out daily email digest
-- When the user requests to view the feed on web site
+- When the user requests to view the feed on our web site
 
 Fetching feeds can be a little tricky since some feeds do not provide the html
 inside their atom entry.  Instead they provide a link for users to click on to
@@ -174,3 +178,7 @@ offer an always fetching feature for premium users.
 - Following atom entry links to the webpage puts us in the scraping category
   which opens us up to stability issues (e.g. some sites deny scrapers)
 - Web view might run into content security policy issues
+
+# feedback
+
+What do you think?  Send an email to our [mailing list](mailto:~erock/pico.sh@lists.sr.ht).

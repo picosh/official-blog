@@ -1,7 +1,7 @@
 ---
 title: RFC imgs.sh
 description: proposal for imgs service
-date: 2022-12-31
+date: 2022-08-10
 ---
 
 The pico team has been thinking about a new premium image hosting service. We
@@ -9,42 +9,20 @@ haven't written a single line of code yet but have spent time thinking about it.
 This document serves as our proposal not only for how the service ought to
 function, but also details about the technical implementation.
 
-# what is considered a premium service?
-
-Anything that requires significant server resources or time from the development
-team. There's no free lunch and we aren't interested in pouring time, energy,
-and server resources into a service for free.
-
-Simple services like `prose.sh`, `lists.sh`, and `pastes.sh` don't require many
-server resources or involvement from us so they are offered as free services.
-
-# a note about payments
-
-Instead of paying for the imgs service, it might be better purchase a "pro"
-membership to pico. This would allow us to bundle a bunch of premium services
-under a single umbrella. This also allows us to charge a little more because
-you're getting more than just an image hosting service.
-
-Since we are asking users to join our beta program by joining IRC, I think it
-might be a good idea to offer an IRC bouncer.
-
-We also want to offer `tuns.sh` which could also be a premium service. We have a
-bunch of other ideas that could be considered premium so we would bundle them
-together.
-
 # imgs the service
 
 It's an image hosting service. Users will be able to upload their images along
 with metadata about the image (e.g. title, caption, date, tags). The intention
 is to store the images permanently until service is canceled.
 
-This will be a paid service. Ideally we'd offer a single plan, but depending on
-scaling issues we might need to create a tier. Based on previous research, and
+This will be a paid service.  We are considering a "pico pro" plan or just
+charging for this service as a stand alone.  More details on that later, but
+it's enough to know that this will not be a service offered for free.
+
+Based on previous research, and
 in order to stay competitive with other image hosting services, we would need
 similar features:
 
-- $1-3/mo
-  - Ideally we would only offer a yearly plan ($12-$36/yr)
 - No trial
   - If we do want to offer a trial, we delete the images after 10 minutes
 - Permanent storage
@@ -63,8 +41,8 @@ similar features:
 
 SSH app to upload images and metadata. You should also be able to easily
 download the images using ssh. All content management happens inside the
-terminal and with a key pair. If you live in the terminal, you're our target
-audience.
+terminal and with a key pair.  Our target audience are people that are
+comfortable with the terminal. 
 
 The default route to the image would be optimized for the device requesting to
 view the image. We would read the `User-Agent` to try to understand the device
@@ -95,10 +73,10 @@ which we will then aggregate into photo albums.
 We think this service would be genuinely useful to terminal enthusiasts who want
 to quickly take a pic and share it in chat or use it in a blog.
 
-We received a few questions asking about charging for our services in order to
+We also received a few questions asking about charging for our services in order to
 help sustain it long term. No one wants to join a platform that then disappears
 after a year. This really is a confluence of us wanting to host images for our
-personal blogs, imagining others would find that useful if it were seamless, and
+personal blogs, imagining others would find it useful, and
 also a way to help support service costs and active development.
 
 # moderation
@@ -288,3 +266,8 @@ Adding the markdown from the metadata file into the blog post might be overkill
 and be awkward so we could get rid of it. My guess is whatever is inside the
 metadata file should be rendered in the blog post but that's something we can
 discuss.
+
+# feedback
+
+What do you think?  Send an email to our [mailing list](mailto:~erock/pico.sh@lists.sr.ht).
+
