@@ -46,7 +46,7 @@ keep it.
 
 We apologize for this inconvenience and would love to read your thoughts about
 the migration. Feel free to join
-[#pico.sh on libera](irc://irc.libera.chat/#pico.sh) or email us at
+[#pico.sh on libera](https://web.libera.chat/#pico.sh) or email us at
 [hello@pico.sh](mailto:hello@pico.sh).
 
 ## Wrap up

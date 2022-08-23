@@ -110,7 +110,7 @@ also have a handful of
 we are thinking about building.
 
 Have any suggestions about this service or what we are working on? Join us at
-[#pico.sh on libera](irc://irc.libera.chat/#pico.sh) or send us an email at
+[#pico.sh on libera](https://web.libera.chat/#pico.sh) or send us an email at
 [hello@pico.sh](mailto:hello@pico.sh).
 
 Also don't forget to subscribe to this [RSS feed](https://hey.prose.sh/rss) to

@@ -25,5 +25,5 @@ scp _styles.css <username>@prose.sh:/
 See [this help section](https://prose.sh/help#blog-style) for the full details.
 
 We're excited to see what kind of themes we see in the wild so please feel free
-to share it with us at [#pico.sh on libera](irc://irc.libera.chat/#pico.sh) or
+to share it with us at [#pico.sh on libera](https://web.libera.chat/#pico.sh) or
 [email us](mailto:hello@prose.sh).

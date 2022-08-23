@@ -46,5 +46,5 @@ Which will allow me to access http://tuns.sh:10001 (or any other tcp service, `h
 That's just the beginning of what tuns.sh can do. Under the hood we're using a project
 [Antonio's been working on for a few years](https://github.com/antoniomika/sish). There's a lot we can do here!
 
-If `tuns.sh` is something you're interested in (or have some other ideas for features), join us in
-[#pico.sh on libera](irc://irc.libera.chat/#pico.sh) to discuss!
+If `tuns.sh` is something you're interested in (or have some other ideas for features), join us
+on irc at [#pico.sh on libera](https://web.libera.chat/#pico.sh) to discuss!

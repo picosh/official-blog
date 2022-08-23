@@ -3,7 +3,7 @@ title: team pico's blog
 description: official blog of prose.sh and pico.sh
 nav:
   - home: https://pico.sh
-  - 'irc #pico.sh': irc://irc.libera.chat/#pico.sh
+  - 'irc #pico.sh': https://web.libera.chat/#pico.sh
   - 'mailing list': https://lists.sr.ht/~erock/pico.sh
   - 'ticket tracker': https://todo.sr.ht/~erock/pico.sh
   - 'email': mailto:~erock/pico.sh@lists.sr.ht
