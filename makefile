@@ -1,9 +1,9 @@
 upload:
-	scp *.md hey@prose.sh:
+	scp *.md imgs/* hey@prose.sh:
 .PHONY: upload
 
 upload-local:
-	scp -P 2222 *.md hey@localhost:
+	scp -P 2222 *.md imgs/* hey@localhost:
 .PHONY: upload-local
 
 ssh-local:
