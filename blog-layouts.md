@@ -15,6 +15,12 @@ Changing your blog index to this layout is easy.  All you have to do is edit
 your `_readme.md` to add a `layout` frontmatter.  Setting it to `aside` will
 apply the new layout template.
 
+```md
+---
+layout: aside
+---
+```
+
 I'd also like to announce that I would be more than happy to apply patches for
 more layouts.  I'd also be happy to collaborate on them with anyone who is
 interested.
