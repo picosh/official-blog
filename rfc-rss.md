@@ -179,7 +179,3 @@ offer an always fetching feature for premium users.
 - Following atom entry links to the webpage puts us in the scraping category
   which opens us up to stability issues (e.g. some sites deny scrapers)
 - Web view might run into content security policy issues
-
-# feedback
-
-What do you think?  Send an email to our [mailing list](mailto:~erock/pico.sh@lists.sr.ht).

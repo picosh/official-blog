@@ -267,8 +267,3 @@ Adding the markdown from the metadata file into the blog post might be overkill
 and be awkward so we could get rid of it. My guess is whatever is inside the
 metadata file should be rendered in the blog post but that's something we can
 discuss.
-
-# feedback
-
-What do you think?  Send an email to our [mailing list](mailto:~erock/pico.sh@lists.sr.ht).
-

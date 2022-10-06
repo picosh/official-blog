@@ -108,10 +108,3 @@ This is just one of many features we have planned to make prose.sh awesome. We
 also have a handful of
 [sibling services](https://todo.sr.ht/~erock/pico.sh?search=status%3Aopen%20label%3A%22service%22)
 we are thinking about building.
-
-Have any suggestions about this service or what we are working on? Join us at
-[#pico.sh on libera](https://web.libera.chat/#pico.sh) or send us an email at
-[hello@pico.sh](mailto:hello@pico.sh).
-
-Also don't forget to subscribe to this [RSS feed](https://hey.prose.sh/rss) to
-receive all the latest updates.
