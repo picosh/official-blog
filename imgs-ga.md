@@ -1,5 +1,5 @@
 ---
-title: imgs.sh launch 
+title: imgs.sh launch
 description: image hosting site for hackers
 date: 2022-10-06
 tags: [imgs, service]
@@ -47,5 +47,7 @@ scp profile.jpg name@imgs.sh:/
 
 We have some other ideas for imgs but we wanted to get the MVP launched before
 continuing feature development.
+
+Also be sure to read our [help page](https://imgs.sh/help#integrations) for more info
 
 We hope you enjoy!
