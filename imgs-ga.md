@@ -16,20 +16,20 @@ to handle uploading images from our blogs while at the same time being its own
 separate service.  We've been using it for our own personal blogs with great
 success so we're excited to release it for public use.
 
-If you already have a pico account, then you already have access to `imgs`. 
+If you already have a pico account, then you already have access to `imgs`.
 
 ## Features
 
--  Delightful terminal workflow
--  Share public images from the terminal
--  Seamless integration with other pico services (e.g. prose)
--  Images are web optimized by default
--  API to modify images on-the-fly (e.g. dimensions)
--  Hotlinking encouraged!
--  No javascript
--  No ads
--  No file size limits
--  1GB max storage
+- Delightful terminal workflow
+- Share public images from the terminal
+- Seamless integration with other pico services (e.g. prose)
+- Images are web optimized by default
+- API to modify images on-the-fly (e.g. dimensions)
+- Hotlinking encouraged!
+- No javascript
+- No ads
+- 10MB max file size
+- 1GB max storage
 
 You also don't need to use our other pico services to be able to use imgs.
 Just `scp` or `rsync` like you normally would but to `imgs.sh`
