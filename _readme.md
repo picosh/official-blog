@@ -20,11 +20,11 @@ of the modern web is the browser. The modern browser is very much like an
 operating system, both in terms of complexity and code size. Only massive
 corporations can build and maintain it. Further, the web breeds platforms that
 exploit your
-[reward and learning centers](https://en.wikipedia.org/wiki/Nucleus_accumbens#Function) in
-order to increase "engagement." We have no issue with the commercialization of
-the web -- that's how useful services exist. However, we are more aligned with
-products and services that promote human communication and collaboration in its
-purest forms. Many of our services don't require a password, but still offer
+[reward and learning centers](https://en.wikipedia.org/wiki/Nucleus_accumbens#Function)
+in order to increase "engagement." We have no issue with the commercialization
+of the web -- that's how useful services exist. However, we are more aligned
+with products and services that promote human communication and collaboration in
+its purest forms. Many of our services don't require a password, but still offer
 many familiar features like content management.
 
 While we still intend on building web sites, our goal is to experiment with new

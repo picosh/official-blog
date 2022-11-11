@@ -7,12 +7,12 @@ tags: [rfc]
 
 Forums used to dominate the web, but now there are instant chat apps like
 discord, social link sharing apps like reddit, and knowledge sharing apps like
-stackoverflow.  They all have their strengths, but I think forums can still be
+stackoverflow. They all have their strengths, but I think forums can still be
 relevant in 2022 and beyond.
 
 We want to create a self-hosted forum service that leverages SSH for all
-authenticated operations.  So creating threads, replying to threads, etc.,
-would all happen via SSH.
+authenticated operations. So creating threads, replying to threads, etc., would
+all happen via SSH.
 
 We would have a simple read-only website to actually read the forum.
 
@@ -33,7 +33,7 @@ We would have a simple read-only website to actually read the forum.
 
 ## categories
 
-Moderators should be able to create high-level categories for threads.  Maybe
+Moderators should be able to create high-level categories for threads. Maybe
 this is accomplished via tagging.
 
 ## threads
@@ -93,9 +93,9 @@ ssh forums.sh delete post abc123
 
 This one is a little trickier.
 
-We could take a few different approaches here.  We could suggest that the user
+We could take a few different approaches here. We could suggest that the user
 create "posts" in a local folder and then sync them to us like they would with
-prose.  This would allow for better editing abilities.
+prose. This would allow for better editing abilities.
 
 `reply-to-some-thread.md`
 
@@ -111,10 +111,9 @@ I am replying to this post
 scp reply-to-some-thread.md forums.sh:/
 ```
 
-This would make it easier for the user to edit their posts.  If they want to
-just echo their response quickly without creating a file, we could return a
-unique id for that post which they could then download, edit, and then
-reupload.
+This would make it easier for the user to edit their posts. If they want to just
+echo their response quickly without creating a file, we could return a unique id
+for that post which they could then download, edit, and then reupload.
 
 ```bash
 echo 'I am replying to this post' | ssh forums.sh reply abc123

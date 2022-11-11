@@ -16,12 +16,12 @@ It's an image hosting service. Users will be able to upload their images along
 with metadata about the image (e.g. title, caption, date, tags). The intention
 is to store the images permanently until service is canceled.
 
-This will be a paid service.  We are considering a "pico pro" plan or just
-charging for this service as a stand alone.  More details on that later, but
-it's enough to know that this will not be a service offered for free.
+This will be a paid service. We are considering a "pico pro" plan or just
+charging for this service as a stand alone. More details on that later, but it's
+enough to know that this will not be a service offered for free.
 
-Based on [previous research](https://hey.prose.sh/imgs-market-research), and
-in order to stay competitive with other image hosting services, we would need
+Based on [previous research](https://hey.prose.sh/imgs-market-research), and in
+order to stay competitive with other image hosting services, we would need
 similar features:
 
 - No trial
@@ -42,8 +42,8 @@ similar features:
 
 SSH app to upload images and metadata. You should also be able to easily
 download the images using ssh. All content management happens inside the
-terminal and with a key pair.  Our target audience are people that are
-comfortable with the terminal. 
+terminal and with a key pair. Our target audience are people that are
+comfortable with the terminal.
 
 The default route to the image would be optimized for the device requesting to
 view the image. We would read the `User-Agent` to try to understand the device
@@ -74,11 +74,11 @@ which we will then aggregate into photo albums.
 We think this service would be genuinely useful to terminal enthusiasts who want
 to quickly take a pic and share it in chat or use it in a blog.
 
-We also received a few questions asking about charging for our services in order to
-help sustain it long term. No one wants to join a platform that then disappears
-after a year. This really is a confluence of us wanting to host images for our
-personal blogs, imagining others would find it useful, and
-also a way to help support service costs and active development.
+We also received a few questions asking about charging for our services in order
+to help sustain it long term. No one wants to join a platform that then
+disappears after a year. This really is a confluence of us wanting to host
+images for our personal blogs, imagining others would find it useful, and also a
+way to help support service costs and active development.
 
 # moderation
 

@@ -22,9 +22,9 @@ performance via anonymous means.
 
 We understand this might not be what everyone wants and we had quite a few
 discussions about it in our
-[irc #pico.sh channel](https://web.libera.chat/#pico.sh). 
-If you feel strongly about this change please join our IRC channel or send us an
-email at [hello@pico.sh](mailto:hello@pico.sh).
+[irc #pico.sh channel](https://web.libera.chat/#pico.sh). If you feel strongly
+about this change please join our IRC channel or send us an email at
+[hello@pico.sh](mailto:hello@pico.sh).
 
 We are taking the prose platform seriously and care what bloggers think.
 
