@@ -4,8 +4,8 @@ description: official blog of prose.sh and pico.sh
 nav:
   - home: https://pico.sh
   - 'irc #pico.sh': https://web.libera.chat/#pico.sh
+  - 'issue tracker': https://github.com/picosh/pico/issues
   - 'mailing list': https://lists.sr.ht/~erock/pico.sh
-  - 'ticket tracker': https://github.com/picosh/pico/issues
   - 'email': mailto:~erock/pico.sh@lists.sr.ht
 ---
 
