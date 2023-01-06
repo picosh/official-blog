@@ -2,6 +2,7 @@
 date: 2022-12-31
 title: RFC pico pro
 description: A proposal for supporting pico services
+draft: true
 ---
 
 We are building a few services that would be expensive to maintain over time
