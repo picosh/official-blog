@@ -13,3 +13,7 @@ ssh-local:
 ssh:
 	ssh hey@prose.sh
 .PHONY: ssh
+
+format:
+	prettier --write *.md
+.PHONY: format
