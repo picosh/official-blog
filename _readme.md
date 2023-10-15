@@ -1,6 +1,6 @@
 ---
 title: team pico's blog
-description: official blog of prose.sh and pico.sh
+description: official blog for pico.sh services
 nav:
   - email: mailto:~erock/pico.sh@lists.sr.ht
   - chat: https://web.libera.chat/#pico.sh
