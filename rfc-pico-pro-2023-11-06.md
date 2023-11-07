@@ -7,13 +7,13 @@ date: 2023-12-31
 
 # Mission statement
 
-We want to build tools and services that are useful for software
-development.  We want to empower individual contributors to rapidly prototype
-and boost productivity.
+We want to build tools and services that are useful for software development. We
+want to empower individual contributors to rapidly prototype and boost
+productivity.
 
 # Design goals
 
-- Primary directive is to be useful to ourselves 
+- Primary directive is to be useful to ourselves
 - Developer tools and services
 - Focus on the individual developer
 - Enable developers to rapidly prototype
@@ -34,12 +34,13 @@ and boost productivity.
 
 - static site hosting [pgs.sh](https://pgs.sh)
 - [distrobox](https://github.com/89luca89/distrobox) as a service
-- docker compose as a service [pcompose](https://github.com/antoniomika/pcompose)
+- docker compose as a service
+  [pcompose](https://github.com/antoniomika/pcompose)
 - tunnels as a service [tuns.sh](https://tuns.sh)
 
 ## static site hosting
 
-An easy to use static site hosting platform.  Publish your sites as easy as
+An easy to use static site hosting platform. Publish your sites as easy as
 copying files to our SSH app.
 
 ### TODO
@@ -51,8 +52,8 @@ copying files to our SSH app.
 
 ## distrobox as a service
 
-Create a development container in the cloud.  Use familiar linux distros.
-Remote into your dev container from any client.
+Create a development container in the cloud. Use familiar linux distros. Remote
+into your dev container from any client.
 
 ### TODO
 
@@ -74,7 +75,7 @@ Remote into your dev container from any client.
 
 If all you need is a place to host your simple services, use docker compose.
 This service is not designed to scale, rather, a quick place to get services up
-and running with minimal effort.  This service is also great for rapidly
+and running with minimal effort. This service is also great for rapidly
 prototyping and getting a product or service out-the-door quickly.
 
 ### TODO
@@ -91,8 +92,8 @@ prototyping and getting a product or service out-the-door quickly.
 
 ## tunnels as a service
 
-Need to access `localhost` from `https`?  Not only that, but we also use tunnels to
-allow you to connect to all your other containers.
+Need to access `localhost` from `https`? Not only that, but we also use tunnels
+to allow you to connect to all your other containers.
 
 ### TODO
 
@@ -102,12 +103,12 @@ allow you to connect to all your other containers.
 
 # Pricing
 
-We would like to keep pricing as simple as possible to reduce overhead.  The
-current idea is we only offer a yearly subscription service.  Ideally we would
-be able to charge somewhere around $20/yr, but that might change depending on
-how much compute we offer users.  I think we could implement a tier pricing
-model but that is kind of a pain.  It would be better if there was just one
-single plan that works for most users.
+We would like to keep pricing as simple as possible to reduce overhead. The
+current idea is we only offer a yearly subscription service. Ideally we would be
+able to charge somewhere around $20/yr, but that might change depending on how
+much compute we offer users. I think we could implement a tier pricing model but
+that is kind of a pain. It would be better if there was just one single plan
+that works for most users.
 
 All payments would happen through stripe.
 
