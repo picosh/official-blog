@@ -30,8 +30,6 @@ productivity.
 
 # Services
 
-## Overview
-
 - static site hosting [pgs.sh](https://pgs.sh)
 - [distrobox](https://github.com/89luca89/distrobox) as a service
 - docker compose as a service
