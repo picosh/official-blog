@@ -14,7 +14,7 @@ services) and we apply a feature flag to your user, you'll be able to login to
 ### HTTP(S) Tunnels
 
 ```bash
-$ ssh -R 80:httpbin.org:80 tuns.sh
+$ ssh -p 2222 -R 80:httpbin.org:80 tuns.sh
 Press Ctrl-C to close the session.
 
 The subdomain localhost.tuns.sh is unavailable. Assigning a random subdomain.
@@ -36,7 +36,7 @@ HTTP(S) tunnels also support
 ### TCP Tunnels
 
 ```bash
-$ ssh -R 10001:httpbin.org:80 tuns.sh
+$ ssh -p 2222 -R 10001:httpbin.org:80 tuns.sh
 Press Ctrl-C to close the session.
 
 Starting SSH Forwarding service for tcp:10001. Forwarded connections can be accessed via the following methods:
