@@ -3,7 +3,6 @@ title: Status Update 2023-11-12
 description: New features and services
 date: 2023-11-12
 tags: [status]
-draft: true
 ---
 
 Hey everyone!
@@ -23,7 +22,7 @@ We are still figuring out all the details but we are slowly building the billing
 and pricing engines to support what we are tentatively calling `pico pro`.
 
 If you are interested in reading more about `pico pro` then feel free to read
-our latest [RFC for pico pro](/pico-pro-2023-11-06).
+our latest [RFC for pico pro](/rfc-pico-pro-2023-11-06).
 
 # Data transfer updates
 
