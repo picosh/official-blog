@@ -31,10 +31,10 @@ productivity.
 # Services
 
 - static site hosting [pgs.sh](https://pgs.sh)
+- tunnels as a service [tuns.sh](https://tuns.sh)
 - [distrobox](https://github.com/89luca89/distrobox) as a service
 - docker compose as a service
   [pcompose](https://github.com/antoniomika/pcompose)
-- tunnels as a service [tuns.sh](https://tuns.sh)
 
 ## static site hosting
 
@@ -43,10 +43,7 @@ copying files to our SSH app.
 
 ### TODO
 
-- Review security headers
 - Figure out storage, bandwidth limits
-- recursive `rsync`
-- SSHFS?
 
 ## distrobox as a service
 
@@ -95,9 +92,9 @@ to allow you to connect to all your other containers.
 
 ### TODO
 
-- Users in pico database as source of truth (instead of `authorized_keys`)
 - Can we leverage tuns for network isolation?
 - Can we leverage tuns to connect to all user containers?
+- Can we leverage tuns for web tunnels?
 
 # Pricing
 
@@ -108,10 +105,9 @@ much compute we offer users. I think we could implement a tier pricing model but
 that is kind of a pain. It would be better if there was just one single plan
 that works for most users.
 
-All payments would happen through stripe.
-
 ### TODO
 
+- How much do we want to charge users?
 - How much compute do we want to offer users?
 - Do we want to allow users to horizontally scale their compute?
 - Do we want to allow users to vertically scale their compute?
