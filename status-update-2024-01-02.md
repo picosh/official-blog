@@ -35,7 +35,7 @@ experiment with other ideas to provide high quality services to us and you all.
 We have a couple area of focus for this year:
 
 - officially launch [pgs.sh](https://pgs.sh)
-- redesign sites to (merge service docs into one static site, make them look
+- redesign sites (merge service docs into one static site, make them look
   prettier)
 - make progress on [pico pro](/rfc-pico-pro-2023-11-06)
 - create self-hostable SSH app for any object store
