@@ -10,7 +10,8 @@ It's been awhile since we've posted on the official blog. I wanted to let
 everyone know that we are still actively working on pico services and just
 recently deployed a feature that I've been wanting for awhile: aliases.
 
-This was one of the features that I needed in order to move my [Hugo blog](https://erock.io) to [prose.sh](https://prose.sh).
+This was one of the features that I needed in order to move my
+[Hugo blog](https://erock.io) to [prose.sh](https://prose.sh).
 
 ```
 ---

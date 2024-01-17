@@ -13,7 +13,8 @@ few months that I think many of you will enjoy using.
 
 # enter [pgs.sh](https://pgs.sh)
 
-[pgs.sh](https://pgs.sh) is a zero-dependency static site hosting service for hackers.
+[pgs.sh](https://pgs.sh) is a zero-dependency static site hosting service for
+hackers.
 
 I build a lot of projects that involve static hosting and became frustrated by
 how complicated it is in 2023. All I need to do is move files from my CI onto a

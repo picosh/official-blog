@@ -8,11 +8,12 @@ nav:
   - email: mailto:~erock/pico.sh@lists.sr.ht
 ---
 
-Providing tools and services to improve communication and collaboration on the web.
+Providing tools and services to improve communication and collaboration on the
+web.
 
 ## goals
 
-- Build tools and services that we love using 
+- Build tools and services that we love using
 - Promote human communication and collaboration
 - Projects should strive to do one thing, well
 
