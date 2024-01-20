@@ -23,7 +23,8 @@ sftp <user>@lists.sh
 > get * .
 ```
 
-> **2024-07-20** we will shutdown all services for lists. We think this is an
-> adequate migration window for lists.
+> **2024-07-20** we will shutdown all services for lists.
+
+We think this is an adequate migration window for lists.
 
 Feel free to reach out if you have questions, we are happy to help!
