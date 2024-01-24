@@ -1,6 +1,7 @@
 ---
 title: RFC A link aggregator service
 date: 2024-01-20
+tags: [rfc]
 ---
 
 We want to create a link aggregator service that can only be accessible via SSH.
