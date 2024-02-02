@@ -16,7 +16,7 @@ to shut it down.
 
 Lists will be read-only effective immediately. Users will still be able to
 download their lists using any of our
-[supported tools for downloading files](https://pico/file-uploads).
+[supported tools for downloading files](https://pico.sh/file-uploads).
 
 ```bash
 sftp <user>@lists.sh
