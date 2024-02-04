@@ -33,7 +33,7 @@ completely shut down imgs.sh on **2024-07-20**.
 
 As part of this merger we bring to both prose and pgs the ability to manipulate
 their images on-the-fly. Image resizing is still supported thanks to
-[imageproxy](https://github.com/willnorris/imageproxy) and we might open up more
+[imageproxy](https://github.com/imageproxy/imageproxy) and we might open up more
 of the image proxy features in the future.
 
 We hope this isn't much of an inconvenience to pico users and are happy to chat
