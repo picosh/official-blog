@@ -35,9 +35,9 @@ hackers use them? Further, these services are not free to support, and the more
 users we have, the most expensive they will be to maintain.
 
 We have also received feeback from users that they want a way to "support"
-pico.sh development. We could have offered a way to donate to us, but we felt
-like offering concrete services offered a better incentive structure for us and
-users.
+pico.sh development. We could have offered a way for users to donate, but we
+felt like offering concrete services was a better incentive structure for all
+parties involved.
 
 # hacker labs
 
