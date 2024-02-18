@@ -49,9 +49,9 @@ underlying tech more accessible for public use.
 
 In particular, we want to callout two recent additions:
 
-- [ptun](https://github.com/picosh/ptun) - `rsync`, `scp`, `sftp` for your
+- [pobj](https://github.com/picosh/pobj) - `rsync`, `scp`, `sftp` for your
   object store
-- [pobj](https://github.com/picosh/pobj) - passwordless authentication
+- [ptun](https://github.com/picosh/ptun) - passwordless authentication
   experience for the browser
 
 We think these two libraries are actually pretty exciting and they have been
