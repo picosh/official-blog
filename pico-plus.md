@@ -30,9 +30,9 @@ availability. Further, we only support services that we use ourselves.
 # why?
 
 These are services we want to use. We think they offer fantastic DX and we use
-them everyday. What better way to maintain these services than to up them up for
-other hacker to use? Further, these services are not free to support, and the
-more users we have, the most expensive they will be to maintain.
+them everyday. What better way to maintain these services than to let other
+hackers use them? Further, these services are not free to support, and the more
+users we have, the most expensive they will be to maintain.
 
 We have also received feeback from users that they want a way to "support"
 pico.sh development. We could have offered a way to donate to us, but we felt
