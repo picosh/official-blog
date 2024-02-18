@@ -8,9 +8,9 @@ tags: [announcement]
 Greetings.
 
 After a year+ of work we have finally reached a point where we feel comfortable
-offering a set of premium paid services.
+offering a set of premium paid services, enter:
 
-[pico+](https://pico.sh/plus)
+<a href="https://pico.sh/plus" class="btn-link">pico+</a>
 
 The premium services we offer are going to continue to evolve over time, but for
 right now there are **(3)**:
