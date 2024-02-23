@@ -1,7 +1,7 @@
 ---
 title: lists.sh shutdown notice
 date: 2024-01-20
-tags: [announcement]
+tags: [announcement, deprecate]
 description: lists.sh will shutdown on 2024-07-20
 ---
 
