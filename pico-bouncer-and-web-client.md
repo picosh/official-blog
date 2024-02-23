@@ -1,7 +1,7 @@
 ---
 title: pico irc bouncer and web client guide
 date: 2023-10-13
-tags: [announcement, guide]
+tags: [guide]
 ---
 
 Hey everyone!

@@ -2,6 +2,7 @@
 title: New blog layout
 description: Experimenting with new layouts
 date: 2022-08-27
+tags: [feature]
 ---
 
 We added the ability to customize your blog index layout.

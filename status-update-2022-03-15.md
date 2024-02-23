@@ -1,7 +1,7 @@
 ---
 title: Status update March 2023
 date: 2023-03-15
-tags: [announcement]
+tags: [status]
 ---
 
 Hey!

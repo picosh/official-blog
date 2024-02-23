@@ -1,7 +1,7 @@
 ---
 title: Status update Jan 2024
 date: 2024-01-02
-tags: [announcement]
+tags: [status]
 ---
 
 As part of the new year I wanted to kick things off with a quick stats review of

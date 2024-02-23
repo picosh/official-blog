@@ -1,7 +1,7 @@
 ---
 title: Status update Jan 17 2024
 date: 2024-01-17
-tags: [announcement]
+tags: [status]
 ---
 
 We are excited to announce a brand new docs site [pico.sh](https://pico.sh).
