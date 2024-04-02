@@ -1,6 +1,7 @@
 ---
 title: Pages redirect to trailing slash
 description: 301 redirect to trailing slash
+date: 2024-04-02
 ---
 
 Greetings!
