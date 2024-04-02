@@ -22,7 +22,7 @@ New behavior:
 - `[301] /subcategory/`
 - `/subcategory/index.html` (implicit)
 
-As illustrated, we will be performing a `301` permenant redirect when a
+As illustrated, we will be performing a `301` permanent redirect when a
 directory is discovered without a trailing slash. This is very common for file
 servers and other popular static site hosting platforms.
 
@@ -33,5 +33,5 @@ request it we will provide a way to disable them on a per-site basis.
 - [GH Issue](https://github.com/picosh/pico/issues/115)
 
 Hopefully no one will be impacted by this change, but you might want to prevent
-the permenant redirects in your static sites by always providing a trailing
+the permanent redirects in your static sites by always providing a trailing
 slash to directories.
