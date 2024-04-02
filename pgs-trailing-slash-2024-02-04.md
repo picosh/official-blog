@@ -11,14 +11,16 @@ This feels like a significant enough change to submit a post about it.
 We will be deploying a change today to the default routing behavior for
 [pgs.sh](https://pico.sh/pgs).
 
-Previous Behavior:
+Previous behavior:
 
-`/subcategory` => implicitly loads `/subcategory/index.html`
+- `/subcategory`
+- `/subcategory/index.html` (implicit)
 
-New Behavior:
+New behavior:
 
-`/subcategory` => `[301] /subcategory/` => implicitly loads
-`/subcategory/index.html`
+- `/subcategory`
+- `[301] /subcategory/`
+- `/subcategory/index.html` (implicit)
 
 As illustrated, we will be performing a `301` permenant redirect when a
 directory is discovered without a trailing slash. This is very common for file
