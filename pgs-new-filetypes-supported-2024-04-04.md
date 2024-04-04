@@ -32,3 +32,5 @@ case.
 # when will this change take effect?
 
 We plan to deploy sometime on 2024-04-05
+
+You can track the status of this change in our [Github PR](https://github.com/picosh/pico/pull/119).
