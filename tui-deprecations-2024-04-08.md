@@ -5,6 +5,12 @@ date: 2024-04-08
 tags: [announcements, deprecate]
 ---
 
+tl;dr There is only one way to access our SSH TUI:
+
+```bash
+ssh pico.sh
+```
+
 Greetings!
 
 Currently, every service accesses the same TUI: it doesn't matter if you are
@@ -24,8 +30,13 @@ pages and information that we would have to update N times whenever we made a
 change.
 
 As a result, we are killing the TUIs for all services -- except for `pico.sh`.
-So, if you used to `ssh prose.sh` or `ssh feeds.sh` you now need to
-`ssh pico.sh`. That's the only meaningful change at this point in time.
+So, if you used to `ssh prose.sh` or `ssh feeds.sh` you now need to:
+
+```bash
+ssh pico.sh
+```
+
+That's the main meaningful change at this point in time.
 
 However, it has been no surprise to some of you that we have been continuing to
 experiment with new UIs. We recently started beta testing a
