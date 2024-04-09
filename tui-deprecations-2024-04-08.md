@@ -61,3 +61,6 @@ sftp prose.sh
 That's all for now. I do plan on writing another post about our approach to
 building user interfaces shortly, so be sure to subscribe to our RSS feed!
 [And use feeds.sh!](https://pico.sh/feeds)
+
+Also, you can track the
+[status of this work here](https://github.com/picosh/pico/pull/122)
