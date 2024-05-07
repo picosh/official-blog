@@ -14,12 +14,12 @@ I want to start with deprecations since I don't want them hidden:
 # Deprecation: 0-byte file deletion
 
 When we first created pico.sh we only supported `scp`. At the time we didn't
-have a great way to remove files via the CLI. So we came up with an API to
+have a great way to remove files via our CLI. So we came up with an API to
 upload a 0-byte file in order to delete it.
 
 Now that we have much better ways to delete files (e.g. `sftp`) this feature is
-less useful. Further, it is hindering some new features that we want to build
-(official support for `sshfs`), we decided to kill this feature.
+less useful. Further, it is hindering some new features that we are building
+(e.g. official support for `sshfs`), so we decided to kill this feature.
 
 This change will be live **May 14, 2024**.
 
@@ -37,7 +37,8 @@ So we are reverting that change and making it impossible to override our default
 CSP when accessing sites on the `pgs.sh` domain.
 
 If you are running into CSP issues our official solution is to create a
-[custom domain](https://pico.sh/custom-domains).
+[custom domain](https://pico.sh/custom-domains) which does not have any security
+headers associated with it by default.
 
 This change will be live **May 14, 2024**.
 
