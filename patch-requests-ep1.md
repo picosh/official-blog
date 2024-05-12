@@ -33,11 +33,13 @@ browser, there are quite a few downsides. At a certain point, it makes more
 sense to review code inside your local development environment, IDE, etc.
 
 Further, self-hosted solutions that mimic a pull request require a lot of
-infrastructure in order to manage it. For example, before an external user who
-wants to contribute to a repo, they first need to create an account and then
-login. This adds quite a bit of friction for a self-hosted solution, not only
-for an external contributor, but also for the code owner who has to provision
-the infra.
+infrastructure in order to manage it. A database, a web site connected to git,
+admin management, and services to manage it all. Another big point of friction:
+before an external user submits a code change, they first need to create an
+account and then login. This adds quite a bit of friction for a self-hosted
+solution, not only for an external contributor, but also for the code owner who
+has to provision the infra. Often times they also have to fork the repo within
+the code forge before submitting a PR. That seem silly.
 
 # Introducing Patch Requests (PR)
 
