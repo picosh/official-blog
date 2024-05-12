@@ -74,7 +74,7 @@ of our fully functional prototype.
 
 Here's the main help command:
 
-```bash
+```
 $ ssh git.pico.sh help
 NAME:
    ssh - Collaborate with external contributors to your project
@@ -113,7 +113,7 @@ GLOBAL OPTIONS:
 
 Here's the `pr` help command:
 
-```bash
+```
 $ ssh git.pico.sh pr help
 NAME:
    ssh pr - Manage Patch Requests (PR)
