@@ -11,30 +11,20 @@ web assets -- all without sacrificing external collaborators.
 
 > `git format-patch` isn't the problem and pull requests aren't the solution.
 
-We are combining mailing list workflows with pull requests. In order to build
-the simplest collaboration tool, we needed something as simple as generating
-patches but the ease-of-use with pull requests.
+We are combining mailing list and pull request workflows. In order to build the
+simplest collaboration tool, we needed something as simple as generating patches
+but the ease-of-use of pull requests.
 
 # The Problem
 
 Email is great as a decentralized system to send and receive changes (patchsets)
-to a git repo. However, setting up your email client and understanding the
-potential gotchas during that flow cannot be understated. Further, because we
-are leveraging the email protocol for collaboration, we are limited by its
-feature-set. For example, it is not possible to make edits to emails.
-
-Further, when a contributor provides a patchset and receives feedback, the
-contributor must submit another patchset via email. These are completely
-separate and the only way to correlate them is via naming convention (e.g.
-[PATCH] xxx v2). Now when reviewing patchsets submitted to a project, the user
-must search for all versions of that particular patchset. These are separate
-conversations with potentially very different patches spanning across the time
-of a project. Maybe that's ok, but people are very used to a PR containing all
-changes and reviews across time, and I think it makes a lot of sense to have a
-single view of all conversations related to a change request.
-
-Another issue with the email workflow is knowing how to properly reply to a
-patchset. There is a lot of education on "doing patchsets right via email."
+to a git repo. However, onboarding a new user to a mailing list, properly
+setting up their email client, and then finally submitting the code contribution
+is enough to make many developers give up. Further, because we are leveraging
+the email protocol for collaboration, we are limited by its feature-set. For
+example, it is not possible to make edits to emails, everyone has a different
+client, those clients have different limitations around plain text email and
+downloading patches from it.
 
 Github pull requests are easy to use, easy to edit, and easy to manage. The
 downside is it forces the user to be inside their website to perform reviews.
