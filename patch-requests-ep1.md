@@ -39,7 +39,8 @@ before an external user submits a code change, they first need to create an
 account and then login. This adds quite a bit of friction for a self-hosted
 solution, not only for an external contributor, but also for the code owner who
 has to provision the infra. Often times they also have to fork the repo within
-the code forge before submitting a PR. That seem silly.
+the code forge before submitting a PR. Then they never make a contribution ever
+again and keep a forked repo around forever. That seems silly.
 
 # Introducing Patch Requests (PR)
 
