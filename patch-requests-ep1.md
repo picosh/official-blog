@@ -2,6 +2,7 @@
 title: Patch Requests Ep1
 description: The simplest git collaboration tool
 date: 2024-05-11
+tags: [git-patch-request]
 ---
 
 We are trying to build the simplest git collaboration tool. The goal is to make
