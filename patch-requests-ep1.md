@@ -1,5 +1,5 @@
 ---
-title: Patch Requests Ep1
+title: Git Patch Requests Ep1
 description: The simplest git collaboration tool
 date: 2024-05-11
 tags: [git-patch-request]
