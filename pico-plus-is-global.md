@@ -3,6 +3,7 @@ title: pico+ is now global
 description: We updated pico+ to accept from payments around the world
 date: 2024-05-14
 tags: [announcement, feature]
+draft: true
 ---
 
 Hey everyone!
