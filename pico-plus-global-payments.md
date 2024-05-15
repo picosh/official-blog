@@ -35,8 +35,8 @@ We originally investigated MoRs a few months ago by signing up with
 being able to tell us why.
 
 Thankfully, when we applied to [lemonsqueezy](https://www.lemonsqueezy.com/)
-last week -- another MoR -- they accepted our application. Within a day we were
-able to switch from Stripe to them, success!
+last week -- another MoR -- and they accepted our application. Within a day we
+were able to switch from Stripe to them, success!
 
 Thank you to everyone who messaged us about adding support for other countries,
 it motivated us to find a solution.
