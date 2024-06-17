@@ -1,6 +1,5 @@
 ---
 title: mount your blog and sites as a fs
-slug: mount-your-blog-and-sites-as-fs
 description: pico officially supports sshfs
 date: 2024-06-16
 tags: [feature]
