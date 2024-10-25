@@ -1,6 +1,7 @@
 ---
 title: team pico
 description: official blog for pico.sh services
+with_styles: false
 nav:
   - site: https://pico.sh
   - email: mailto:hello@pico.sh
