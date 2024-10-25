@@ -2,7 +2,7 @@
 date: 2022-07-22
 title: Operations update
 description: Adding anonymous post analytics to prose
-tags: [policy, announcement, feature]
+tags: [announcement]
 ---
 
 We wanted to send a quick update to let everyone know we have slightly adjusted

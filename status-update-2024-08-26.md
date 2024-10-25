@@ -1,6 +1,7 @@
 ---
-title: Status update - Aug 2024
+title: status 0009
 description: pico.sh platform update
+date: 2024-08-01
 tags: [status]
 ---
 

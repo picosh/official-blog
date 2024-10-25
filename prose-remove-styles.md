@@ -1,8 +1,8 @@
 ---
-title: prose remove styles
+title: rfc 0006 prose remove styles
 description: Remove the default styles on prose for better customization
 date: 2024-10-01
-tags: [prose]
+tags: [rfc]
 ---
 
 We just deployed a new feature for `prose` that we think is worth an

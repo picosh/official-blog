@@ -2,7 +2,7 @@
 title: Database migration incoming
 description: we're merging our services' databases
 date: 2022-07-28
-tags: [accouncement, migration]
+tags: [accouncement]
 ---
 
 Greetings travelers!

@@ -1,6 +1,6 @@
 ---
-title: RFC RSS Service
-description: A proposal for an RSS service
+title: rfc 0001 feeds.sh
+description: An RSS service
 date: 2022-08-10
 tags: [rfc]
 ---

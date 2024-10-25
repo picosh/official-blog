@@ -2,7 +2,7 @@
 title: imgs.sh merger
 description: We are merging imgs.sh and prose.sh
 date: 2024-01-29
-tags: [announcement, deprecate]
+tags: [announcement]
 ---
 
 # Summary

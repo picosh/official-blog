@@ -1,6 +1,6 @@
 ---
 description: A smol blog platform
-tags: [launch, announcement]
+tags: [announcement]
 date: 2023-04-01
 ---
 

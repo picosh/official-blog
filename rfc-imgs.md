@@ -1,6 +1,6 @@
 ---
-title: RFC imgs.sh
-description: proposal for imgs service
+title: rfc 0002 imgs.sh
+description: A proposal for imgs service
 date: 2022-08-10
 tags: [rfc]
 ---

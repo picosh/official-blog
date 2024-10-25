@@ -1,4 +1,5 @@
 ---
+title: light theme
 date: 2022-07-21
 description: A new light theme that respects prefers-color-scheme
 tags: [feature]

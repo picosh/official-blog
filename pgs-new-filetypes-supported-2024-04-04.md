@@ -2,7 +2,7 @@
 title: New file types supported for pgs.sh
 description: We are switching from allowlist to denylist
 date: 2024-04-04
-tags: [announcement, pgs]
+tags: [announcement]
 ---
 
 Hey everyone!

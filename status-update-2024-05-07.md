@@ -1,7 +1,8 @@
 ---
-title: Status update - May 2024
+title: status 0008
 description: pico.sh platform update
-tags: [status, deprecate]
+date: 2024-05-01
+tags: [status]
 ---
 
 Greetings.

@@ -1,8 +1,8 @@
 ---
-title: Git Patch Requests Ep1
+title: rfc 0005 patch requests 
 description: The simplest git collaboration tool
 date: 2024-05-11
-tags: [git-patch-request]
+tags: [rfc]
 ---
 
 We are trying to build the simplest git collaboration tool. The goal is to make

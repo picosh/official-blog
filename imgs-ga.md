@@ -2,7 +2,7 @@
 title: imgs.sh launch
 description: image hosting site for hackers
 date: 2022-10-06
-tags: [service]
+tags: [announcement]
 ---
 
 ![stable-diffusion: art exhibit by Akihito Yoshida, colorful universe](/imgs-launch)
