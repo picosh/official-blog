@@ -1,5 +1,5 @@
 ---
-title: status 0008
+title: status-8
 description: pico.sh platform update
 date: 2024-05-01
 tags: [status]

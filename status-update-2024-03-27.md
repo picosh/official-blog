@@ -1,5 +1,5 @@
 ---
-title: status 0007
+title: status-7
 date: 2024-03-27
 tags: [status]
 ---

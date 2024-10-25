@@ -1,5 +1,5 @@
 ---
-title: status 0002
+title: status-2
 description: A new month with active development
 date: 2022-08-01
 tags: [status]

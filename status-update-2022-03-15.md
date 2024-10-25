@@ -1,5 +1,5 @@
 ---
-title: status 0001
+title: status-1
 date: 2022-03-15
 tags: [status]
 ---

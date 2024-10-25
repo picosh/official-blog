@@ -1,5 +1,5 @@
 ---
-title: status 0003
+title: status-3
 description: New features and services
 date: 2023-11-12
 tags: [status]
