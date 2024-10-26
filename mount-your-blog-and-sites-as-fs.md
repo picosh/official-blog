@@ -2,7 +2,7 @@
 title: mount your blog and sites as a fs
 description: pico officially supports sshfs
 date: 2024-06-16
-tags: [feature]
+tags: [ann]
 ---
 
 We are excited to announce our official support for

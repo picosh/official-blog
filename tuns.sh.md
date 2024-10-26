@@ -1,8 +1,8 @@
 ---
-title: tuns.sh
+title: tuns
 description: use your pico account to setup tunnels over ssh
 date: 2022-08-18
-tags: [announcement]
+tags: [ann]
 ---
 
 In hopes of making premium services more worthwhile to users, we are testing a

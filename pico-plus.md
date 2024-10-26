@@ -2,7 +2,7 @@
 title: pico+
 description: Premium pico services
 date: 2024-02-18
-tags: [announcement]
+tags: [ann]
 ---
 
 Greetings.

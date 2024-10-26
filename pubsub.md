@@ -1,7 +1,7 @@
 ---
 title: "pipe: our pubsub ssh service"
 description: Authenticated *nix pipes over ssh
-tags: [announcement]
+tags: [ann]
 ---
 
 [pipe.pico.sh](https://pipe.pico.sh) is our new managed pubsub service that

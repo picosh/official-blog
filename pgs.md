@@ -2,7 +2,7 @@
 title: pgs.sh announcement
 description: A zero-dependency static site hosting service for hackers
 date: 2023-09-05
-tags: [announcement]
+tags: [ann]
 ---
 
 Hey all

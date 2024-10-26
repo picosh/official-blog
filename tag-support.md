@@ -2,7 +2,7 @@
 title: Add tags to your posts!
 description: writers can now tag posts for prose and lists
 date: 2022-08-02
-tags: [feature]
+tags: [ann, prose]
 ---
 
 We just launched a new feature for both [prose.sh](https://prose.sh) and

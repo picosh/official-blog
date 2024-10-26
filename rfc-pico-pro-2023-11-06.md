@@ -1,8 +1,8 @@
 ---
 title: rfc-3 pico+
 description: What does charging for services look like for us?
-tags: [rfc]
 date: 2023-12-31
+tags: [rfc]
 ---
 
 # Mission statement

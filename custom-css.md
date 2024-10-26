@@ -2,7 +2,7 @@
 title: Custom CSS
 description: blogs can customize their theme
 date: 2022-07-25
-tags: [feature]
+tags: [ann]
 ---
 
 We've heard from a few people that they would like to customize their blog a

@@ -1,7 +1,7 @@
 ---
 title: aliases now supported for posts
 date: 2023-03-15
-tags: [feature]
+tags: [ann]
 ---
 
 Hey!
