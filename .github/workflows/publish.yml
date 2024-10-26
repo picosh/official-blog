@@ -11,7 +11,7 @@ jobs:
       uses: burnett01/rsync-deployments@6.0.0
       with:
         switches: -v
-        path: imgs/* *.md
+        path: ann/ imgs/ outage/ rfc/ status/ *.md
         remote_path: /
         remote_user: pico
         remote_host: prose.sh
