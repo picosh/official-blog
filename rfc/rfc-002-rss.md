@@ -1,5 +1,5 @@
 ---
-title: rfc-1 feeds.sh
+title: rfc-2 feeds.sh
 description: An RSS service
 date: 2022-08-10
 tags: [rfc]

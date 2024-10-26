@@ -1,5 +1,5 @@
 ---
-title: rfc-6 prose remove styles
+title: rfc-7 prose remove styles
 description: Remove the default styles on prose for better customization
 date: 2024-10-01
 tags: [rfc]

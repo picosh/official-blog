@@ -1,5 +1,5 @@
 ---
-title: rfc-3 pico+
+title: rfc-4 pico+
 description: What does charging for services look like for us?
 date: 2023-12-31
 tags: [rfc]

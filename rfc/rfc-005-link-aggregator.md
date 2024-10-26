@@ -1,5 +1,5 @@
 ---
-title: rfc-4 link aggregator
+title: rfc-5 link aggregator
 description: What would an SSH link aggregation service look like?
 date: 2024-01-20
 tags: [rfc]

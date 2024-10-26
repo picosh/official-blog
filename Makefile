@@ -1,5 +1,5 @@
 upload:
-	scp *.md imgs/* p.prose:/
+	scp **/*.md imgs/* p.prose:/
 .PHONY: upload
 
 fmt:

@@ -1,7 +1,8 @@
 ---
-title: radical experimentation
+title: rfc-1 radical experimentation
 description: No code is sacred
-date: 2024-01-22
+date: 2022-01-22
+tags: [rfc]
 ---
 
 We want to create and maintain services that we love to use. We also want to
