@@ -1,6 +1,7 @@
 ---
 title: new ips for our services
 description: We moved to reserved IP addresses
+date: 2024-03-07
 tags: [ann]
 ---
 

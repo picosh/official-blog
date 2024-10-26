@@ -1,4 +1,5 @@
 ---
+title: welcome
 description: a smol blog platform
 date: 2023-04-01
 tags: [ann]
