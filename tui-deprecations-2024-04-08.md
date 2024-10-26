@@ -1,5 +1,5 @@
 ---
-title: TUI deprecations
+title: tui deprecations
 description: We are consolidating our TUI apps across pico
 date: 2024-04-08
 tags: [ann]

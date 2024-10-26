@@ -1,5 +1,5 @@
 ---
-title: New blog layout
+title: new blog layout
 description: Experimenting with new layouts
 date: 2022-08-27
 tags: [ann]

@@ -1,5 +1,5 @@
 ---
-title: Custom domains
+title: custom domains
 description: it's as easy as a DNS entry
 date: 2022-07-18
 tags: [ann]

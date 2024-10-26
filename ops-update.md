@@ -1,6 +1,6 @@
 ---
+title: operations update
 date: 2022-07-22
-title: Operations update
 description: Adding anonymous post analytics to prose
 tags: [ann]
 ---

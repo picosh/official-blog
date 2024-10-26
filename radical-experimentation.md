@@ -1,5 +1,5 @@
 ---
-title: Radical experimentation
+title: radical experimentation
 description: No code is sacred
 date: 2024-01-22
 ---

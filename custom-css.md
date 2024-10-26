@@ -1,5 +1,5 @@
 ---
-title: Custom CSS
+title: custom css
 description: blogs can customize their theme
 date: 2022-07-25
 tags: [ann]

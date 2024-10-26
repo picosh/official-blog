@@ -1,5 +1,5 @@
 ---
-title: Database migration incoming
+title: database migration incoming
 description: we're merging our services' databases
 date: 2022-07-28
 tags: [ann]

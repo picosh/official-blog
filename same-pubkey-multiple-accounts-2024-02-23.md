@@ -1,5 +1,5 @@
 ---
-title: Same public key, multiple accounts
+title: same public key, multiple accounts
 description: We are deprecating duplicate public keys in pico
 date: 2024-02-23
 tags: [ann]
