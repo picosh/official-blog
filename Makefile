@@ -1,5 +1,5 @@
 upload:
-	scp **/*.md imgs/* p.prose:/
+	rsync -rv ann/ imgs/ outage/ rfc/ status/ *.md p.prose:/
 .PHONY: upload
 
 fmt:
