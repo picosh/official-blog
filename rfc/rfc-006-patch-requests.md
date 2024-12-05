@@ -5,6 +5,12 @@ date: 2024-05-11
 tags: [rfc]
 ---
 
+|                  |                    |
+| ---------------- | ------------------ |
+| **status**       | published          |
+| **last updated** | 2024-12-04         |
+| **site**         | https://pr.pico.sh |
+
 We are trying to build the simplest git collaboration tool. The goal is to make
 self-hosting a git server as simple as running an SSH server and hosting static
 web assets -- all without sacrificing external collaborators.
@@ -15,7 +21,7 @@ We are combining mailing list and pull request workflows. In order to build the
 simplest collaboration tool, we needed something as simple as generating patches
 but the ease-of-use of pull requests.
 
-# The Problem
+# the problem
 
 Email is great as a decentralized system to send and receive changes (patchsets)
 to a git repo. However, onboarding a new user to a mailing list, properly
@@ -42,7 +48,7 @@ has to provision the infra. Often times they also have to fork the repo within
 the code forge before submitting a PR. Then they never make a contribution ever
 again and keep a forked repo around forever. That seems silly.
 
-# Introducing Patch Requests (PR)
+# introducing patch requests (PR)
 
 Instead, we want to create a self-hosted git "server" that can handle sending
 and receiving patches without the cumbersome nature of setting up email or the
@@ -132,7 +138,7 @@ OPTIONS:
    --help, -h  show help
 ```
 
-# Conclusion
+# conclusion
 
 We will be keeping everyone updated on our development and most importantly,
 when we can all start trying it.

@@ -5,26 +5,32 @@ date: 2023-12-31
 tags: [rfc]
 ---
 
+|                  |                      |
+| ---------------- | -------------------- |
+| **status**       | published            |
+| **last updated** | 2024-12-04           |
+| **site**         | https://pico.sh/plus |
+
 # mission statement
 
 We want to build tools and services that are useful for software development. We
 want to empower individual contributors to rapidly prototype and boost
-productivity.
+productivity. We want to enable homelabs with the ability to host public web
+services.
 
 # design goals
 
-- Primary directive is to be useful to ourselves
+- It's something we (team pico) need to use
 - Developer tools and services
 - Focus on individual and small developer teams
 - Enable developers to rapidly prototype
 - Ability to host small web services
-- Authentication with SSH
+- Leverage SSH
 
 # what it is not
 
 - Not a PaaS
 - Not designed for large organizations
-- Not going to provide 99.99% uptime
 
 # services
 
@@ -38,14 +44,14 @@ copying files to our SSH app.
 
 ## tunnels as a service
 
-Need to access `localhost` from `https`? Not only that, but we also use tunnels
-to allow you to connect to all your other containers.
+Get automatic TLS for web services hosted locally. This includes tcp,
+websockets, and http.
 
 # pricing
+
+$2/mo billed annually.
 
 We would like to keep pricing as simple as possible to reduce overhead. The
 current idea is we only offer a yearly subscription service. Ideally we would be
 able to charge somewhere around $20/yr, but that might change depending on how
-much compute we offer users. I think we could implement a tier pricing model but
-that is kind of a pain. It would be better if there was just one single plan
-that works for most users.
+much compute we offer users.

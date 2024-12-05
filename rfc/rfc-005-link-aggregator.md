@@ -5,6 +5,11 @@ date: 2024-01-20
 tags: [rfc]
 ---
 
+|                  |            |
+| ---------------- | ---------- |
+| **status**       | draft      |
+| **last updated** | 2024-12-04 |
+
 We want to create a link aggregator service that can only be accessible via SSH.
 Think hacker news but authentication and authorization happens via SSH.
 

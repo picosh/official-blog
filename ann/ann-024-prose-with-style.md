@@ -1,8 +1,10 @@
 ---
-title: rfc-7 prose with style
+title: prose with style
 description: Providing stability through radical experimentation 
 date: 2024-10-01
-tags: [rfc]
+tags: [ann]
+aliases:
+  - rfc-007-prose-with-style
 ---
 
 We just deployed a new feature for `prose` that we think is worth an

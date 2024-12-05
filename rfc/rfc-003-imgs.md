@@ -5,18 +5,24 @@ date: 2022-08-11
 tags: [rfc]
 ---
 
-The pico team has been thinking about a new image hosting service. We haven't
-written a single line of code yet but have spent time thinking about it. This
-document serves as our proposal not only for how the service ought to function,
-but also details about the technical implementation.
+|                  |                        |
+| ---------------- | ---------------------- |
+| **status**       | published              |
+| **last updated** | 2024-12-04             |
+| **site**         | https://pico.sh/images |
+
+We want to provide an image hosting service.
+
+This document serves as our proposal for how image hosting ought to function and
+details about the technical implementation.
 
 # images as a service
 
 It's an image hosting service. Users will be able to upload their images and it
-will be instantly publicly sharable, including hotlinking. Further we will
-support an image manipulation API which will be awesome for quick tweaks to
-width and height ratio, quality, rotation, etc. The intention is to store the
-images permanently until service is canceled.
+will be publicly sharable, including hotlinking. Further we will support an
+image manipulation API which will be awesome for quick tweaks to width and
+height ratio, quality, rotation, etc. The intention is to store the images
+permanently until service is canceled.
 
 Based on [previous research](https://blog.pico.sh/imgs-market-research), and in
 order to stay competitive with other image hosting services, we would need
@@ -78,25 +84,20 @@ review.
 
 # technical details
 
-I think we should build this to potentially support multi-region. But we would
-implement this service similarly to our other services. I think we will be able
-to leverage our CMS to handle most of the heavy lifting. Uploading an image
-would use `scp` and we would store the image inside the `posts` table.
+Uploading an image would use [file uploads](https://pico.sh/file-uploads) and we
+would store the image inside the `posts` table.
 
 Then we would build out a web api for retrieving the images.
 
-## third-party services interacting with imgs
-
-Since we have a monorepo setup, we could pretty easily just reach into the code
-for `imgs` inside `prose` and perform the necessary operations within `prose`.
+For image manipulation, we can use
+[imgproxy](https://github.com/imgproxy/imgproxy).
 
 ## where do we host the files?
 
-This is tricky. We could store the files to S3 or some other object storage, but
-the costs are pretty high. We could store the files directly on our VM FS, but
-we'd need to make sure we have enough space and it can scale. We decided to
-self-host a [minio](https://github.com/minio/minio) instance for our object
-storage service.
+We could store the files to S3 or some other object storage, but the costs are
+pretty high. We could store the files directly on our VM FS, but we'd need to
+make sure we have enough space and it can scale. We decided to self-host a
+[minio](https://github.com/minio/minio) instance for our object storage service.
 
 ## integration with pico services
 
@@ -104,71 +105,6 @@ The entire point of this service is to enhance our pico services with image
 hosting capabilities, so it's critical we figure out the ergonomics of
 integration this service with pico.
 
-Ideally, the user would be able to upload images on `prose` and we would reach
-out to the `imgs` service to store them. Once the image has been uploaded to
-`imgs` any reference to the image would be swapped at runtime inside `prose`.
-
-Let me demonstrate an example workflow inside a `prose` blog:
-
-User's blog folder at `~/blog`:
-
-```bash
-blog/
-  trip-to-paris.jpg # image to upload to imgs
-  tour-to-paris.md  # blog post that contains reference to image
-```
-
-Inside `tour-to-paris.md` we would have something like:
-
-```md
----
-title: My trip to paris!
----
-
-My trip was great! Here is a pic from my trip
-
-![](/trip-to-paris.jpg)
-
-It's a tourist trap but we couldn't resist checking it out.
-```
-
-Once the content is written, the user would upload all files to `prose`:
-
-```bash
-scp ~/blog/*.md ~/blog/*.jpg erock@prose.sh:
-```
-
-Now when a blog post is requested, we do a few things:
-
-- Find the markdown post
-- Scan for relative image urls
-- Replace the URL with `imgs.sh` url
-- Convert markdown to HTML
-
-Before:
-
-```md
----
-title: My trip to paris!
----
-
-My trip was great! Here is a pic from my trip
-
-![](/trip-to-paris.jpg)
-
-It's a tourist trap but we couldn't resist checking it out.
-```
-
-After:
-
-```md
----
-title: My trip to paris!
----
-
-My trip was great! Here is a pic from my trip
-
-![](https://erock.imgs.sh/trip-to-paris.jpg)
-
-It's a tourist trap but we couldn't resist checking it out.
-```
+So when you upload an image to [prose](https://prose.sh) or
+[pages](https://pgs.sh), we use the same functionality for storing and
+manipulating images.
