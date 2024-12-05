@@ -1,5 +1,5 @@
 ---
-title: rfc-2 feeds.sh
+title: rfc-2 rss-to-email service 
 description: An RSS service
 date: 2022-08-10
 tags: [rfc]
@@ -10,10 +10,6 @@ write, easy to consume, and provide users with choice on how to view their
 feeds.
 
 I think an RSS service using an SSH app could be useful.
-
-# market research
-
-Here are some other RSS readers in the market: https://hey.lists.sh/rss-readers
 
 # features
 
@@ -49,15 +45,11 @@ cases. Creating a proxy service might be necessary in that case.
 
 # how it works
 
-A user would `scp`:
+A user would `scp` a file containing a lists of rss feeds
 
-- an `opml` file
-- a file containing a lists of rss feeds
-- or `echo "<feed>" | ssh reads.sh`
-
-It doesn't matter how many opml or feed files the user uploads, we would dedupe
-them when figuring out how to fetch their feeds. Because an RSS feed can contain
-a bunch of metadata about a feed, we should capture as much of that as possible
+It doesn't matter how many feed files the user uploads, we would dedupe them
+when figuring out how to fetch their feeds. Because an RSS feed can contain a
+bunch of metadata about a feed, we should capture as much of that as possible
 inside the `posts` table. The downside is we use `posts` for a lot of our
 services (e.g. lists, prose, and pastes) so we want to be careful not to
 overload this table. Having said that, I think an rss feed fits into the post
@@ -76,7 +68,6 @@ What would trigger us fetching feeds?:
 
 - Maybe we just use a cron?
 - Prior to sending out daily email digest
-- When the user requests to view the feed on our web site
 
 Fetching feeds can be a little tricky since some feeds do not provide the html
 inside their atom entry. Instead they provide a link for users to click on to
@@ -84,13 +75,14 @@ navigate to their site. This kind of defeats the purpose of using RSS so we
 could just render the link and force users to open their browser. Or we fetch
 the link provided in the atom entry and store the html in our database. This
 would probably provide a better user experience but it opens us open to a slew
-of edge cases and weird behavior.
+of edge cases and weird behavior. For now, we are simply showing what we can in
+the email and the rest are links to external sites.
 
 ## email digest
 
 I also think that if we do send out a daily digest, we add a button in the email
-that they need to click within 30 days or else we disable sending them an email.
-They click the button in the email -> we delay shutdown for 30 days.
+that they need to click within 6 months or else we disable sending them an
+email. They click the button in the email -> we delay disabling it for 6 months.
 
 ## tracking feed entries
 
@@ -124,48 +116,3 @@ CREATE TABLE IF NOT EXISTS feed_entry (
   ON UPDATE CASCADE
 );
 ```
-
-## queue system
-
-We will probably also want a queuing system. I figured we could just build one
-that fits our purposes inside our database.
-
-```sql
-CREATE TYPE JOB_STATUS AS ENUM ('in_progress', 'success', 'fail');
-CREATE TYPE JOB_TYPE AS ENUM ('fetch_feed');
-
-CREATE TABLE IF NOT EXISTS app_queue(
-  id          uuid NOT NILL DEFAULT uuid_generate_v4(),
-  post_id     uuid NOT NULL,
-  status      JOB_STATUS,
-  type        JOB_TYPE,
-  input       jsonb # params needed to execute job
-  output      jsonb # result of job
-  created_at  timestamp without time zone NOT NULL DEFAULT NOW(),
-  CONSTRAINT  queue_pkey PRIMARY KEY (id),
-  CONSTRAINT  fk_queue_posts
-    FOREIGN KEY(post_id)
-  REFERENCES posts(id)
-  ON DELETE CASCADE
-  ON UPDATE CASCADE
-);
-```
-
-# metadata
-
-I haven't figured out a great way for users to add metadata to their feeds. For
-example, if they want to add tags to a feed so they could view a collection of
-feeds in one list. We could do it within the CMS but I feel like it would be
-better if there were a file format that could do that for us. the `opml` format
-seems like a good candidate.
-
-I like the idea of storing the results in the database, but I could also see an
-argument for using something more ephemeral like redis.
-
-# risks
-
-- RSS readers have been done before
-- Syncing feeds can be costly in terms of compute resources
-- Following atom entry links to the webpage puts us in the scraping category
-  which opens us up to stability issues (e.g. some sites deny scrapers)
-- Web view might run into content security policy issues

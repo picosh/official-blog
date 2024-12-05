@@ -1,6 +1,6 @@
 ---
-title: rfc-7 prose remove styles
-description: Remove the default styles on prose for better customization
+title: rfc-7 prose with style
+description: Providing stability through radical experimentation 
 date: 2024-10-01
 tags: [rfc]
 ---
@@ -13,12 +13,13 @@ issue. However for `prose`, things are a little different when it comes to the
 look and feel of a person's blog. We don't want to make dramatic changes to our
 theme over time without being careful.
 
-As a result, we are giving users an escape hatch to define the look and feel of
-their blog's styles.
+We need to have a paradigm shift with our services and `prose` is a great
+vehicle to discuss stability through our radical experimentation.
 
-[`with_styles`](https://pico.sh/prose#with-styles) allows users to disable our
-default CSS styles entirely. That along with the user-defined `_styles.css`, it
-should make it easier to customize your blog.
+For `prose`, we are giving users a way to define the look of their blog without
+the default CSS. [`with_styles`](https://pico.sh/prose#with-styles) allows users
+to disable our default CSS styles entirely. That along with the user-defined
+`_styles.css`, it should make it easier to customize your blog.
 
 Just send us a `_readme.md` file with the following setting:
 
@@ -39,3 +40,7 @@ version of our styles:
 curl -o ./_styles.css https://prose.sh/smol.css
 scp ./_styles.css prose.sh:/
 ```
+
+This post is not exclusive to `prose`. We need to make our design philosophy
+aligned with radical experimentation. We need to provide users with stability
+and consistency while also making dramatic changes to them.
