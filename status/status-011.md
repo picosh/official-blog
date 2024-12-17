@@ -13,7 +13,7 @@ Some quick stats:
 
 - 362 pages sites
 - 100 pico+ subscriptions
-- 72 tunnel sites
+- 72 tuns sites
 - ~50 monthly active prose posts
 - ~20 monthly active pages sites
 - ~10 monthly active tuns sites

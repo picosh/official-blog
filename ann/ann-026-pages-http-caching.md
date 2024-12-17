@@ -75,3 +75,5 @@ That's it!
 [^4]: https://datatracker.ietf.org/doc/html/rfc7234
 
 [^5]: https://github.com/darkweak/souin
+
+[^6]: https://pipe.pico.sh
