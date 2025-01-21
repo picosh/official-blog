@@ -1,5 +1,5 @@
 ---
-title: rfc-6 patch requests 
+title: rfc-6 patch requests
 description: The simplest git collaboration tool
 date: 2024-05-11
 tags: [rfc]

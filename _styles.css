@@ -63,9 +63,22 @@ html {
   color: var(--text-color);
   font-size: 16px;
   line-height: var(--line-height);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
   -webkit-text-size-adjust: 100%;
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -662,11 +675,11 @@ h1 code, h2 code, h3 code, h4 code {
 .logo-header {
   line-height: 1;
   display: inline-block;
-  background-color: #FF79C6;
-  background-image: linear-gradient(to right, #FF5555, #FF79C6, #F8F859);
+  background-color: #ff79c6;
+  background-image: linear-gradient(to right, #ff5555, #ff79c6, #f8f859);
   color: transparent;
   background-clip: text;
-  border: 3px solid #FF79C6;
+  border: 3px solid #ff79c6;
   padding: 8px 10px 10px 10px;
   border-radius: 10px;
   background-size: 100%;

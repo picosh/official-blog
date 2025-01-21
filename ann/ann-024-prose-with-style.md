@@ -1,6 +1,6 @@
 ---
 title: prose with style
-description: Providing stability through radical experimentation 
+description: Providing stability through radical experimentation
 date: 2024-10-01
 tags: [ann]
 aliases:

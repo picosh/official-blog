@@ -1,5 +1,5 @@
 ---
-title: tag support 
+title: tag support
 description: writers can now tag posts for prose and lists
 date: 2022-08-02
 tags: [ann]

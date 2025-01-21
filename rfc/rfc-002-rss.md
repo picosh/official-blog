@@ -1,5 +1,5 @@
 ---
-title: rfc-2 rss-to-email service 
+title: rfc-2 rss-to-email service
 description: An RSS service
 date: 2022-08-10
 tags: [rfc]
