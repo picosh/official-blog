@@ -8,7 +8,7 @@ tags: [rfc]
 |                  |                 |
 | ---------------- | --------------- |
 | **status**       | published       |
-| **last updated** | 2025-02-19      |
+| **last updated** | 2025-03-08      |
 | **site**         | https://pico.sh |
 
 We want to create and maintain services that we love to use. We also want to
@@ -36,6 +36,6 @@ the ground: come join us.
 
 Our primary directive is to build tools and services that we **need** to use.
 
-With deep introspection, a curiosity for new ideas, radical experimentation, and
-a passion for code, we are building something greater than what is available
-today.
+With deep introspection, a curiosity for new ideas, a passion for code, and
+radical experimentation, we are building tools to accelerate developer
+productivity.
