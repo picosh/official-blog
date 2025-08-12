@@ -22,7 +22,7 @@ All you have to do is create a file `_styles.css` and `scp` it to prose.
 scp _styles.css <username>@prose.sh:/
 ```
 
-See [this help section](https://prose.sh/help#blog-style) for the full details.
+See [this help section](https://pico.sh/prose#-stylescss) for the full details.
 
 We're excited to see what kind of themes we see in the wild so please feel free
 to share it with us at [#pico.sh on libera](https://web.libera.chat/#pico.sh) or
