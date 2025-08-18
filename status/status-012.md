@@ -6,8 +6,8 @@ tags: [status]
 
 It's been awhile.
 
-We recently received a huge influx of users because of a recent advertising push
-that resulted in us hitting the front page of hackernews.
+We recently received a huge influx of users because of an advertising push that
+resulted in us hitting the front page of hackernews.
 
 We put $25 into reddit ads which resulted in:
 
@@ -15,7 +15,7 @@ We put $25 into reddit ads which resulted in:
 - 940 new users
 - 170 sites
 - 227 blog posts
-- 84 pico+ signups
+- 90 pico+ signups
 
 If only we could continue to put that much into ads and get the same result.
 
@@ -25,7 +25,7 @@ we are making but will create a separate post to talk about that.
 
 We received a bunch of feedback, mostly positive, and had a blast monitoring our
 services, responding to questions, and shepherding user engagement on pico. It
-was totally unexpected and highly motivating for me and Antonio.
+was totally unexpected and highly motivating for us.
 
 We wanted to take this opportunity to continue the dialog about our platform and
 where we see it going into the future.
@@ -39,10 +39,9 @@ settle into an idle state before end-of-year. To us, this is an indication that
 we haven't hit **product market fit** for what we are trying to build; we
 haven't quite figured out exactly what our users **need** from our platform.
 They signup, use our services for a couple of months, then churn. This is where
-we need to be [radical](/rfc-001-radical-experimentation). Antonio and I also
-feel like "ssh services" is quite niche and even within the dev community not
-everyone is interested or comfortable living inside the terminal. Maybe that's
-good enough?
+we need to be [radical](/rfc-001-radical-experimentation). We also feel like an
+"ssh service" is quite niche and even within the dev community not everyone is
+interested or comfortable living inside the terminal. Maybe that's good enough?
 
 So the fork: do we stop building pico and instead build something using it?
 Maybe something not so niche, maybe a more broad product or service that could
