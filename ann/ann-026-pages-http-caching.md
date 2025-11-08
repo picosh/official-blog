@@ -67,13 +67,8 @@ echo 'erock-neovimcraft' | ssh pipe.pico.sh pub cache-drain
 That's it!
 
 [^1]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
-
 [^2]: https://pgs.sh
-
 [^3]: https://www.macchaffee.com/
-
 [^4]: https://datatracker.ietf.org/doc/html/rfc7234
-
 [^5]: https://github.com/darkweak/souin
-
 [^6]: https://pipe.pico.sh

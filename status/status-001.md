@@ -53,8 +53,6 @@ git server and we would handle the rest of the infrastructure and maintenance.
 
 If you are interested in this idea please write to us!
 
-[^1]: https://github.com/antoniomika/pcompose
-
 # our commitment
 
 I wanted to also reinforce that we plan on maintaining these services for the
@@ -65,3 +63,5 @@ What this means is are on top of keeping these services running as long as
 possible.
 
 That's it for now, thanks!
+
+[^1]: https://github.com/antoniomika/pcompose

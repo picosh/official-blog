@@ -66,9 +66,6 @@ echo '{"host":"pico.sh", "path":"/tuns"}' | ssh pipe.pico.sh pub metric-drain
 That's it!
 
 [^1]: https://pico.sh/analytics
-
 [^2]: https://pgs.sh
-
 [^3]: https://prose.sh
-
 [^4]: https://pipe.pico.sh

@@ -10,7 +10,7 @@ aliases:
 |                  |                 |
 | ---------------- | --------------- |
 | **status**       | draft           |
-| **last updated** | 2025-04-27      |
+| **last updated** | 2025-11-07      |
 | **site**         | https://pico.sh |
 
 # Access control
@@ -32,9 +32,9 @@ they want.
 
 Workflow:
 
-- Admin signs up for the "pro" plan
+- Admin signs up for pico+
 - Admin runs `ssh pico.sh keygen -i bob -n tuns.sh,pgs.sh -V +52w` to generate a
-  key on behalf of a user
+  key on behalf of a user that lasts for 1 year (52 weeks)
 - Admin shares key with user
 - User has access to pico services
 
@@ -66,28 +66,6 @@ ssh pico.sh keygen export
 # generates a new ca cert and revokes all generated keys
 ssh pico.sh keygen rotate
 ```
-
-# Payment model
-
-Because admins can generate as many certs as they want and we want to encourage
-that for security purposes, we will not monetize on a per user basis. To us that
-sets up a counter-productive limitation that negatively impacts the user
-experience.
-
-Instead, we are going to make it a fixed rate per year. Just like `pico+` we are
-going to require a minimum one year when purchasing a membership. And because we
-see SSH certificates as a "pro" or "team" plan, we are going to ask for:
-
-- $10/mo
-
-When we start seeing larger teams or the number of support requests dramatically
-increases then we reserve the right to re-evaluate on the next yearly payment
-cycle.
-
-# Upgrading from `pico+`
-
-We will support the ability for a user to upgrade their plan. Initially, this
-will be by contacting us.
 
 # Teams
 

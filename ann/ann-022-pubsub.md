@@ -1,5 +1,5 @@
 ---
-title: "pipe: our pubsub ssh service"
+title: 'pipe: our pubsub ssh service'
 description: Authenticated *nix pipes over ssh
 date: 2024-10-06
 tags: [ann]
