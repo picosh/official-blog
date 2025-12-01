@@ -7,13 +7,11 @@ tags: [ann]
 
 It's been a pretty exciting week for us at the pico.sh headquarters.
 
-We made it to the front-page of
-[hackernews](https://news.ycombinator.com/item?id=32128013)!
+We made it to the front-page of [hackernews](https://news.ycombinator.com/item?id=32128013)!
 
 ![front-page of hacker news](https://pbs.twimg.com/media/FX9masGXoAAbbuA?format=jpg&name=small "front-page of hackernews")
 
-We were so excited about the launched that we announced in the thread support
-for custom domains landed.
+We were so excited about the launched that we announced in the thread support for custom domains landed.
 
 We figured it would be a good idea to officially announce it on our blog.
 
@@ -21,18 +19,13 @@ We figured it would be a good idea to officially announce it on our blog.
 
 Don't want to be bored with the details of how custom domains work?
 
-The full usage guide can be found on our
-[help page](https://prose.sh/help#custom-domain).
+The full usage guide can be found on our [help page](https://prose.sh/help#custom-domain).
 
 ## How it works
 
-We decided to go with a solution that didn't require us to store any information
-about the custom domain you want to use. Instead, all the user needs to do is
-add a `TXT` record and then point the domain with a `CNAME` to `prose.sh`.
+We decided to go with a solution that didn't require us to store any information about the custom domain you want to use. Instead, all the user needs to do is add a `TXT` record and then point the domain with a `CNAME` to `prose.sh`.
 
-Under the hood we use
-[Caddy's on-demand tls](https://caddyserver.com/docs/automatic-https#on-demand-tls).
-On our end, the configuration was very simple using `Caddyfile`:
+Under the hood we use [Caddy's on-demand tls](https://caddyserver.com/docs/automatic-https#on-demand-tls). On our end, the configuration was very simple using `Caddyfile`:
 
 ```
 {
@@ -79,8 +72,7 @@ func checkHandler(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-This function does a couple of things. It gets the current domain from the
-request and then performs a `TXT` lookup via `GetCustomDomain`:
+This function does a couple of things. It gets the current domain from the request and then performs a `TXT` lookup via `GetCustomDomain`:
 
 ```go
 func GetCustomDomain(host string) string {
@@ -97,14 +89,10 @@ func GetCustomDomain(host string) string {
 }
 ```
 
-If the username matches then we respond with a success status. That's really all
-there is to it.
+If the username matches then we respond with a success status. That's really all there is to it.
 
 It's amazing how far we've come with TLS, isn't it?
 
 ## Wrap up
 
-This is just one of many features we have planned to make prose.sh awesome. We
-also have a handful of
-[sibling services](https://todo.sr.ht/~erock/pico.sh?search=status%3Aopen%20label%3A%22service%22)
-we are thinking about building.
+This is just one of many features we have planned to make prose.sh awesome. We also have a handful of [sibling services](https://todo.sr.ht/~erock/pico.sh?search=status%3Aopen%20label%3A%22service%22) we are thinking about building.

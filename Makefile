@@ -3,5 +3,5 @@ upload:
 .PHONY: upload
 
 fmt:
-	uvx --with=mdformat-gfm --with=mdformat-frontmatter mdformat **/*.md
+	uvx --with=mdformat-gfm --with=mdformat-frontmatter mdformat --wrap=no **/*.md
 .PHONY: fmt

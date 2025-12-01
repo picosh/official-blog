@@ -5,18 +5,13 @@ date: 2024-01-20
 tags: [ann]
 ---
 
-We are shutting down **lists.sh**. We want to build and maintain services we
-ourselves use. As we have been thinking about lists over the year we have found
-ourselves rarely using the service.
+We are shutting down **lists.sh**. We want to build and maintain services we ourselves use. As we have been thinking about lists over the year we have found ourselves rarely using the service.
 
-We are also seeing really low usage rates and ultimately we feel like it's time
-to shut it down.
+We are also seeing really low usage rates and ultimately we feel like it's time to shut it down.
 
 # Roadmap
 
-Lists will be read-only effective immediately. Users will still be able to
-download their lists using any of our
-[supported tools for downloading files](https://pico.sh/file-uploads).
+Lists will be read-only effective immediately. Users will still be able to download their lists using any of our [supported tools for downloading files](https://pico.sh/file-uploads).
 
 ```bash
 sftp <user>@lists.sh

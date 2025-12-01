@@ -5,14 +5,9 @@ date: 2024-03-07
 tags: [ann]
 ---
 
-Hey everyone. We wanted to let everyone know that we just changed the IP
-addresses for our services, so if you have a custom domain and a DNS that
-**doesnt** support CNAME flatening, you will probably need to update your
-`A records`.
+Hey everyone. We wanted to let everyone know that we just changed the IP addresses for our services, so if you have a custom domain and a DNS that **doesnt** support CNAME flatening, you will probably need to update your `A records`.
 
-Sorry for this inconvienence, but we are making some changes to our
-infrastrcture, which included getting reserved IP addresses. So as an added
-benefit our IPs should not change as much going forward.
+Sorry for this inconvienence, but we are making some changes to our infrastrcture, which included getting reserved IP addresses. So as an added benefit our IPs should not change as much going forward.
 
 # New IPv4s
 

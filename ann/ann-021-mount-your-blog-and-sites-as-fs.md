@@ -5,12 +5,9 @@ date: 2024-06-16
 tags: [ann]
 ---
 
-We are excited to announce our official support for
-[sshfs](https://github.com/libfuse/sshfs).
+We are excited to announce our official support for [sshfs](https://github.com/libfuse/sshfs).
 
-`sshfs` will allow users to mount their blog and sites like any other drive. So
-you'll be able to view, edit, create, remove, and move folders and files like a
-normal filesystem!
+`sshfs` will allow users to mount their blog and sites like any other drive. So you'll be able to view, edit, create, remove, and move folders and files like a normal filesystem!
 
 Some use cases we think are impactful:
 
@@ -66,9 +63,6 @@ nvim tmpl/base.html
 # changes are published live!
 ```
 
-So what's the downside? Well it's a little slower than a hard drive on your
-machine. We are still experimenting with the technology so quirks or bugs might
-come up. We would love to get your feedback.
+So what's the downside? Well it's a little slower than a hard drive on your machine. We are still experimenting with the technology so quirks or bugs might come up. We would love to get your feedback.
 
-We will be updating our docs to include `sshfs` as an option for managing your
-blog and sites.
+We will be updating our docs to include `sshfs` as an option for managing your blog and sites.

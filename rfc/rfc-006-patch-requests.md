@@ -11,66 +11,31 @@ tags: [rfc]
 | **last updated** | 2024-12-04         |
 | **site**         | https://pr.pico.sh |
 
-We are trying to build the simplest git collaboration tool. The goal is to make
-self-hosting a git server as simple as running an SSH server and hosting static
-web assets -- all without sacrificing external collaborators.
+We are trying to build the simplest git collaboration tool. The goal is to make self-hosting a git server as simple as running an SSH server and hosting static web assets -- all without sacrificing external collaborators.
 
 > `git format-patch` isn't the problem and pull requests aren't the solution.
 
-We are combining mailing list and pull request workflows. In order to build the
-simplest collaboration tool, we needed something as simple as generating patches
-but the ease-of-use of pull requests.
+We are combining mailing list and pull request workflows. In order to build the simplest collaboration tool, we needed something as simple as generating patches but the ease-of-use of pull requests.
 
 # the problem
 
-Email is great as a decentralized system to send and receive changes (patchsets)
-to a git repo. However, onboarding a new user to a mailing list, properly
-setting up their email client, and then finally submitting the code contribution
-is enough to make many developers give up. Further, because we are leveraging
-the email protocol for collaboration, we are limited by its feature-set. For
-example, it is not possible to make edits to emails, everyone has a different
-client, those clients have different limitations around plain text email and
-downloading patches from it.
+Email is great as a decentralized system to send and receive changes (patchsets) to a git repo. However, onboarding a new user to a mailing list, properly setting up their email client, and then finally submitting the code contribution is enough to make many developers give up. Further, because we are leveraging the email protocol for collaboration, we are limited by its feature-set. For example, it is not possible to make edits to emails, everyone has a different client, those clients have different limitations around plain text email and downloading patches from it.
 
-Github pull requests are easy to use, easy to edit, and easy to manage. The
-downside is it forces the user to be inside their website to perform reviews.
-For quick changes, this is great, but when you start reading code within a web
-browser, there are quite a few downsides. At a certain point, it makes more
-sense to review code inside your local development environment, IDE, etc.
+Github pull requests are easy to use, easy to edit, and easy to manage. The downside is it forces the user to be inside their website to perform reviews. For quick changes, this is great, but when you start reading code within a web browser, there are quite a few downsides. At a certain point, it makes more sense to review code inside your local development environment, IDE, etc.
 
-Further, self-hosted solutions that mimic a pull request require a lot of
-infrastructure in order to manage it. A database, a web site connected to git,
-admin management, and services to manage it all. Another big point of friction:
-before an external user submits a code change, they first need to create an
-account and then login. This adds quite a bit of friction for a self-hosted
-solution, not only for an external contributor, but also for the code owner who
-has to provision the infra. Often times they also have to fork the repo within
-the code forge before submitting a PR. Then they never make a contribution ever
-again and keep a forked repo around forever. That seems silly.
+Further, self-hosted solutions that mimic a pull request require a lot of infrastructure in order to manage it. A database, a web site connected to git, admin management, and services to manage it all. Another big point of friction: before an external user submits a code change, they first need to create an account and then login. This adds quite a bit of friction for a self-hosted solution, not only for an external contributor, but also for the code owner who has to provision the infra. Often times they also have to fork the repo within the code forge before submitting a PR. Then they never make a contribution ever again and keep a forked repo around forever. That seems silly.
 
 # introducing patch requests (PR)
 
-Instead, we want to create a self-hosted git "server" that can handle sending
-and receiving patches without the cumbersome nature of setting up email or the
-limitations imposed by the email protocol. Further, we want the primary workflow
-to surround the local development environment. Github is bringing the IDE to the
-browser in order to support their workflow, we want to bring the workflow to the
-local dev environment.
+Instead, we want to create a self-hosted git "server" that can handle sending and receiving patches without the cumbersome nature of setting up email or the limitations imposed by the email protocol. Further, we want the primary workflow to surround the local development environment. Github is bringing the IDE to the browser in order to support their workflow, we want to bring the workflow to the local dev environment.
 
-We see this as a hybrid between the github workflow of a pull request and
-sending and receiving patches over email.
+We see this as a hybrid between the github workflow of a pull request and sending and receiving patches over email.
 
-The basic idea is to leverage an SSH app to handle most of the interaction
-between contributor and owner of a project. Everything can be done completely
-within the terminal, in a way that is ergonomic and fully featured.
+The basic idea is to leverage an SSH app to handle most of the interaction between contributor and owner of a project. Everything can be done completely within the terminal, in a way that is ergonomic and fully featured.
 
-Notifications would happen with RSS and all state mutations would result in the
-generation of static web assets so it can all be hosted using a simple file web
-server.
+Notifications would happen with RSS and all state mutations would result in the generation of static web assets so it can all be hosted using a simple file web server.
 
-We will be recording a video showcasing the workflow of submitting, reviewing,
-and accepting a code change. But until that is done, you can see some print outs
-of our fully functional prototype.
+We will be recording a video showcasing the workflow of submitting, reviewing, and accepting a code change. But until that is done, you can see some print outs of our fully functional prototype.
 
 Here's the main help command:
 
@@ -140,5 +105,4 @@ OPTIONS:
 
 # conclusion
 
-We will be keeping everyone updated on our development and most importantly,
-when we can all start trying it.
+We will be keeping everyone updated on our development and most importantly, when we can all start trying it.

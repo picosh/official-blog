@@ -11,16 +11,9 @@ tags: [rfc]
 | **last updated** | 2024-12-04            |
 | **site**         | https://pico.sh/feeds |
 
-RSS/Atom is a great companion in the smol web. It's relatively standard, easy to
-write, easy to consume, and provide users with choice on how to view their
-feeds.
+RSS/Atom is a great companion in the smol web. It's relatively standard, easy to write, easy to consume, and provide users with choice on how to view their feeds.
 
-We think an RSS service using an SSH app could be useful to the pico.sh
-platform. We like the idea of our notification system be completely opt-in,
-including for [pico+](/rfc-004-pico-plus) users. We can also build internal
-tooling around RSS. For example, we can monitor all
-[new sites on pages](https://pgs.sh/rss). Further this can be just as useful to
-feeds outside of pico.
+We think an RSS service using an SSH app could be useful to the pico.sh platform. We like the idea of our notification system be completely opt-in, including for [pico+](/rfc-004-pico-plus) users. We can also build internal tooling around RSS. For example, we can monitor all [new sites on pages](https://pgs.sh/rss). Further this can be just as useful to feeds outside of pico.
 
 This service can be run with three small go services:
 
@@ -40,29 +33,21 @@ This service can be run with three small go services:
 
 A user would copy a file containing a lists of rss feeds.
 
-It doesn't matter how many feed files the user uploads. Because an RSS feed can
-contain a bunch of metadata about a feed, we should capture as much of that as
-possible when presenting it to the user.
+It doesn't matter how many feed files the user uploads. Because an RSS feed can contain a bunch of metadata about a feed, we should capture as much of that as possible when presenting it to the user.
 
 ## fetching
 
-We want to be smart about how we fetch feeds because it could be resource
-intensive if the service gets big enough.
+We want to be smart about how we fetch feeds because it could be resource intensive if the service gets big enough.
 
-For now, we are simply showing what we can in the email and the rest are links
-to the originating sites.
+For now, we are simply showing what we can in the email and the rest are links to the originating sites.
 
 ## email digest
 
-I also think that if we do send out a daily digest, we add a button in the email
-that they need to click within 6 months or else we disable sending them an
-email. They click the button in the email and then we delay disabling it for 6
-months.
+I also think that if we do send out a daily digest, we add a button in the email that they need to click within 6 months or else we disable sending them an email. They click the button in the email and then we delay disabling it for 6 months.
 
 ## tracking feed entries
 
-We would probably create a separate table for the feed results in order to
-optimize storing an retrieval.
+We would probably create a separate table for the feed results in order to optimize storing an retrieval.
 
 ```sql
 CREATE TABLE IF NOT EXISTS feed_entry (
@@ -94,5 +79,4 @@ CREATE TABLE IF NOT EXISTS feed_entry (
 
 # conclusion
 
-RSS is a standard way to notify users of new content on a site and we see it as
-critical to the function of pico.sh.
+RSS is a standard way to notify users of new content on a site and we see it as critical to the function of pico.sh.
