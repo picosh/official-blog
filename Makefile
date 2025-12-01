@@ -3,5 +3,5 @@ upload:
 .PHONY: upload
 
 fmt:
-	deno fmt
+	uvx --with=mdformat-gfm --with=mdformat-frontmatter mdformat **/*.md
 .PHONY: fmt

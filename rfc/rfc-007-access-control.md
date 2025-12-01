@@ -15,8 +15,7 @@ aliases:
 
 # Access control
 
-If we want to be able to facilitate teams then we need a way for administrators
-to control access. We also need a way to audit access.
+We want to enable users to have more fine-grained control over what pubkeys have access to what pico services.
 
 We accomplish access control using
 [SSH certificates](https://goteleport.com/blog/how-to-configure-ssh-certificate-based-authentication/).
@@ -25,50 +24,40 @@ access. When an admin generates a key for a teammate, a limited-access machine,
 or a robot user, they can specify which services they have access to within the
 `principals` field.
 
-The certificate authority that will generate ssh keys will be created
-automatically. We could allow users to upload their own CA but this feels like a
-quality-of-life improvement. We allow the user to export their keys whenever
-they want.
-
 Workflow:
 
-- Admin signs up for pico+
-- Admin runs `ssh pico.sh keygen -i bob -n tuns.sh,pgs.sh -V +52w` to generate a
+- Admin runs `ssh-keygen -i bob -n tuns.sh,pgs.sh -V +52w` to generate a
   key on behalf of a user that lasts for 1 year (52 weeks)
 - Admin shares key with user
-- User has access to pico services
+- User has access to the pico services specified in the principals list
 
 if a user has `pico.sh` in their `principals` then they have access to the TUI,
 but not the ability to generate keys or modify public keys.
 
-Only an `admin` in `principals` has full access to the pico account.
+Only an `admin` in `principals` has full access to pico account management.
 
 Principals:
 
 - `admin`
-- `pico.sh`
-- `pgs.sh`
-- `tuns.sh`
-- `pipe.pico.sh`
-- `feeds.pico.sh`
-- `prose.sh`
-- `pastes.sh`
+- `pico`
+- `pgs`
+- `tuns`
+- `pipe`
+- `feeds`
+- `prose`
+- `pastes`
 
-Other commands:
+# Revocation
 
-```bash
-# list keys
-ssh pico.sh keygen ls
-# remove access
-ssh pico.sh keygen revoke -i bob
-# export ca keys
-ssh pico.sh keygen export
-# generates a new ca cert and revokes all generated keys
-ssh pico.sh keygen rotate
-```
+We will provide the admin with the ability to revoke public key access to their account services.  Admins will be able to control revocations in the TUI.
 
-# Teams
+# Team Accounts
 
-As mentioned in this RFC, this would provide official support for team accounts.
+With this feature it could theoretically support teams to use pico.  An admin can generate keys and send them to users so they can perform actions on behalf of the account.
+
 There are no limits on number of users or restrictions on usage at this point in
 time.
+
+This will **not** change the behavior of the subdomains we create.  They will still exist under the primary user name.
+
+The `-i` identity flag will be sent throughout our logs so users can see what pubkey performed an action.
