@@ -10,7 +10,7 @@ aliases:
 |                  |                 |
 | ---------------- | --------------- |
 | **status**       | draft           |
-| **last updated** | 2025-11-07      |
+| **last updated** | 2025-11-30      |
 | **site**         | https://pico.sh |
 
 # Access control
@@ -19,13 +19,33 @@ We want to enable users to have more fine-grained control over what pubkeys have
 
 We accomplish access control using [SSH certificates](https://goteleport.com/blog/how-to-configure-ssh-certificate-based-authentication/). In particular, there's a `principals` field that we can leverage for role-based access. When an admin generates a key for a teammate, a limited-access machine, or a robot user, they can specify which services they have access to within the `principals` field.
 
-Workflow:
+# Workflow
 
-- Admin runs `ssh-keygen -i bob -n tuns.sh,pgs.sh -V +52w` to generate a key on behalf of a user that lasts for 1 year (52 weeks)
-- Admin shares key with user
-- User has access to the pico services specified in the principals list
+The owner of the pico account **must** generate and manage their own ssh certificate.  We will never have access to the private key.
 
-if a user has `pico.sh` in their `principals` then they have access to the TUI, but not the ability to generate keys or modify public keys.
+```bash
+# admin creates ssh ca keypair (or uses one they already have)
+ssh-keygen -t ed25519 -f ./ca_user_ed25519 -C "pico-ca"
+
+# alice generates a normal ssh keypair (or uses one they already have)
+# alice sends pubkey to admin
+ssh-keygen -t ed25519 -f alice -C "alice@example.com"
+
+# admin signs alice pubkey with admin ca private key to produce the user certificate
+# this generates a new cert-signed pubkey: `alice-cert.pub`
+ssh-keygen -s ./ca_user_ed25519 \
+           -I "alice@$(date +%F)" \
+           -n tuns,pgs \ # this grants alice access to those services
+           -V +52w \
+           alice.pub
+
+# admin sends alice-cert.pub to alice and then they can use their keypair
+# note: you don't normally need to provide the `-o CertificateFile=` since ssh will find it automatically
+# but we wanted to include for completeness
+rsync -e "ssh -i ./alice -o CertificateFile=./alice-cert.pub" -rv ./public/ pgs:/site/
+```
+
+If a user has `pico` in their `principals` then they have access to the TUI, but not the ability to generate keys or modify public keys.
 
 Only an `admin` in `principals` has full access to pico account management.
 
@@ -52,4 +72,4 @@ There are no limits on number of users or restrictions on usage at this point in
 
 This will **not** change the behavior of the subdomains we create. They will still exist under the primary user name.
 
-The `-i` identity flag will be sent throughout our logs so users can see what pubkey performed an action.
+The value for `-I` flag will be sent throughout our logs so admins can see what "user" performed an action.
