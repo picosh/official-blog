@@ -5,10 +5,9 @@ date: 2024-01-20
 tags: [rfc]
 ---
 
-|                  |            |
-| ---------------- | ---------- |
-| **status**       | draft      |
-| **last updated** | 2025-02-12 |
+|            |       |
+| ---------- | ----- |
+| **status** | draft |
 
 The link aggregator service has a rich history in the tech world. They are a great source for community building and for some of us, the primary place where we consume world news. When you want to read authentic experiences with products, services, tourism, restaurants, etc., how many of us add a "reddit" suffix to our searches in order to get the best results?
 

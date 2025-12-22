@@ -1,0 +1,29 @@
+=: title status-15
+=: 2026-03-29
+=: tags status
+
+Hey all,
+
+It's time for another status update.  We made a previous post about all the pgs features we added this month so I won't talk about that again.
+
+First, let's talk maintenance of our services.  Recently we have been having issues with our TLS cert renewals for user domains.  At first we thought it was related to recent issues with the cloudflare dns we use for txt lookups.  However, as we investigated further we realized that there was a regression in our code from a recent refactor that prevented our reverse proxy to properly hit our dns check handler.  Basically, the Host header was incorrectly set so all domain validation checks were failing.  Once we discovered the issue we quickly patched the service and now certs are renewing again.
+
+Second, I wanted to talk briefly about our region expansion.  We are planning to provision another vm inside of the oceanic region (singapore?) and are actively investigating providers.  We will make a formal announcement when the region has been added so keep an eye out for it!
+
+Third, we are planning to replace our third-party http caching library with one we built ourselves.  Our goal is to make maintaining pico app code easy which requires us to increase the control over the code.  It's a delicate balance managing external packages and writing it ourselves.
+
+When we started pico, done was better than perfect.  But as we continue to work on the longevity of our services, we felt the need to write our own implementation for the features we care about.
+
+The most prominent example is the charmbracelet stack.  Originally, we used wish, bubbletea, bubbles, and lipgloss for our ssh apps. Late last year we ripped all that out for our own impl.  It resulted in much less code and now our ssh services sit directly on top of stdlib.
+
+Another example is we used to rely on minio for our object storage system.  We ripped that out for our own fs implementation, again sitting on top of stdlib.
+
+This has yielded more reliable services and it's been a lot of fun for us to build.  Which, if we aren't having fun with pico then what are we even doing?  It's true, we are building pico because we love working on it. Our design philosophy is directly aligned with having fun.  That's why we have no plans to increase pricing, because we don't need to. We are cosplaying running a company because it's fun.
+
+Finally, we are working on a new service.  I've teased this a bit in irc but we are full-steam ahead on development.  There's no sense in keeping is a secret anymore: we are building a ci platform.  The next post you'll see on our blog will be an rfc that goes into detail about how it'll work.  The best part?  It won't be hosted on a hyperscaler, it'll be self-hosted.  We procured a quarter rack of server equipment that's running kubernetes.  It's all setup in a colo, all that's left is the app code to drive the new platform.
+
+It's not going to look like any other ci platform you've used before. It won't rely on git-ops and will be driven completely by ssh.  It'll be so easy to kick-off jobs that it'll integrate perfectly with code agent workflows.  Imagine letting code agents spawn as many ci jobs as they want for their validation loop, all without a git push.  Ofc you don't have to use code agents for this workflow to be useful to us terminal enthusiasts.
+
+Anyway, I hope you're as excited as we are ... or not. At the end of the day we are building this for ourselves and will be perfectly happy if no one wants to use it.
+
+Cya!

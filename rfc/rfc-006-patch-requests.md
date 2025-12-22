@@ -5,11 +5,10 @@ date: 2024-05-11
 tags: [rfc]
 ---
 
-|                  |                    |
-| ---------------- | ------------------ |
-| **status**       | published          |
-| **last updated** | 2024-12-04         |
-| **site**         | https://pr.pico.sh |
+|            |                    |
+| ---------- | ------------------ |
+| **status** | published          |
+| **site**   | https://pr.pico.sh |
 
 We are trying to build the simplest git collaboration tool. The goal is to make self-hosting a git server as simple as running an SSH server and hosting static web assets -- all without sacrificing external collaborators.
 

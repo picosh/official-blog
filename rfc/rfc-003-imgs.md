@@ -5,11 +5,10 @@ date: 2022-08-11
 tags: [rfc]
 ---
 
-|                  |                        |
-| ---------------- | ---------------------- |
-| **status**       | published              |
-| **last updated** | 2024-12-04             |
-| **site**         | https://pico.sh/images |
+|            |                        |
+| ---------- | ---------------------- |
+| **status** | published              |
+| **site**   | https://pico.sh/images |
 
 We want to provide an image hosting service.
 

@@ -5,11 +5,10 @@ date: 2022-08-10
 tags: [rfc]
 ---
 
-|                  |                       |
-| ---------------- | --------------------- |
-| **status**       | published             |
-| **last updated** | 2024-12-04            |
-| **site**         | https://pico.sh/feeds |
+|            |                       |
+| ---------- | --------------------- |
+| **status** | published             |
+| **site**   | https://pico.sh/feeds |
 
 RSS/Atom is a great companion in the smol web. It's relatively standard, easy to write, easy to consume, and provide users with choice on how to view their feeds.
 

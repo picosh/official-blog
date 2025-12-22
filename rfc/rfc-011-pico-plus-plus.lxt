@@ -1,0 +1,249 @@
+=: title pico++
+=: date 2026-01-09
+=: draft true
+
+This rfc outlines the next phase of development for pico. This isn't just a small step improvement over the current gen of services but a reshaping of what we offer. Our demographic is still individual developers but we are also going up-market: targeting teams that are looking to supercharge their dev toolkit with powerful services that get out of their way.
+
+As we have been developing the pico platform, we have creatively avoided offering a critical piece of infrastructure that every individual, team, and company needs: compute. We avoided compute because we have a lot of experience offering compute at our $work. Team pico has years of experience working on a platform as a service, managing thousands of business critical containers and infra. We have managed kubernetes clusters for entire companies including their compute-intensive ml pipelines. We know exactly how much blood, sweat, and tears goes into managing compute for users. It's not easy, being on-call for business critical apps isn't fun, but we think we have something unique to say.
+
+Another reason we were hesitant to offer compute is because of cloud costs. We didn't want to spend months developing pass-through costs or some pricing model that protects us while not gouging our users. If we were to offer compute, it would be self-hosted. Pico++ will not live on hyperscaler cloud infra. We plan on hosting this new service on our own hardware, in a colo. This means the first phase of our compute will have a single location: Michigan. It won't be highly available and we can only offer as much compute as our rack can handle.
+
+Now that the limitations are set and the boundaries are formed, this is what we plan to offer: ephemeral containers. This is our playground, this is where we get to be creative. We aren't stopping at event-based, short-lived containers, that's just the foundation. We plan on offering a CI/CD platform, a cron service, an on-demand web service, and a disappearing code forge.
+
+=> https://pico.prose.sh/rfc-001-radical-experimentation
+
+We have our mission statement, which hasn't changed. Above all else, we are building something that we need ourselves need for our own development. This is the next generation of pico, join us.
+
+# ephemeral containers (pico-compute)
+
+What do ci, faas, crons, batch processing, and preview environments have in common?
+	They run compute that has a finite life-cycle
+		They start based on an external event
+		They shutdown based on a completion event
+		They publish their status
+
+Features
+	Managed by an ssh cli / tui
+	Users deploy containers
+	Containers are triggered by external events
+		These events can be
+			Manually triggered
+			Git-based
+			Image-based
+			Timer-based
+			Http-based
+	Containers have a max 3 hour lifespan
+	When a container completes or the lifespan has been exceeded we spin the container count down to 0
+	Multiple containers can be provisioned for the same task, automatically load balanced by us
+	Http-based containers will spin up and down based on demand and spun to 0 after an inactive cooldown period
+	We will offer linux, mac, and gpu containers
+
+## ssh remote cli
+
+This is our template, before we build a service, we start with how we want it to work.
+
+Command stays alive as long as the user keeps the terminal session alive, max (3 hours)
+```
+ssh c.pico.sh run -p 80:80 --name web nginx:latest
+```
+
+Pipe the image to us
+```
+docker save web:latest | ssh c.pico.sh run -p 80:80
+```
+
+Point your domain to our http load balancer and register an http-based event
+```
+ssh c.pico.sh sub http.pico.sh run -d --name web web:latest
+```
+
+Tail the logs
+```
+ssh c.pico.sh logs -f web
+```
+
+Wait for a git event to build your site
+```
+ssh c.pico.sh sub git.push.pico run -d -v /artifacts:/app/public --name pico_build pico_build:latest
+```
+
+Add a git hook to your repo or manually send the event
+```
+echo '{"ref": "2f5dc3e", "commit_msg": "chore: update rfc", "ts": 1768270668}' | ssh c.pico.sh pub git.push.pico
+```
+
+Run a cron
+```
+ssh c.pico.sh sub "0 0 * * *" run -d pastes_expired:latest
+```
+
+Fetch the build artifacts directly from container
+```
+rsync -rv c.pico.sh:/pico_build/artifacts ./public/
+```
+
+Or inside pico_build make it a multi-stage dockerfile and upload directly to pgs we will automatically inject an SSH key into every docker container that has access to pgs/tuns
+```
+rsync -rv ./public/ pgs.sh:/pico_build/artifacts
+```
+
+Remote into the job
+```
+ssh c.pico.sh debug pico_build
+```
+You now have access to:
+	A shell with the entire session history
+	Dev tooling automatically installed
+	Ability install any tools for debugging
+	Pressing up-arrow + enter restarts the failed job
+The command itself would look something like:
+```
+docker run --rm -v /artifacts:/app/public --name pico_build pico_build:latest
+```
+
+Or drop into the container with a shell to debug
+```
+docker run --rm -v /artifacts:/app/public --name pico_build pico_build:latest sh
+```
+
+Launch a postgres db with a local forward tunnel
+```
+ssh -L 5432:localhost:5432 c.pico.sh run -e POSTGRES_USER=myuser -e POSTGRES_PASSWORD=mypass -e POSTGRES_DB=db postgres:latest
+```
+
+Now locally run your client
+```
+psql -U myuser -d db
+```
+
+Or launch the db and then tunnel to it
+```
+ssh c.pico.sh run -d -e POSTGRES_USER=myuser -e POSTGRES_PASSWORD=mypass -e POSTGRES_DB=db --name mydb postgres:latest
+ssh -L 5432:localhost:5432 c.pico.sh tun mydb
+```
+
+# innovation
+
+When we run a container, we want to enable developers to
+	SSH into the system
+	Ability to remotely connect their ide or remote-capable dev environment
+	Ability to install any tooling they need to debug
+	See the failed job at their prompt with session history (pressing up-arrow re-runs the job)
+	Have instant access to a code agent for debugging
+	Ability to data exfiltrate easily
+	The user should not have to install or configure these tools into their containers, it should be automatic
+
+# ci
+
+make it easy to debug a job
+	you get access to the shell that is running the job
+	you can see session history
+	you can install any packages you want
+	you can run any commands you want
+make it easy to byo development environment into a job
+	you can remotely connect vscode or any remote-capable ide into job environment
+make it easy to speed up jobs
+	most ci platforms help you speed up jobs by running them in parallel
+		we want to help speed up test runs by making tests run in parallel
+make it easy to self-host runners
+make it easy to run jobs as containers
+make it easy to run jobs in a pipeline
+use pgs for ci artifacts
+overal ci job engine paradigm
+	sequential jobs happen inside a Dockerfile
+		leverage multi-stage dockerfiles where applicable
+	parallel jobs happen inside a docker-compose file
+	pipelines are a composition of docker-compose files
+
+market research
+	=> https://blog.jetbrains.com/teamcity/2025/10/the-state-of-cicd/
+	providers
+		=> https://woodpecker-ci.org/
+		=> https://circleci.com/
+		=> https://docs.gitlab.com/ci/
+		=> https://docs.github.com/en/actions
+		=> https://www.jenkins.io/
+		=> https://www.harness.io/
+		=> https://www.jetbrains.com/teamcity/
+		=> https://azure.microsoft.com/en-us/products/devops/server
+		=> https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-pipelines/
+		=> https://www.atlassian.com/software/bamboo
+		=> https://aws.amazon.com/codepipeline/
+		=> https://cloud.google.com/build
+		=> https://www.buildbot.net/
+		=> https://about.gitea.com/products/runner/
+		=> https://app.radicle.xyz/nodes/radicle.dpc.pw/rad%3Az2tDzYbAXxTQEKTGFVwiJPajkbeDU selfci
+	features
+		slsa level 3 compliance
+		self-hosted runners
+		build caching
+			=> caching docker layers
+		smart testing
+			only run tests associated with code diffs
+			dynamic splitting across parallel workers
+			=> https://circleci.com/blog/smarter-testing/
+			=> https://circleci.com/docs/guides/optimize/use-the-circleci-cli-to-split-tests/
+			=> https://circleci.com/docs/guides/optimize/parallelism-faster-jobs/
+		access to private vpc
+		tight vcs integration
+		cost and licensing
+		control and compliance requirements
+
+# the disappearing code forge
+
+our code forge disappears because the web view is statically generated
+	pgit
+		git web viewer
+	git-pr
+		patch requests
+		issue tracker
+	ci status
+		test and build pipelines
+
+the only thing we host are bare git repos
+	we install some git hooks that send pipe events
+
+make it easy to collaborate on coding projects
+	make it easy to track issues and discussions
+	make it easy to submit code changes
+	make it easy to review code changes
+	make it easy to upstream code changes
+
+make it easy to view code in the browser
+	make it easy to maintain
+
+make it easy to run ci pipelines
+
+# immediate todo
+
+## pico-compute design
+
+figure out how users upload docker-compose to us
+figure out ci status updating api
+	make sure we can integrate with github and other code forges
+
+## pgs
+
+fix bugs related to data transfer protos (rsync, scp, sftp, sshfs)
+	sometimes uploading a single file doesn't work
+	feeds.pico.sh doesnt let us bulk download files
+make sure private projects can be used for ci artifacts
+add ability to pipe files to pgs
+```
+echo "<html><body>hello world!</body></html>" | ssh pgs.sh {project} index.html
+```
+have a `bin` project for every user that auto-deletes after time interval
+	this basically replaces `pastes.sh`
+auto-forms
+	when use creates a form that posts to `/` and labelled with `pico-form` we automatically collect the form data and present the results to the owner of the site
+
+## tuns
+
+make it easy to serve tuns behind a company's vpn
+
+## pipe
+
+add log retention
+	then we can use it for centralized logging
+	then we can use it for pico-compute
+	we can also use it for log retention of our pipe monitors

@@ -1,0 +1,55 @@
+=: title rfc-12 build service
+=: date 2026-01-24
+=: draft true
+=: tags rfc
+
+This post outlines the technical details for implementing our ci build system.
+
+# vm coordinator
+
+This go binary will listen on a pipe topic `/pico/build`
+It will receive an event payload that provides the git repo or dockerfile to build and other necessary metadata
+It will check if the user has a running vm
+	If no vm then it'll boot up one for the user
+It will send a pipe topic using the user's account `/{user}/build/{platform}`
+	Platform will mimic docker's platform identifier
+	The event payload will include the image and any other necessary metadata
+	This topic will operate as round-robin
+It listens to a pipe topic `/pico/build/inactive`
+	This will be an event sent from the user coordinator to indicate the user vm is inactive
+It listens to a pipe topic `/pico/build/status`
+	This records the status of a build job
+We want a job status table so we can present it to the user
+We might want this to have a queue table so we can make some guarantees like at-least-once delivery
+
+# user coordinator
+
+Inside the user VM there will be a running image
+The image runs a go binary
+It listens for `/{user}/build/{platform}`
+It runs the image based on the event payload
+It runs a cron that shuts down images after a 3 hour runtime
+It runs a cron that checks for inactivity
+	If no user containers running after 20min then it sends a shutdown event `/pico/build/inactive` to the vm coordinator
+If the payload is for a git repo
+	Create a new workspace directory
+	Pull the git repo into the workspace
+	Run pico-manifest.sh
+	Send build status to `/pico/build/status`
+If the payload is a Dockfile
+	Create a new workspace directory
+	Create the Dockerfile
+	Run it
+	Send build status to `/pico/build/status`
+
+# manifest
+
+Shell script `pico-manifest.sh`
+Shell script runs all the necessary commands for the build
+Shell script will receive the payload as args
+	Event type?
+	Platform?
+The shell script can run docker commands directly or run compose files
+Every ci compose file we require a pico-status:latest image that depends on all the ci jobs in the services list.
+The pico-status:latest image needs the docker socket
+The image aggregates the exist codes for each job then determines success of failure

@@ -1,0 +1,66 @@
+=: title plain text lists
+=: description this is the first post using our plain text lists on prose
+=: date 2026-01-10
+=: tags ann
+
+Hello world!  This is the very first post using our plain text lists on the prose platform. There's been some posts on hackernews lately about markdown and its market dominance in tech:
+
+	=> https://news.ycombinator.com/item?id=46556695 How Markdown took over the world
+	=> https://news.ycombinator.com/item?id=46564116 Org Mode Syntax Is One of the Most Reasonable Markup Languages for Text (2017)
+
+We thought this would be a fun opportunity to showcase our own text format, dedicated to making lists.
+
+# why lists?
+
+When writing prose I like to start with an outline.  An outline in its simplest form is a list of ideas.  Sometimes what is most important is getting ideas on paper. When I focus on structure or flow of conversation too early in the process, I end up missing important details. I get too deep into a concept and jettison important ideas because it's too late.
+
+> Lists are helpful for any kind of mental task. They expand our short-term memory. They force us to think sequentially and turn vagueness into explicitness. -- Bernhard Wenzel
+
+As us developers are all too familiar, everything can be thought of as a list of things: category theory, websites, or even programming languages.
+
+So why not create a plain text list format for prose?
+
+# how we got here
+
+I wrote this spec years ago and even created a service (lists.sh) around it.
+	=> https://pico.sh/plain-text-lists plain text lists spec
+	=> https://bower.sh/lists-launch lists.sh initial launch
+It was heavily inspired by the gemini gmi spec.
+	=> https://en.wikipedia.org/wiki/Gemini_(protocol)
+It made the rounds on HN and was a lot of fun to have a windfall of engagement.
+	=> https://news.ycombinator.com/item?id=31154567 Show HN: Lists.sh – A Microblog for Lists
+This service eventually turned into prose.sh which uses markdown instead of our custom format. At that point we felt like having two blog services was redundant so we killed lists.sh.
+	=> /ann-012-lists-shutdown-notice
+At the time this was the right decision, but to be honest, we just miss writing prose in our plain text list format.
+So we decided to bring it back as part of prose.sh.
+	=> https://github.com/picosh/pico/commit/63b93d9a8f11a7711feee902c77767b0a9c1243d
+Both markdown and plain-text-lists live on the same blog.
+They both share the same feature set:
+	They show up on the blog index
+	They share the same meta data variables
+	They are served via rss
+	They both look great on our site
+
+# how can I upload my lists to prose?
+
+I haven't updated the docs yet but you just upload a `.lxt` file to us and that's it.
+
+```
+=: title hello world
+=: description all your base are belong to us
+=: date 2026-01-10
+
+Hello world! Here is my post!
+```
+
+```
+scp hello-world.lxt prose.sh:/
+```
+
+It supports all the same meta data variables that prose supports.  I'll update the docs later this week, just trying to think about how to structure them against the markdown posts.
+
+# where we are going
+
+We are planning to iterate on plain text lists both the spec and how it is rendered on prose. You can see what this file looks like using our raw route
+	=> /ann-034-plain-text-lists.lxt
+Let us know what you think or if you have any suggestions!

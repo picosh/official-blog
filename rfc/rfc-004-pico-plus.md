@@ -5,11 +5,10 @@ date: 2023-12-31
 tags: [rfc]
 ---
 
-|                  |                      |
-| ---------------- | -------------------- |
-| **status**       | published            |
-| **last updated** | 2024-12-04           |
-| **site**         | https://pico.sh/plus |
+|            |                      |
+| ---------- | -------------------- |
+| **status** | published            |
+| **site**   | https://pico.sh/plus |
 
 # mission statement
 

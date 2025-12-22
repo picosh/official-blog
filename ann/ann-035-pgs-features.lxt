@@ -1,0 +1,66 @@
+=: title new pgs features
+=: date 2026-03-12
+=: tags ann
+
+We are pleased to announce a new set of features that have recently been deployed to pgs. All of these new features require pico+.
+
+  Auto-forms allow site owners to publish forms where we will automatically collect the entries
+  Site owners can restrict access with a password
+  Projects prefixed with `private-` are now private-by-default
+  Files uploaded to the `bin` project auto-delete after 14 days
+  Pipe to pgs
+
+=> https://pico.sh/pgs learn how to use them in our docs
+
+# auto-forms
+
+This feature is awesome.  Upload html with a form that posts to a special route and we will automatically collect the submissions.
+
+```
+<form method="POST" action="/pgs/forms/{name}">
+  <input type="email" name="email" />
+  <button type="submit">Subscribe!</button>
+</form>
+```
+
+Then you can access the results as json using our remote cli:
+
+```
+ssh pgs.sh forms {name}
+```
+
+That's it!  We see this as a great tool to help developers prototype new ideas and collect user information without server functions.
+
+# http-pass
+
+We created a new ACL type that allows site owners to restrict access to their site using a password.  Setup is simple, just set your ACL using the remote cli:
+
+```
+ssh pgs.sh acl {project} --type http-pass --acl {password}
+```
+
+Now when users go to your site they will be required to enter a password.  The we set a cookie in their browser that lasts 24 hours.
+
+# private projects
+
+Any project prefixed with `private-` is now private-by-default and can only ever be private.  These can be seen as places to upload build artifacts or just a simple object store.
+
+# bin
+
+The bin project is just a place where you can quickly share files that you don't want to persist indefinitely.  Think of it as a 0x0.st type mini-feature.  Just upload files to that project and we will take care of removing them.
+
+```
+echo "<body>hello world!</body>" | ssh pgs.sh /bin/index.html
+```
+
+# pipe
+
+We also wanted to announce a new way to upload files to pgs.  This was a hidden feature that we forgot to announce or put into our docs, but you can upload files directly to pgs via pipe which makes it easier to insert pgs into a unix pipeline.
+
+# ai
+
+We are also working on the remote cli docs and plan to continue improving them so users can tell code agents to read `ssh pgs.sh help` to learn how to use the service.  Code agents are in the terminal, pgs is in the terminal, why not ask agents to use pgs directly?
+
+# end
+
+That's it for now, let us know if you like these new features!

@@ -5,11 +5,10 @@ date: 2022-01-22
 tags: [rfc]
 ---
 
-|                  |                 |
-| ---------------- | --------------- |
-| **status**       | published       |
-| **last updated** | 2025-03-08      |
-| **site**         | https://pico.sh |
+|            |                 |
+| ---------- | --------------- |
+| **status** | published       |
+| **site**   | https://pico.sh |
 
 We want to create and maintain services that we love to use. We also want to embody a mindset where we rapidly iterate on new ideas and kill ones that are not serving us.
 
