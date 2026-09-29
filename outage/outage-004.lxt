@@ -1,0 +1,8 @@
+=: title outage 2026-05-03
+=: description cloud provider maintenance
+=: date 2026-05-03
+=: tags outage
+
+Hey all, our cloud provider notified us that there will be rolling restarts across our VMs that start today and should be finished by the end of tomorrow (May 4).  We have regular backups of all service data so if anything goes wrong we will be able to recover quickly.
+
+We apologies for the inconvenience and will send another update if our services degrade for longer than anticipated.  Thanks!

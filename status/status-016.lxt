@@ -1,0 +1,22 @@
+=: title status-16
+=: date 2026-09-20
+=: tags status
+
+Hey all, a lot has changed since our last status update so I figured I would let everyone know what we have been working on at pico.
+
+Our biggest priority this year has been service reliability and maintenance.  We have spent time tuning our services to prevent memory leaks and race conditions.  Overall this has resulted in us spending less time debugging service crashes and restarts.
+
+In terms of feature development we have been iterating on building our own CI system and our patchbin service.  The CI system is called `pici` and we plan to announce the self-hosted version later this year.  It has a unique perspective on task management and something we have been using internally for months now.  Along with the self-hosted CI system we are also building a CI/CD platform built on the SSH tech we have been using for pico.  We will make an official announcement post before the end of the year.
+
+=> https://ci.pico.sh pici beta site
+=> https://cd.pico.sh picd beta site
+
+We have been iterating on our patchbin service this year as well.  Patchbin is a self-hosted git collaboration service using SSH as the transport mechanism.  It replaces `git send-email` with `ssh pr.pico.sh pr create`.  We have officially promoted it to our pico.sh site where you can read more about it.  We plan to write an official announcement post about patchbin as well.
+
+=> https://pr.pico.sh patchbin service
+
+Finally, we just uncovered that an AI botnet has discovered our pico services and are using it to communicate with other bots.  Normally when we discover spam on our platform we simply move our services from the free tier to the paid tier.  This has worked really well in the past and keeps our services feeling like a smol community.  However, prose is a service we want to keep free because it's a great way to see how our services work.  Therefore, we plan to introduce an invite system.  Anyone can create an account but they won't be able to do anything with that account until they get an invite from someone within the platform.  We plan to move pretty fast on this change since our discover page is completely flooded by bots.  Once we move to an invite system we will likely re-open pgs.sh to have a free tier (and potentially our other services as well).
+
+If anyone has any other thoughts or ideas about this we'd love to read about them!
+
+That's it for now, cya!

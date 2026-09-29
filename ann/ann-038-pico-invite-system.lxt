@@ -1,0 +1,35 @@
+=: title introducing the pico invite system
+=: date 2026-09-26
+=: tags ann
+
+We are changing how users are granted access to our services.
+
+As we discussed in our last few blog posts, we are receiving a bunch of bot and spam usage on our platform.  Because our registration system doesn't require an email address to signup and registration happens through an SSH app, it's easy to automated account signup and general usage from the terminal.  We consider this a hallmark feature of the services we offer and it's not something we want to change.  However, because of LLM bot farms and the recent increase in traffic from automated bots, we are seeing an uptick in spam to our free services.
+  => https://blog.pico.sh/ann-037-pgs-pico-plus-only
+  => https://blog.pico.sh/status-016
+
+Previously, whenever we hit spam or content violations we would move our services behind our pico+ "gate".  That worked fine for services like tuns, rss-to-email, and pgs because higher usage incurs higher costs for us.  However, prose was always designed to be a free service that lets users test out our platform before subscribing to pico+.  Prose is the entry-point to our platform and it's not something we want to move to behind a payment gate.
+
+So we decided to implement an invite system for pico.  Users will still be able to create an account without an invite but they will be prevented from using our services unless they receive an invite from someone who:
+  Already received an invite from someone else; or
+  Has a valid pico+ membership
+
+We are rolling this invite system out for two services:
+  => https://pico.sh/pgs
+  => https://pico.sh/prose
+
+This means when you receive an invite you'll be able to access the free tier of pgs again as well as prose.
+
+Inviting a user happens through our SSH TUI:
+  ssh pico.sh
+  Select "invite"
+  Enter pico username
+
+> The user you want to invite must already have a pico account.
+
+If you want to try our services but don't know anyone with the ability to invite, please join our IRC on libera.chat where we will be happy to invite users to our services.
+  => https://pico.sh/irc
+
+As we rollout the invite system we are also going to start heavily pruning prose users we identify as spam or violates our use policies.
+
+Finally, we will be monitoring the success of this new invite system and will consider moving more services to invite only.

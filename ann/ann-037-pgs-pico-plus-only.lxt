@@ -1,0 +1,13 @@
+=: title pgs.sh moving to pico+ only
+=: date 2026-07-23
+=: tags ann
+
+We are removing the free tier from pgs.sh effective 2026-08-01.  We will *not* delete any sites that already exist but you won't be able to upload or make changes to those sites -- except for removing them.
+
+We are removing the free tier in an effort to combat spam or sites that are being published that break our content code of conduct.
+
+> However, we are sympathetic to users who had been using pgs legitimately, so if you join our IRC and ask for pgs we will be more than happy to grant it.  This change is not designed to be a money-grab, we just want to ensure our service stays healthy for ourselves and our users.
+
+prose.sh will continue to be our free service where users can try out how pico services work.
+
+We apologize if this creates any friction or frustration, but we want to focus our effort on stability and feature development instead of focusing on combating malicious actors.
