@@ -3,8 +3,8 @@
 =: tags ann
 
 Every HTTP tunnel on tuns comes with a service console, a page that shows the requests going through your tunnel as they happen. We rebuilt it in sish, the project tuns is built on, and the new version is live on tuns.sh.
-  => https://pico.sh/tuns
-  => https://github.com/antoniomika/sish
+=> https://pico.sh/tuns
+=> https://github.com/antoniomika/sish
 
 The link to the console is printed when you open a tunnel:
 
@@ -62,15 +62,15 @@ You can check your records with `dns-check`. It shows where the domain points an
 ssh pico.sh dns-check customdomain.example.com
 ```
 
-  => https://pico.sh/tuns#custom-domains
-  => https://pico.sh/custom-domains
+=> https://pico.sh/tuns#custom-domains
+=> https://pico.sh/custom-domains
 
 # fixes
 
-  If your tunnel drops partway through a response, the visitor gets an error. Before, they could get a cut-off body that looked complete.
-  WebSocket upgrades are logged with a 101 in your terminal instead of a 404.
+If your tunnel drops partway through a response, the visitor gets an error. Before, they could get a cut-off body that looked complete.
+WebSocket upgrades are logged with a 101 in your terminal instead of a 404.
 
 # end
 
 That's it! Let us know what you think on IRC.
-  => https://pico.sh/irc
+=> https://pico.sh/irc
