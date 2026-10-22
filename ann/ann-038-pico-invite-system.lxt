@@ -27,8 +27,9 @@ Inviting a user happens through our SSH TUI:
 
 > The user you want to invite must already have a pico account.
 
-If you want to try our services but don't know anyone with the ability to invite, please join our IRC on libera.chat where we will be happy to invite users to our services.
+If you want to try our services but don't know anyone with the ability to invite, please email us or join our IRC on libera.chat where we will be happy to invite users to our services.
   => https://pico.sh/irc
+  => mailto:hello@pico.sh hello@pico.sh
 
 As we rollout the invite system we are also going to start heavily pruning prose users we identify as spam or violates our use policies.
 

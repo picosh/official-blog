@@ -1,0 +1,34 @@
+=: title prose blog redesign
+=: description the last redesign for this platform
+=: date 2026-10-01
+=: tags ann
+
+=> https://pr.pico.sh/prs/142 blog redesign pr
+
+We are planning to change the default look and feel of blogs on this platform. Our previous prose blog design hasn't changed since we initially released prose.
+
+The previous design was minimalistic but it still made some assumptions about how a blog should look.  In order to support customization we added support for users to upload `_styles.css` and front-matter fields like `with_styles` to provide full customization.
+
+The main thesis for this change was trying to answer the question: what if blogs came without styles by default and users are required to theme it themselves? This would make it so we are not in control of the overall theme of the blog and provides full customization for the end-user.
+
+As we were experimenting with this design we wanted to include a very minimal css reset so the default design is consistent across browsers.  We are also implemented a few rules with this css reset for best practices.
+
+This is our new design ethos:
+  Center content on the screen
+  70ch max width
+  Headers should be anchored to the content they are heading
+
+That's it.  The rest of the reset file is for consistency across browsers.  With this change we are also disabling the `with_styles` field to encourage people to preserve this new design ethos.
+
+Finally as part of this change we restructured the html tree to better adhere to semantic meaning of those html entities.  We were already mostly there but some of the headers and footers were restructured slightly.
+
+# new design
+
+=< /design-blog.png new blog page design
+=< /design-blog-post.png new blog post design
+
+# when
+
+We plan to make this change 2026-10-02 and apologize for any inconvenience this may cause as blog owners.
+
+The goal is to make this the last design change to prose blogs.

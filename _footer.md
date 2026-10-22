@@ -1,5 +1,3 @@
-<hr />
-
 Join our [irc #pico.sh on libera](https://pico.sh/irc) or email us at
 [hello@pico.sh](mailto:hello@pico.sh).
 
