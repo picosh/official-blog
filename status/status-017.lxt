@@ -22,6 +22,8 @@ Changed files are sent as a delta against our copy
 Every `--delete` mode, `--dry-run`, `--relative` and `--files-from`
 Downloads work the same way, with deltas and compression
 
+=< /status-17-rsync.gif uploading a site with rsync, then uploading it again after changing one line
+
 File data streams to and from our object storage through fixed-size buffers. A 1 GB upload peaks at about 5 MB of memory on our side. We also sped up pgs uploads and serving while we were in there.
 => https://pico.sh/file-uploads supported rsync options
 
@@ -35,6 +37,8 @@ tuns gives you HTTP, TCP, TLS and UDP tunnels to localhost over SSH. It runs on 
 
 Every HTTP tunnel comes with a service console, and we rebuilt it from scratch. It shows requests live with formatted JSON and form bodies, inline images, "Copy as curl" and replay. Filters take quoted phrases and `-term` to exclude. WebSocket connections show every frame in both directions. Streamed responses like server-sent events are captured as they arrive, and gzip, deflate, brotli and zstd bodies are decoded.
 => /ann-039-tuns-service-console a new service console for tuns
+
+=< /status-17-tuns.gif opening a tunnel with the tunnel script and watching requests arrive
 
 You can also ask tuns how to open a tunnel. `ssh tuns.sh http 3000 dev` prints the ssh command for an HTTP tunnel, and there are commands for https, tcp, sni and udp. `ssh tuns.sh script` prints a POSIX shell function so you can just type `tunnel http 3000`.
 => /ann-040-tuns-commands tuns commands and the tunnel script
@@ -57,6 +61,7 @@ A `bin` project whose files delete themselves after two weeks, for quick sharing
 Uploads straight from a unix pipe: `echo "<p>hi</p>" | ssh pgs.sh /bin/index.html`
 The per-file limit for pico+ went from 50MB to 100MB
 We replaced our third-party HTTP cache with our own RFC 9111 implementation
+=< /status-17-http-pass.png the login page of a password-protected pgs site
 => /ann-035-pgs-features new pgs features
 
 # prose
@@ -79,6 +84,8 @@ Monitors: `ssh pipe.pico.sh monitor my-cron 1h` expects a publish to `my-cron` a
 Wildcard subscriptions: `ssh pipe.pico.sh sub 'deploys-*'`
 Round-robin delivery with `pub -d round_robin`, so a topic can feed a pool of workers
 `?prefix=` on pipe-web to split a stream into messages
+=< /status-17-pipe.gif a wildcard subscriber receiving messages from three topics
+=< /status-17-monitor.gif creating a monitor, pinging it and checking its status
 => https://pico.sh/pipe pipe docs
 
 # the platform
@@ -90,6 +97,8 @@ Free accounts now need an invite from an existing user or a pico+ member. Bots f
 `ssh pico.sh access-logs` lists every time one of your keys signed in over the last 30 days, labeled with the key's name
 Site analytics now break visits down by device
 `ssh pico.sh` with no command, or one it doesn't know, prints help instead of hanging
+
+=< /status-17-dnscheck.gif checking a custom domain's records with dns-check
 
 # what's next
 
