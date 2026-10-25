@@ -10,7 +10,7 @@ $ ssh tuns.sh help
 tuns.sh: share a local server over ssh
 
   ssh -R dev:80:localhost:3000 tuns.sh   http tunnel named dev
-  ssh -R 0:5432:localhost:5432 tuns.sh   tcp tunnel on a port we assign
+  ssh -R 0:localhost:5432 tuns.sh        tcp tunnel on a port we assign
 
   ssh tuns.sh http PORT [NAME]           print the ssh command for an http tunnel
   ssh tuns.sh https PORT [NAME]          same, for a local server that speaks https
