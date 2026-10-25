@@ -1,0 +1,110 @@
+=: title tuns commands and the tunnel script
+=: date 2026-10-25
+=: tags ann
+
+You can now run a few commands against tuns over ssh. They print the ssh command for the tunnel you want, so you don't have to remember which `-R` argument goes where.
+=> https://pico.sh/tuns
+
+```
+$ ssh tuns.sh help
+tuns.sh: share a local server over ssh
+
+  ssh -R dev:80:localhost:3000 tuns.sh   http tunnel named dev
+  ssh -R 0:5432:localhost:5432 tuns.sh   tcp tunnel on a port we assign
+
+  ssh tuns.sh http PORT [NAME]           print the ssh command for an http tunnel
+  ssh tuns.sh https PORT [NAME]          same, for a local server that speaks https
+  ssh tuns.sh tcp PORT [REMOTE_PORT]     print the ssh command for a tcp tunnel
+  ssh tuns.sh sni PORT [NAME]            print the ssh command to route TLS to you by SNI
+  ssh tuns.sh udp IP:PORT [REMOTE_PORT]  print the commands for a udp tunnel (needs root)
+  ssh tuns.sh script                     print a shell function that opens tunnels for you
+  ssh tuns.sh help                       print this message
+
+Docs: https://pico.sh/tuns
+```
+
+# http and https
+
+Give it the local port and an optional name:
+
+```
+$ ssh tuns.sh http 3000 dev
+ssh -R dev:80:localhost:3000 tuns.sh
+```
+
+That tunnel is served at `https://{user}-dev.tuns.sh`. Use `https` instead when your local server speaks TLS itself, and tuns will connect to it over HTTPS.
+
+```
+$ ssh tuns.sh https 8443 dev
+ssh -R dev:443:localhost:8443 tuns.sh
+```
+
+# tcp
+
+tuns assigns a port unless you ask for one:
+
+```
+$ ssh tuns.sh tcp 5432
+ssh -R 0:localhost:5432 tuns.sh
+
+$ ssh -R 0:localhost:5432 tuns.sh
+Starting SSH Forwarding service for tcp:0. Forwarded connections can be accessed via the following methods:
+TCP: tuns.sh:17093
+```
+
+# sni
+
+An SNI tunnel passes TLS connections on port 443 straight through to your server, picking the tunnel by the hostname the client asks for. tuns doesn't terminate TLS here, so your server needs a certificate for that name. This works best with a custom domain:
+
+```
+$ ssh tuns.sh sni 8443 secure.example.com
+ssh -R secure.example.com:443:localhost:8443 tuns.sh sni-proxy=true
+```
+
+=> https://pico.sh/tuns#sni
+=> https://pico.sh/tuns#custom-domains
+
+# udp
+
+UDP tunnels go over a tun interface, so they need root and a second step once you're connected. Pass the address of your machine's main interface and the port of your service:
+
+```
+$ ssh tuns.sh udp 192.168.1.20:51820
+sudo ssh -w 0:0 tuns.sh udp-forward=0:192.168.1.20:51820
+# once connected, bring up the tunnel interface in another terminal:
+sudo ip link set tun0 up && sudo ip route add 10.1.0.1 dev tun0
+```
+
+=> https://pico.sh/tuns#udp-tunneling
+
+# the tunnel script
+
+`ssh tuns.sh script` prints a `tunnel` shell function that builds and runs these commands for you. It's POSIX sh, so it works in bash, zsh, ksh and dash. Load it into your current shell:
+
+```
+eval "$(ssh tuns.sh script)"
+```
+
+Or save it and source it from your rc file:
+
+```
+ssh tuns.sh script > ~/.tunnel.sh
+echo '. ~/.tunnel.sh' >> ~/.bashrc
+```
+
+Then open tunnels by type and port:
+
+```
+tunnel http 3000        # ssh -R 80:localhost:3000 tuns.sh
+tunnel https 8443 dev   # ssh -R dev:443:localhost:8443 tuns.sh
+tunnel tcp 5432         # ssh -R 0:localhost:5432 tuns.sh
+tunnel sni 8443 secure  # ssh -R secure:443:localhost:8443 tuns.sh sni-proxy=true
+```
+
+The port can also be `host:port` if the server you want to share isn't on localhost, like `tunnel http 192.168.1.50:8080`.
+=> https://pico.sh/tuns#tunnel-script
+
+# end
+
+That's it! Let us know what other commands would help on IRC.
+=> https://pico.sh/irc
