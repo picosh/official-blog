@@ -22,7 +22,9 @@ Changed files are sent as a delta against our copy
 Every `--delete` mode, `--dry-run`, `--relative` and `--files-from`
 Downloads work the same way, with deltas and compression
 
+Here's a 3 MB site uploaded to pgs, then uploaded again after appending one line to its largest file. The second upload sends 759 bytes:
 =< /status-17-rsync.gif uploading a site with rsync, then uploading it again after changing one line
+=> /status-17-rsync.gif full size
 
 File data streams to and from our object storage through fixed-size buffers. A 1 GB upload peaks at about 5 MB of memory on our side. We also sped up pgs uploads and serving while we were in there.
 => https://pico.sh/file-uploads supported rsync options
@@ -33,15 +35,15 @@ tuns gives you HTTP, TCP, TLS and UDP tunnels to localhost over SSH. It runs on 
 => https://pico.sh/tuns
 => https://github.com/antoniomika/sish
 
-=< /tuns-console-requests.png the tuns service console
-
 Every HTTP tunnel comes with a service console, and we rebuilt it from scratch. It shows requests live with formatted JSON and form bodies, inline images, "Copy as curl" and replay. Filters take quoted phrases and `-term` to exclude. WebSocket connections show every frame in both directions. Streamed responses like server-sent events are captured as they arrive, and gzip, deflate, brotli and zstd bodies are decoded.
 => /ann-039-tuns-service-console a new service console for tuns
 
-=< /status-17-tuns.gif opening a tunnel with the tunnel script and watching requests arrive
-
 You can also ask tuns how to open a tunnel. `ssh tuns.sh http 3000 dev` prints the ssh command for an HTTP tunnel, and there are commands for https, tcp, sni and udp. `ssh tuns.sh script` prints a POSIX shell function so you can just type `tunnel http 3000`.
 => /ann-040-tuns-commands tuns commands and the tunnel script
+
+Here the top pane opens a tunnel to a local app with the tunnel script. The bottom pane sends two requests with curl, then opens a WebSocket with websocat, sends a couple of messages and disconnects. The tunnel's console on the right shows each request as it arrives, then the WebSocket's messages in both directions and the close:
+=< /status-17-tuns-live.gif a terminal opening a tunnel and sending HTTP and WebSocket traffic while the tuns console shows it live
+=> /status-17-tuns-live.gif full size
 
 Smaller changes:
 
@@ -51,41 +53,51 @@ If your tunnel drops partway through a response, the visitor gets an error inste
 
 # pgs
 
-pgs is our static site host. You upload with rsync, scp or sftp and your site is live.
+pgs is our static site host. You upload with rsync, scp or sftp and your site is live. This year it got a batch of new features.
 => https://pico.sh/pgs
+=> /ann-035-pgs-features new pgs features
+
+You can now put a site behind a password with `ssh pgs.sh acl {project} --type http-pass --acl {password}`. Visitors see this page first, and access lasts 24 hours once they enter it:
+=< /status-17-http-pass.png the login page pgs shows for a password-protected site
+
+The rest of the new features:
 
 Auto-forms: point an HTML form at `/pgs/forms/{name}` and we collect the submissions, which you read back with `ssh pgs.sh forms {name}`
-Password-protected sites with `ssh pgs.sh acl {project} --type http-pass --acl {password}`
 Projects prefixed with `private-` are private and can't be made public
 A `bin` project whose files delete themselves after two weeks, for quick sharing
 Uploads straight from a unix pipe: `echo "<p>hi</p>" | ssh pgs.sh /bin/index.html`
 The per-file limit for pico+ went from 50MB to 100MB
 We replaced our third-party HTTP cache with our own RFC 9111 implementation
-=< /status-17-http-pass.png the login page of a password-protected pgs site
-=> /ann-035-pgs-features new pgs features
 
 # prose
 
 prose is our blog platform. You write markdown and rsync it up.
 => https://prose.sh
 
-Our plain text lists format is back. Write a post as a `.lxt` file and it renders as a list, and this post is one.
+Our plain text lists format is back. Write a post as a `.lxt` file and it renders as a list. This post is one, and so is this one on Eric's blog:
+=< /design-blog-post.png a prose post written as a plain text list
 => /ann-034-plain-text-lists plain text lists
 
-We also gave every blog a new minimal default design: centered content, a 70ch max width, and headers anchored to their sections. Discovery now has a trending feed, and you can rename a post in place over sftp.
+We also gave every blog a new minimal default design: centered content, a 70ch max width, and headers anchored to their sections. Here's a blog's front page with it:
+=< /design-blog.png a prose blog's front page with the new default design
 => /ann-039-prose-blog-redesign prose blog redesign
+
+Discovery now has a trending feed, and you can rename a post in place over sftp.
 
 # pipe
 
 pipe is authenticated pubsub over SSH. If you know how to use `|`, you know how to use pipe.
 => https://pipe.pico.sh
 
-Monitors: `ssh pipe.pico.sh monitor my-cron 1h` expects a publish to `my-cron` at least once an hour and alerts you through an RSS feed when one doesn't arrive
-Wildcard subscriptions: `ssh pipe.pico.sh sub 'deploys-*'`
-Round-robin delivery with `pub -d round_robin`, so a topic can feed a pool of workers
-`?prefix=` on pipe-web to split a stream into messages
-=< /status-17-pipe.gif a wildcard subscriber receiving messages from three topics
-=< /status-17-monitor.gif creating a monitor, pinging it and checking its status
+Monitors watch a topic and alert you through an RSS feed when nothing is published to it within a window. Point a cron job at a topic and you'll hear about it when the job stops running. Here's a monitor being created, pinged the way a cron job would, and checked:
+=< /status-17-monitor.gif creating a pipe monitor, pinging it and checking its status
+=> /status-17-monitor.gif full size
+
+Subscriptions can now use wildcards. Here one subscriber listens on `deploys-*` while three different topics are published to:
+=< /status-17-pipe.gif a wildcard subscriber receiving messages published to three topics
+=> /status-17-pipe.gif full size
+
+Two smaller additions: `pub -d round_robin` hands each message to one subscriber in turn so a topic can feed a pool of workers, and `?prefix=` on pipe-web splits a stream into messages.
 => https://pico.sh/pipe pipe docs
 
 # the platform
@@ -93,12 +105,19 @@ Round-robin delivery with `pub -d round_robin`, so a topic can feed a pool of wo
 Free accounts now need an invite from an existing user or a pico+ member. Bots found our free services this year and flooded prose's discovery page, and invites let us keep a free tier instead of putting everything behind pico+. If you want one and don't know anyone, ask us on IRC or email hello@pico.sh.
 => /ann-038-pico-invite-system introducing the pico invite system
 
-`ssh pico.sh dns-check example.com` shows where a domain points and checks its TXT records for pgs, prose and tuns
-`ssh pico.sh access-logs` lists every time one of your keys signed in over the last 30 days, labeled with the key's name
-Site analytics now break visits down by device
-`ssh pico.sh` with no command, or one it doesn't know, prints help instead of hanging
-
+Setting up a custom domain is easier to debug now. `ssh pico.sh dns-check` shows where a domain points and whether its TXT records match your account for pgs, prose and tuns:
 =< /status-17-dnscheck.gif checking a custom domain's records with dns-check
+=> /status-17-dnscheck.gif full size
+
+The access logs page lists every time one of your keys signed in to a pico service over the last 30 days, labeled with the key's name. You can open it from the TUI or run `ssh pico.sh access-logs`:
+=< /status-17-access-logs.gif the access logs page in the pico TUI
+=> /status-17-access-logs.gif full size
+
+Site analytics now break visits down by device. Here are two demo sites in the analytics page, each with its top URLs, missing pages, referers and the new mobile and desktop split:
+=< /status-17-analytics.gif site analytics with the device breakdown in the pico TUI
+=> /status-17-analytics.gif full size
+
+`ssh pico.sh` still opens the TUI in a terminal. An unknown command, or a session with no terminal like a script or `ssh -T`, now prints the list of commands instead of hanging.
 
 # what's next
 

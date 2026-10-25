@@ -96,6 +96,11 @@ img {
   height: auto;
 }
 
+/* Screenshots can share the page background, so outline them. */
+#post img {
+  border: 1px solid var(--grey-light);
+}
+
 b,
 strong {
   font-weight: bold;
