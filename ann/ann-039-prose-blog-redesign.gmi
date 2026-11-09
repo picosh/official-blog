@@ -14,9 +14,9 @@ The main thesis for this change was trying to answer the question: what if blogs
 As we were experimenting with this design we wanted to include a very minimal css reset so the default design is consistent across browsers.  We are also implemented a few rules with this css reset for best practices.
 
 This is our new design ethos:
-  Center content on the screen
-  70ch max width
-  Headers should be anchored to the content they are heading
+- Center content on the screen
+- 70ch max width
+- Headers should be anchored to the content they are heading
 
 That's it.  The rest of the reset file is for consistency across browsers.  With this change we are also disabling the `with_styles` field to encourage people to preserve this new design ethos.
 
@@ -24,8 +24,8 @@ Finally as part of this change we restructured the html tree to better adhere to
 
 # new design
 
-=< /design-blog.png new blog page design
-=< /design-blog-post.png new blog post design
+=> /design-blog.png new blog page design
+=> /design-blog-post.png new blog post design
 
 # when
 

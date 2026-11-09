@@ -4,11 +4,7 @@
 
 We are pleased to announce a new set of features that have recently been deployed to pgs. All of these new features require pico+.
 
-  Auto-forms allow site owners to publish forms where we will automatically collect the entries
-  Site owners can restrict access with a password
-  Projects prefixed with `private-` are now private-by-default
-  Files uploaded to the `bin` project auto-delete after 14 days
-  Pipe to pgs
+Auto-forms allow site owners to publish forms where we will automatically collect the entries. Site owners can restrict access with a password. Projects prefixed with `private-` are now private-by-default. Files uploaded to the `bin` project auto-delete after 14 days. Pipe to pgs.
 
 => https://pico.sh/pgs learn how to use them in our docs
 

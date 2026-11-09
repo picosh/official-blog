@@ -18,25 +18,25 @@ HTTPS: https://antonio-demo.tuns.sh
 
 # requests
 
-=< /tuns-console-requests.png the service console listing requests to a tunnel
+=> /tuns-console-requests.png the service console listing requests to a tunnel
 
 The console lists each request with its method, path, status, duration and client IP. You can filter by text, method or status class, pause the list while you look at something, and clear it. When you open the console it loads the 25 most recent requests, so you can open it after the traffic you care about has already come through.
 
 Select a request to see its headers and bodies. JSON is formatted and highlighted, form posts show up as a table of fields, and images render inline. Anything else can be viewed as text or a hex dump. "Copy as curl" gives you a command to rerun the request from your terminal, and "Replay" sends it again from your browser.
 
-=< /tuns-console-form.png a form submission shown as a table of fields
+=> /tuns-console-form.png a form submission shown as a table of fields
 
 The console follows your system's light or dark theme.
 
 # websockets
 
-=< /tuns-console-websocket.png inspecting websocket messages in the service console
+=> /tuns-console-websocket.png inspecting websocket messages in the service console
 
 WebSocket connections show up in the list with a 101 status and stay marked as open until they close. The Messages tab shows every frame in both directions with its time and size, and you can narrow it to sent or received. Select a message to see its payload, formatted if it's JSON. The console keeps the last 200 messages of each connection. "Copy as websocat" gives you a command to open the same connection from your terminal.
 
 # streamed and compressed bodies
 
-=< /tuns-console-stream.png a server-sent events response captured by the service console
+=> /tuns-console-stream.png a server-sent events response captured by the service console
 
 The console now records bodies that don't send a length up front, like chunked responses and server-sent events. It captures them as they stream, so the client gets each chunk without waiting on the console. Compressed bodies are decoded before they're displayed, and that covers gzip, deflate, brotli and zstd. Before, both showed up in the hex viewer instead of the body.
 
