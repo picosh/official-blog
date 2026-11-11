@@ -1,5 +1,5 @@
 upload:
-	rsync -rv ann/ imgs/ outage/ rfc/ status/ *.md p.prose:/
+	rsync -rv ann/ imgs/ outage/ rfc/ status/ *.md _styles.css p.prose:/
 .PHONY: upload
 
 fmt:
