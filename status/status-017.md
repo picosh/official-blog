@@ -7,13 +7,13 @@ draft: true
 
 [pico.sh](https://pico.sh) is a set of services for developers that you use over SSH. Your SSH key is your account, and the tools you already have are the client. You publish a blog with rsync, host a static site with scp, share localhost with `ssh -R`, and stream data between machines with a pipe.
 
-Our last big roundup was in [January](/status-014). Since then we've rewritten how rsync works on the platform, rebuilt the tuns console, added gemtext posts to prose, and added a lot to pgs and pipe. Here's what changed.
+Our last big roundup was in [January](/status-014). Since then we've rewritten how rsync works on the platform, rebuilt the tuns console, added gemtext support to prose, and expanded pgs and pipe. Here's what changed.
 
 # rsync, natively
 
-Every service that takes files accepts uploads from the rsync you already have installed. Until this month that went through a minimal rsync receiver. It handled the common cases, but every new flag meant another special case, and delta transfers and compression were out of reach.
+Every service that takes files accepts uploads from the rsync you already have installed. Until this month, uploads went through a minimal rsync receiver. It handled the common cases, but every new flag meant another special case, and delta transfers and compression were out of reach. Even basics got it wrong: `rsync index.html pgs.sh:/project/` failed unless you spelled out the destination file.
 
-We replaced it with a native Go implementation of the rsync protocol, versions 27 through 31. Our server now behaves like any other rsync server:
+We replaced it with a native Go implementation of the rsync protocol, implementing protocol versions 27 through 31. Our server now behaves like any other rsync server:
 
 - Unchanged files are skipped by size and modification time, or by content with `-c`
 - Changed files are sent as a delta against our copy
@@ -28,13 +28,15 @@ Here's a 3 MB site uploaded to pgs, then uploaded again after appending one line
 
 File data streams to and from our object storage through fixed-size buffers. A 1 GB upload peaks at about 5 MB of memory on our side. We also sped up pgs uploads and serving while we were in there. The full list of options is in our [file uploads docs](https://pico.sh/file-uploads).
 
+This rsync rewrite has resulted in a more robust and reliable data transfer system that aligns exactly with how users already use rsync without any sacrifices.
+
 # tuns
 
 [tuns](https://pico.sh/tuns) gives you HTTP, TCP, TLS and UDP tunnels to localhost over SSH. It runs on [sish](https://github.com/antoniomika/sish), the open source tunneling server we maintain.
 
 Every HTTP tunnel comes with a service console, and we [rebuilt it from scratch](/ann-039-tuns-service-console). It shows requests live with formatted JSON and form bodies, inline images, "Copy as curl" and replay. Filters take quoted phrases and `-term` to exclude. WebSocket connections show every frame in both directions. Streamed responses like server-sent events are captured as they arrive, and gzip, deflate, brotli and zstd bodies are decoded.
 
-You can also [ask tuns how to open a tunnel](/ann-040-tuns-commands). `ssh tuns.sh http 3000 dev` prints the ssh command for an HTTP tunnel, and there are commands for https, tcp, sni and udp. `ssh tuns.sh script` prints a POSIX shell function so you can just type `tunnel http 3000`.
+You can also [ask tuns how to open a tunnel](/ann-040-tuns-commands). `ssh tuns.sh http 3000 dev` prints the ssh command for an HTTP tunnel named `dev`, and there are commands for https, tcp, sni and udp. `ssh tuns.sh script` prints a POSIX shell function so you can just type `tunnel http 3000`.
 
 Here the top pane opens a tunnel to a local app with the tunnel script. The bottom pane sends two requests with curl, then opens a WebSocket with websocat, sends a couple of messages and disconnects. The tunnel's console on the right shows each request as it arrives, then the WebSocket's messages in both directions and the close:
 
@@ -44,13 +46,13 @@ Smaller changes:
 
 - `host-header` now works with HTTPS upstreams, so you can put a tunnel in front of a remote HTTPS site
 - Custom domains can use a `_tuns` TXT record, and `_sish` still works
-- If your tunnel drops partway through a response, the visitor gets an error instead of a cut-off body that looks complete
+- If your tunnel drops partway through a response, the visitor gets an error instead of a truncated body that looks complete
 
 # pgs
 
-[pgs](https://pico.sh/pgs) is our static site host. You upload with rsync, scp or sftp and your site is live. This year it got [a batch of new features](/ann-035-pgs-features).
+[pgs](https://pico.sh/pgs) is our static site host. You upload with rsync, scp or sftp and your site is live. This year pgs picked up a [batch of new features](/ann-035-pgs-features).
 
-You can now put a site behind a password with `ssh pgs.sh acl {project} --type http-pass --acl {password}`. Visitors see this page first, and access lasts 24 hours once they enter it:
+You can now put a site behind a password with `ssh pgs.sh acl {project} --type http-pass --acl {password}`. Visitors see this page first, and access lasts 24 hours once they enter the password.
 
 ![the login page pgs shows for a password-protected site](/status-17-http-pass.png)
 
@@ -81,7 +83,7 @@ Hello world!
 
 Gemtext replaces the [plain text lists](/ann-034-plain-text-lists) format we brought back in January, which didn't catch on.
 
-We also gave every blog a [new minimal default design](/ann-039-prose-blog-redesign): centered content, a 70ch max width, and headers anchored to their sections. Here's a blog's front page with it:
+We also gave every blog a [new minimal default design](/ann-039-prose-blog-redesign): centered content, a 70ch max width, and headers anchored to their sections. Here's a blog's front page using it:
 
 ![a prose blog's front page with the new default design](/design-blog.png)
 
@@ -105,11 +107,11 @@ Two smaller additions: `pub -d round_robin` hands each message to one subscriber
 
 Free accounts now need an [invite](/ann-038-pico-invite-system) from an existing user or a pico+ member. Bots found our free services this year and flooded prose's discovery page, and invites let us keep a free tier instead of putting everything behind pico+. If you want one and don't know anyone, ask us on [IRC](https://pico.sh/irc) or email hello@pico.sh.
 
-Setting up a custom domain is easier to debug now. `ssh pico.sh dns-check` shows where a domain points and whether its TXT records match your account for pgs, prose, tuns and picd:
+Custom domain setup is easier to debug now. `ssh pico.sh dns-check` shows where a domain points and whether its TXT records match your account for pgs, prose, tuns and picd:
 
 [![checking a custom domain's records with dns-check](/status-17-dnscheck.gif)](/status-17-dnscheck.gif)
 
-The access logs page lists every time one of your keys signed in to a pico service over the last 30 days, labeled with the key's name. You can open it from the TUI or run `ssh pico.sh access-logs`:
+The access logs page lists every sign-in by your keys to pico services over the last 30 days, labeled with the key's name. You can open it from the TUI or run `ssh pico.sh access-logs`:
 
 [![the access logs page in the pico TUI](/status-17-access-logs.gif)](/status-17-access-logs.gif)
 
@@ -135,7 +137,7 @@ You manage projects over the same SSH connection. Here an environment variable c
 
 [![a shell in a picd project's directory](/status-17-picd-shell.gif)](/status-17-picd-shell.gif)
 
-Every environment also has a public IPv6 address, and the ports your apps publish are reachable on it. Here the project publishes port 8080. The top pane runs tcpdump in the environment while a machine elsewhere curls that port over IPv6:
+Every environment also has a public IPv6 address, and the ports your apps publish are reachable on it. The project publishes port 8080. The top pane runs tcpdump in the environment while a machine elsewhere curls that port over IPv6:
 
 [![tcpdump in a picd environment showing a curl arrive over IPv6](/status-17-picd-tcpdump.gif)](/status-17-picd-tcpdump.gif)
 
