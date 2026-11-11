@@ -141,10 +141,26 @@ Every environment also has a public IPv6 address, and the ports your apps publis
 
 You can sign up for the beta on [cd.pico.sh](https://cd.pico.sh/#beta), and the [docs](https://cd.pico.sh/docs) cover the rest.
 
+# patchbin
+
+[patchbin](https://github.com/picosh/patchbin) is a pastebin for patches, supercharged for git collaboration. [pr.pico.sh](https://pr.pico.sh) is our public service that anyone can use but the service was designed to be self-hosted. This git collaboration service replaces `git send-email` with `ssh pr.pico.sh pr {repo}:{pr-name}` and adds a web UI that gives users just enough context before they have to pull the code down to review in their own text editors. Every other git collaboration tool wants to have your entire git repo, but we decided to challenge ourselves:
+
+> What if a git collaboration tool didn't have access to your repo?
+
+patchbin is a self-hostable Go service that uses Sqlite for storing patch requests. Many of the personal and open-source projects we work on don't need enterprise-grade code review features from the popular code forges. In fact, they can sometimes get in the way us getting things done. The entire fork+branch+open pr cadence causes a lot of friction, having to bounce between the ide, terminal, and browser. I know the pico team has felt that friction. Most of the time we prefer sending each other patches to give a quick "what do you think?" gut check. However, traditional pastebins don't have great UI around reviewing code changes. Further, they don't have a great system for collocating code changes over time.
+
+This is where patchbin really shines. A single view provides all the context of a suggested code change: every version of a patch series, every ad-hoc comment, a semantic diff view, and finally a line-by-line diff view of the latest patch series.
+
+Further, the entire system is designed to be anonymous with near-zero tedious state management tasks. There is no concept of a "reviewer" and "contributor", no authorization, and as a result no administrative cleanup tasks. Contributors push a patch request and anyone can review it. There's no "approved" or "rejected" state either. Instead, when a patch request is "accepted" by a maintainer of a project, they simply merge their code locally and git-push. They can then add a comment to the patch request indicating that the code was merged. Done.
+
+Maintaining patchbin is hands-off: when a patch request becomes inactive for 14 days, it goes into the "inactive" section.
+
+[![patch request example](/status-17-patchbin.png)](/status-17-patchbin.png)
+
+Here's the example PR: https://pr.pico.sh/pico/141
+
 # what's next
 
 We're building a CI service ([pici](https://ci.pico.sh)) that runs entirely over SSH, on the same hardware as picd. Its beta site is up.
-
-We're also working on [patchbin](https://pr.pico.sh), our git collaboration service where `ssh pr.pico.sh pr create` replaces `git send-email`.
 
 That's it. Come say hi on [IRC](https://pico.sh/irc).
