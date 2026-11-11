@@ -7,7 +7,7 @@ draft: true
 
 [pico.sh](https://pico.sh) is a set of services for developers that you use over SSH. Your SSH key is your account, and the tools you already have are the client. You publish a blog with rsync, host a static site with scp, share localhost with `ssh -R`, and stream data between machines with a pipe.
 
-Our last big roundup was in [January](/status-014). Since then we've rewritten how rsync works on the platform, rebuilt the tuns console, brought lists back to prose, and added a lot to pgs and pipe. Here's what changed.
+Our last big roundup was in [January](/status-014). Since then we've rewritten how rsync works on the platform, rebuilt the tuns console, added gemtext posts to prose, and added a lot to pgs and pipe. Here's what changed.
 
 # rsync, natively
 
@@ -67,9 +67,19 @@ The rest of the new features:
 
 [prose](https://prose.sh) is our blog platform. You write markdown and rsync it up.
 
-Our [plain text lists](/ann-034-plain-text-lists) format is back. Write a post as a `.lxt` file and it renders as a list, like this one on Eric's blog:
+Posts can now be written in gemtext, the markup from the Gemini protocol. Upload a `.gmi` file and it shows up on your blog and in its RSS feed like a markdown post. `=:` lines hold the metadata that markdown keeps in front matter:
 
-![a prose post written as a plain text list](/design-blog-post.png)
+```
+=: title hello world
+=: date 2026-10-25
+=: tags one two three
+
+Hello world!
+=> https://pico.sh pico's docs
+> cya!
+```
+
+Gemtext replaces the [plain text lists](/ann-034-plain-text-lists) format we brought back in January, which didn't catch on.
 
 We also gave every blog a [new minimal default design](/ann-039-prose-blog-redesign): centered content, a 70ch max width, and headers anchored to their sections. Here's a blog's front page with it:
 
@@ -95,7 +105,7 @@ Two smaller additions: `pub -d round_robin` hands each message to one subscriber
 
 Free accounts now need an [invite](/ann-038-pico-invite-system) from an existing user or a pico+ member. Bots found our free services this year and flooded prose's discovery page, and invites let us keep a free tier instead of putting everything behind pico+. If you want one and don't know anyone, ask us on [IRC](https://pico.sh/irc) or email hello@pico.sh.
 
-Setting up a custom domain is easier to debug now. `ssh pico.sh dns-check` shows where a domain points and whether its TXT records match your account for pgs, prose and tuns:
+Setting up a custom domain is easier to debug now. `ssh pico.sh dns-check` shows where a domain points and whether its TXT records match your account for pgs, prose, tuns and picd:
 
 [![checking a custom domain's records with dns-check](/status-17-dnscheck.gif)](/status-17-dnscheck.gif)
 
