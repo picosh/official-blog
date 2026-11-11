@@ -1,8 +1,7 @@
 ---
 title: status-17 - fall update
-date: 2026-10-25
+date: 2026-11-11
 tags: [status]
-draft: true
 ---
 
 [pico.sh](https://pico.sh) is a set of services for developers that you use over SSH. Your SSH key is your account, and the tools you already have are the client. You publish a blog with rsync, host a static site with scp, share localhost with `ssh -R`, and stream data between machines with a pipe.
