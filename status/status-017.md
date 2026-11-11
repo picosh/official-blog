@@ -109,9 +109,31 @@ Site analytics now break visits down by device. Here are two demo sites in the a
 
 `ssh pico.sh` still opens the TUI in a terminal. An unknown command, or a session with no terminal like a script or `ssh -T`, now prints the list of commands instead of hanging.
 
+# picd
+
+[picd](https://cd.pico.sh) is our deploy service, and it's in closed beta. You push a git repository with a `compose.yaml` over SSH, and picd runs it in an environment of your own with HTTPS on your own subdomains. It runs on our own hardware in a colo, and it's based on our open source [pcompose](https://github.com/antoniomika/pcompose) project.
+
+Here a project is pushed for the first time. picd clones it, starts its containers and routes the hostname in its Traefik labels:
+
+[![deploying a compose project to picd with git push](/status-17-picd-deploy.gif)](/status-17-picd-deploy.gif)
+
+You manage projects over the same SSH connection. Here an environment variable changes and the project redeploys without a push, then `status` shows its variables and containers:
+
+[![setting a variable, redeploying and checking a project's status over SSH](/status-17-picd-manage.gif)](/status-17-picd-manage.gif)
+
+`ssh hello@cd.pico.sh` opens a shell in the project's directory with its variables set. The shell runs in tmux, so it keeps running after you detach:
+
+[![a shell in a picd project's directory](/status-17-picd-shell.gif)](/status-17-picd-shell.gif)
+
+Every environment also has a public IPv6 address, and the ports your apps publish are reachable on it. Here the project publishes port 8080. The top pane runs tcpdump in the environment while a machine elsewhere curls that port over IPv6:
+
+[![tcpdump in a picd environment showing a curl arrive over IPv6](/status-17-picd-tcpdump.gif)](/status-17-picd-tcpdump.gif)
+
+You can sign up for the beta on [cd.pico.sh](https://cd.pico.sh/#beta), and the [docs](https://cd.pico.sh/docs) cover the rest.
+
 # what's next
 
-We're building a CI service ([pici](https://ci.pico.sh)) and a CD service ([picd](https://cd.pico.sh)) that run entirely over SSH. They run on our own hardware in a colo, and the beta sites are up.
+We're building a CI service ([pici](https://ci.pico.sh)) that runs entirely over SSH, on the same hardware as picd. Its beta site is up.
 
 We're also working on [patchbin](https://pr.pico.sh), our git collaboration service where `ssh pr.pico.sh pr create` replaces `git send-email`.
 

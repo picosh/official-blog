@@ -5,6 +5,7 @@
   --visited: #bd93f9;
   --blockquote: #bd93f9;
   --blockquote-bg: #353548;
+  --img-border: #6272a4;
 }
 
 html {
@@ -15,6 +16,11 @@ html {
 h1, h2, h3, h4, h5, h6 {
   margin: 2rem 0 0 0;
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* Screenshots can share the page background, so outline them. */
+#post main img {
+  border: 1px solid var(--img-border);
 }
 
 blockquote {
