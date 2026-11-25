@@ -2,7 +2,6 @@
 title: abusing ssh certs to replace acls
 date: 2026-11-24
 tags: [ann]
-draft: true
 ---
 
 SSH certificates carry a list of principals, which sshd normally treats as the usernames you can log in as. We put permissions in there instead:
