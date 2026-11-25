@@ -111,7 +111,7 @@ Here a cert can reach pgs, picd and tuns. We revoke it by its ID, and all three 
 
 An ID covers every cert signed with exactly that ID. If a key leaked or a laptop was lost, revoke the key. That covers every cert for it, including ones you sign later.
 
-Here we revoke a lost laptop's key, and both certs signed for it show up. A newly signed cert for the same key is refused as well. Then we undo it and the new cert works:
+Here the bottom pane is an old laptop that got lost. We revoke its key, and both certs signed for it show up. A newly signed cert for the same key is refused as well. Then we undo it and the new cert works:
 
 [![revoking a key, which refuses its certs and a newly signed one, then undoing it](/certs-revoke-key.gif)](/certs-revoke-key.gif)
 
