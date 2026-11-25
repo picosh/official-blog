@@ -10,13 +10,13 @@ SSH certificates carry a list of principals, which sshd normally treats as the u
 ssh-keygen -s pico-ca -I ci-blog -n pgs:deploy:blog -V +90d ci.pub
 ```
 
-We don't keep a list of who can do what, because each cert says what it allows. This one can deploy one site, it expires in 90 days, you can limit it to an IP range, and you can revoke it early. You mint it offline with `ssh-keygen`, and the private key of the certificate authority (CA) that signs it never leaves your machine. It works with the ssh, rsync and git you already have, on every pico service including [picd](https://cd.pico.sh).
+This cert can deploy `blog` for 90 days. You can also limit it to an IP range and revoke it early. We don't keep a list of who can do what, because each cert says what it allows. You sign it offline with `ssh-keygen`, and the private key of the certificate authority (CA) stays on your machine. Certs work with the ssh, rsync and git you already have, on every pico service including [picd](https://cd.pico.sh).
 
-If you're new here, [pico](https://pico.sh) is a set of hosted services for developers that you use over SSH. Your SSH key is your login, and there's nothing to install. You can deploy static sites with [pgs](https://pico.sh/pgs), expose local services with [tuns](https://pico.sh/tuns), send messages between machines with [pipe](https://pico.sh/pipe), write a blog on [prose](https://pico.sh/prose), and push Docker Compose projects to picd.
+[pico](https://pico.sh) is a set of hosted services for developers that you use over SSH. Your SSH key is your login, and there's nothing to install. You can deploy static sites with [pgs](https://pico.sh/pgs), expose local services with [tuns](https://pico.sh/tuns), send messages between machines with [pipe](https://pico.sh/pipe), write a blog on [prose](https://pico.sh/prose), and push Docker Compose projects to picd.
 
 Last year we [added SSH certificates](/rfc-007-access-control) to lay the groundwork for fine-grained access. You add a CA to your public keys, then sign a key for each machine that needs access. The principals on the cert say which services it can use.
 
-That left two gaps. A cert for pgs could change every site on the account, so a CI job that deploys your blog could also delete your docs. And once you handed out a cert, the only way to take it back was to remove the CA, which broke every other cert it had signed.
+Until now, a cert for pgs could change every site on the account, so a CI job that deploys your blog could also delete your docs. Once you handed out a cert, the only way to revoke it was to remove the CA, which broke every other cert it had signed. You can now scope a cert to individual resources and revoke it separately.
 
 # how ssh certs work
 
@@ -58,7 +58,7 @@ When a cert logs in, we check that:
 
 After that, each action is checked against the principals. We store the CA's public key and a list of what's been revoked, and the permissions stay in the cert. The extensions above are for sshd and have no effect on pico.
 
-The tradeoff is that you can't edit a cert. Changing what a machine can do means signing a new cert for it, and revoking the old one if you're taking access away.
+You can't edit a cert. To change a machine's permissions, sign a new one and revoke the old one if you're taking access away.
 
 # setup
 
@@ -68,7 +68,7 @@ Create a CA and add `pico-ca.pub` to your public keys in `ssh pico.sh`. You only
 ssh-keygen -t ed25519 -f pico-ca -C pico-ca
 ```
 
-The machine you're giving access to needs a key of its own. Sign its public key, then copy the `ci-cert.pub` that comes out next to the key. ssh picks it up from there.
+The machine you're giving access to needs a key of its own. Sign its public key, then copy the resulting `ci-cert.pub` next to the machine's key. ssh picks it up from there.
 
 ```bash
 ssh-keygen -t ed25519 -f ci -C ci
@@ -81,7 +81,7 @@ pico.sh and pipe also accept keys without an account, and ssh may offer your pla
 
 # scopes
 
-A scope is a principal that names a service, a role and a resource. `pgs:deploy:blog` reads as "on pgs, allow deploying `blog`". Anything a cert's scopes don't name is refused. In each recording, the top pane signs a cert on a laptop that has the CA. The bottom pane is the CI machine using it.
+A scope is a principal that names a service, a role and a resource. `pgs:deploy:blog` allows deploying the `blog` site on pgs. Anything a cert's scopes don't name is refused. In the recordings in this section, the top pane is a laptop with the CA and the bottom pane is the CI machine using the cert.
 
 ## pgs
 
@@ -93,17 +93,17 @@ A scope is a principal that names a service, a role and a resource. `pgs:deploy:
 
 ## pipe
 
-`pipe:pub:certs-demo` can publish to one topic. The laptop is subscribed to it and gets the message. The cert can't publish to another topic, and it can't subscribe to its own without `pipe:sub`:
+`pipe:pub:certs-demo` can publish to the `certs-demo` topic. The laptop is subscribed to it and gets the message. The cert can't publish to another topic, and it can't subscribe to its own without `pipe:sub`:
 
 [![publishing to a pipe topic with a scoped cert and being refused elsewhere](/certs-pipe.gif)](/certs-pipe.gif)
 
 ## tuns
 
-`tuns:http:certs-demo` can open an HTTP tunnel with that name and no other:
+`tuns:http:certs-demo` can open an HTTP tunnel named `certs-demo`. Other names are refused:
 
 [![opening a tunnel with a scoped cert and being refused on another name](/certs-tuns.gif)](/certs-tuns.gif)
 
-Aliases have two scopes, so you can split the two ends of a private tunnel between certs. An alias is a TCP tunnel that only exists inside tuns, with no public port. One cert can open the `homelab` alias and nothing else, and another can connect to it and nothing else:
+An alias is a TCP tunnel that only exists inside tuns, with no public port. Separate scopes control who can open an alias and who can connect to it. Here we sign one cert to open `homelab` and another to connect to it:
 
 ```bash
 ssh-keygen -s pico-ca -I homelab -n tuns:alias:homelab -V +90d homelab.pub
@@ -126,13 +126,13 @@ There are scopes for SNI, TCP and UDP tunnels too.
 
 [![pushing a picd project with a scoped cert and being refused on another project and a shell](/certs-picd.gif)](/certs-picd.gif)
 
-Scopes add up, so a single cert can deploy a site and announce it:
+Scopes add up, so a single cert can deploy a site and publish to the `deploys` topic:
 
 ```bash
 ssh-keygen -s pico-ca -I ci-blog -n pgs:deploy:blog,pipe:pub:deploys -V +90d ci.pub
 ```
 
-A cert with only scopes can't manage the account or open the pico.sh TUI. A mistyped role refuses the cert. The [access control docs](https://pico.sh/access-control#scopes) list every scope.
+A cert with only scopes can't manage the account or open the pico.sh TUI. If you mistype a role, the cert is refused. The [access control docs](https://pico.sh/access-control#scopes) list every scope.
 
 # source addresses
 
@@ -168,14 +168,12 @@ Here the bottom pane is an old laptop that got lost. We revoke its key, and both
 
 [![revoking a key, which refuses its certs and a newly signed one, then undoing it](/certs-revoke-key.gif)](/certs-revoke-key.gif)
 
-A few things to know:
-
-- Revoking stops new logins. Connections that are already open, like a tunnel, stay open until they close.
-- If the key is also in your public keys, it can still log in without a cert. `certs revoke` warns you, and you need to remove it there too.
+- Revoking blocks new logins without closing existing connections.
+- Remove the key from your public keys to block logins without a cert.
 - On pico.sh and pipe, the key of a revoked cert is treated like any key without an account.
 - Certs with scopes can't revoke or unrevoke anything.
 - If the CA's private key leaks, remove the CA from your public keys.
 
 The [access control docs](https://pico.sh/access-control#revoking-certificates) have the rest.
 
-That's it. Let us know what you think on [IRC](https://pico.sh/irc).
+Let us know what you think on [IRC](https://pico.sh/irc).
