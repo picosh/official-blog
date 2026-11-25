@@ -12,6 +12,8 @@ ssh-keygen -s pico-ca -I ci-blog -n pgs:deploy:blog -V +90d ci.pub
 
 We don't keep a list of who can do what, because each cert says what it allows. This one can deploy one site, it expires in 90 days, you can limit it to an IP range, and you can revoke it early. You mint it offline with `ssh-keygen`, and the CA's private key never leaves your machine. It works with the ssh, rsync and git you already have, on every pico service including [picd](https://cd.pico.sh).
 
+If you're new here, [pico](https://pico.sh) is a set of hosted services for developers that you use over SSH. Your SSH key is your login, and there's nothing to install. You can deploy static sites with [pgs](https://pico.sh/pgs), expose local services with [tuns](https://pico.sh/tuns), send messages between machines with [pipe](https://pico.sh/pipe), write a blog on [prose](https://pico.sh/prose), and push Docker Compose projects to picd.
+
 Last year we [added SSH certificates](/rfc-007-access-control) to lay the groundwork for fine-grained access. You add a certificate authority (CA) to your public keys, then sign a key for each machine that needs access. The principals on the cert say which services it can use.
 
 That left two gaps. A cert for pgs could change every site on the account, so a CI job that deploys your blog could also delete your docs. And once you handed out a cert, the only way to take it back was to remove the CA, which broke every other cert it had signed.
